@@ -1,5 +1,9 @@
 const links=document.querySelectorAll('nav a');const sections=[...document.querySelectorAll('main section[id]')];const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){links.forEach(link=>{link.style.color=link.getAttribute('href')===`#${entry.target.id}`?'#ffffff':'';});}});},{threshold:.35});sections.forEach(section=>observer.observe(section));
 
+// Use profile photo uploaded in the repository root.
+const profilePhoto=document.querySelector('.profile-photo');
+if(profilePhoto){profilePhoto.src='anggito-profile.jpg';}
+
 // CityConnect visual gallery
 const cityConnectCard=[...document.querySelectorAll('.project-card')].find(card=>card.querySelector('h3')?.textContent.trim()==='CityConnect');
 if(cityConnectCard){
