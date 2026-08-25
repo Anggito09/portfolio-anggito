@@ -37,14 +37,14 @@ if(hero){
     if(small) small.textContent=focusContent[index][1];
   });
 
-  // Keep the headline visually balanced and clearly left-aligned on desktop and mobile.
+  // Keep headings balanced while making descriptive copy neatly justified.
   const heroLayoutStyle=document.createElement('style');
   heroLayoutStyle.textContent=`
     .hero-copy h1{max-width:11.5ch!important;text-align:left!important;text-wrap:balance;line-height:1.01!important;letter-spacing:-.055em!important;font-size:clamp(3rem,5.35vw,5.25rem)!important}
     .hero-copy h1 span{display:inline}
-    .hero-copy .lead{max-width:720px;text-align:left}
+    .hero-copy .lead{max-width:720px;text-align:justify;text-justify:inter-word;hyphens:auto}
     .hero-copy .eyebrow{text-align:left}
-    @media(max-width:900px){.hero-copy h1{max-width:13ch!important;font-size:clamp(2.8rem,9vw,4.8rem)!important}}
+    @media(max-width:900px){.hero-copy h1{max-width:13ch!important;font-size:clamp(2.8rem,9vw,4.8rem)!important}.hero-copy .lead{text-align:left;hyphens:none}}
     @media(max-width:560px){.hero-copy h1{max-width:100%!important;font-size:clamp(2.55rem,12vw,3.75rem)!important;line-height:1.04!important}}
   `;
   document.head.appendChild(heroLayoutStyle);
@@ -65,10 +65,10 @@ if(aboutSection){
   const aboutStyle=document.createElement('style');
   aboutStyle.textContent=`
     #about .split{align-items:start}
-    #about .split>div:last-child{text-align:justify;text-justify:inter-word}
+    #about .split>div:last-child{text-align:justify;text-justify:inter-word;hyphens:auto}
     #about .split>div:last-child p{max-width:720px;margin-left:auto;line-height:1.8}
-    #about h2{max-width:560px}
-    @media(max-width:900px){#about .split>div:last-child{text-align:left}#about .split>div:last-child p{margin-left:0;max-width:760px}}
+    #about h2{max-width:560px;text-wrap:balance;line-height:1.08}
+    @media(max-width:900px){#about .split>div:last-child{text-align:left;hyphens:none}#about .split>div:last-child p{margin-left:0;max-width:760px}}
   `;
   document.head.appendChild(aboutStyle);
 }
