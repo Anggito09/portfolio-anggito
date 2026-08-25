@@ -4,6 +4,25 @@ const links=document.querySelectorAll('nav a');const sections=[...document.query
 const profilePhoto=document.querySelector('.profile-photo');
 if(profilePhoto){profilePhoto.src='anggito-profile.jpg';}
 
+// Gentle scroll reveal for sections/cards. Respects reduced-motion preferences.
+const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!reduceMotion){
+  const revealTargets=[...document.querySelectorAll('.section-heading,.split,.timeline article,.project-card,.research-card,.education-card,.achievement-grid article,.skill-card,.cert-card,.contact-card')];
+  revealTargets.forEach((element,index)=>{
+    element.classList.add('reveal-on-scroll');
+    element.style.transitionDelay=`${Math.min((index%4)*55,165)}ms`;
+  });
+  const revealObserver=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },{threshold:.12,rootMargin:'0px 0px -45px'});
+  revealTargets.forEach(element=>revealObserver.observe(element));
+}
+
 // CityConnect visual gallery
 const cityConnectCard=[...document.querySelectorAll('.project-card')].find(card=>card.querySelector('h3')?.textContent.trim()==='CityConnect');
 if(cityConnectCard){
