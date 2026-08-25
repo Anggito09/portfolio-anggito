@@ -87,8 +87,8 @@ if(experienceSection){
     {
       period:'2026 — Present',
       title:'Junior Implementor — PT Periksa Solusi Indonesia',
-      description:'Deliver end-to-end system implementation for healthcare organizations, covering requirements analysis, configuration, functional testing, user training, rollout support, documentation, and post-implementation coordination. Work closely with users, hospital IT teams, and internal technical teams to ensure systems, integrations, and operational workflows are implemented effectively.',
-      chips:['System Implementation','Healthcare IT','Integration','Functional Testing','User Training']
+      description:'Deliver end-to-end SIMRS implementation for healthcare organizations, covering requirements analysis, system configuration, functional testing, user training, rollout support, documentation, troubleshooting, and post-implementation coordination. Support SATUSEHAT implementation and interoperability, assist healthcare facilities in preparing system-related requirements for accreditation, and coordinate integrations such as PACS, radiology worklists, BPJS services, and other operational interfaces with hospital users, IT teams, and internal technical teams.',
+      chips:['SIMRS Implementation','SATUSEHAT','Accreditation Support','PACS & Radiology','BPJS Integration','User Training']
     },
     {
       period:'2025 — 2026',
