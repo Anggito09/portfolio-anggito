@@ -39,13 +39,32 @@
 .reveal-on-scroll{opacity:0;transform:translateY(22px);transition:opacity .68s cubic-bezier(.2,.7,.2,1),transform .68s cubic-bezier(.2,.7,.2,1)}
 .reveal-on-scroll.is-visible{opacity:1;transform:none}
 
+/* Navbar refresh: full name, warmer gradient glass, and subtle motion */
+.nav{position:sticky;top:0;isolation:isolate;background:linear-gradient(110deg,rgba(19,14,37,.88),rgba(17,29,54,.84) 48%,rgba(10,42,48,.82));border-bottom:1px solid rgba(165,180,252,.16);box-shadow:0 12px 35px rgba(3,7,18,.22);backdrop-filter:blur(18px) saturate(145%);-webkit-backdrop-filter:blur(18px) saturate(145%)}
+.nav::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(100deg,transparent 10%,rgba(167,139,250,.09) 40%,rgba(45,212,191,.08) 62%,transparent 90%);background-size:220% 100%;animation:navAurora 10s ease-in-out infinite}
+.nav::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:linear-gradient(90deg,transparent,rgba(167,139,250,.55),rgba(56,189,248,.55),rgba(45,212,191,.55),transparent);background-size:200% 100%;animation:navLine 6s linear infinite}
+.nav-inner{min-height:72px}
+.brand{font-size:0;position:relative;display:inline-flex;align-items:center;min-width:max-content;transition:transform .25s ease,filter .25s ease}
+.brand::after{content:"Anggito Karta Wijaya";font-size:1rem;font-weight:800;letter-spacing:-.025em;background:linear-gradient(90deg,#ffffff 0%,#c4b5fd 42%,#67e8f9 72%,#99f6e4 100%);background-size:180% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:brandGlow 7s ease-in-out infinite}
+.brand:hover{transform:translateY(-1px);filter:drop-shadow(0 0 12px rgba(103,232,249,.2))}
+.nav nav a{position:relative;padding:8px 2px;color:#b9c3d7;transition:color .22s ease,transform .22s ease}
+.nav nav a::after{content:"";position:absolute;left:50%;bottom:1px;width:0;height:2px;border-radius:99px;background:linear-gradient(90deg,#a78bfa,#38bdf8,#2dd4bf);transform:translateX(-50%);transition:width .26s cubic-bezier(.2,.7,.2,1);box-shadow:0 0 12px rgba(56,189,248,.25)}
+.nav nav a:hover{color:#fff;transform:translateY(-1px)}
+.nav nav a:hover::after,.nav nav a.is-active::after{width:100%}
+.nav nav a.is-active{color:#fff}
+.nav .btn-small{border:1px solid rgba(255,255,255,.16);background:linear-gradient(135deg,#8b5cf6,#0ea5e9 55%,#14b8a6);color:#fff;box-shadow:0 8px 22px rgba(14,165,233,.16);transition:transform .25s ease,box-shadow .25s ease,filter .25s ease}
+.nav .btn-small:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 12px 28px rgba(14,165,233,.24);filter:saturate(1.08)}
+
 @keyframes heroFadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
 @keyframes heroFadeIn{from{opacity:0;transform:translateY(18px) scale(.985)}to{opacity:1;transform:none}}
 @keyframes focusIn{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}
 @keyframes ambientFloat{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(-12px,18px,0) scale(1.05)}}
 @keyframes statusPulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.82);opacity:.7}}
 @keyframes cardShimmer{0%,70%,100%{transform:translateX(-110%)}82%{transform:translateX(110%)}}
+@keyframes navAurora{0%,100%{background-position:0% 50%;opacity:.72}50%{background-position:100% 50%;opacity:1}}
+@keyframes navLine{from{background-position:0% 50%}to{background-position:200% 50%}}
+@keyframes brandGlow{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
 
-@media(max-width:900px){.professional-card{max-width:520px}.hero::before{right:-200px}.hero-copy{max-width:760px}}
-@media(max-width:560px){.professional-card{padding:16px}.focus-item{grid-template-columns:34px 1fr;padding:11px}.professional-card-footer{gap:7px;font-size:.62rem}.profile-photo-wrap:hover{transform:none}.profile-photo-wrap:hover .profile-photo{transform:none}}
-@media(prefers-reduced-motion:reduce){.hero::before,.hero::after,.hero-copy,.hero .eyebrow,.hero h1,.hero .lead,.hero-actions,.stats,.hero-visual,.focus-item,.profile-badge::before,.focus-status,.professional-card::before{animation:none!important}.reveal-on-scroll{opacity:1;transform:none;transition:none}.profile-photo-wrap,.profile-photo,.focus-item{transition:none}}
+@media(max-width:900px){.professional-card{max-width:520px}.hero::before{right:-200px}.hero-copy{max-width:760px}.brand::after{font-size:.94rem}}
+@media(max-width:560px){.professional-card{padding:16px}.focus-item{grid-template-columns:34px 1fr;padding:11px}.professional-card-footer{gap:7px;font-size:.62rem}.profile-photo-wrap:hover{transform:none}.profile-photo-wrap:hover .profile-photo{transform:none}.brand::after{font-size:.88rem}.nav-inner{min-height:66px}}
+@media(prefers-reduced-motion:reduce){.hero::before,.hero::after,.hero-copy,.hero .eyebrow,.hero h1,.hero .lead,.hero-actions,.stats,.hero-visual,.focus-item,.profile-badge::before,.focus-status,.professional-card::before,.nav::before,.nav::after,.brand::after{animation:none!important}.reveal-on-scroll{opacity:1;transform:none;transition:none}.profile-photo-wrap,.profile-photo,.focus-item{transition:none}}
