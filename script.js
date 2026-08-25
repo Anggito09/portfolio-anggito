@@ -102,8 +102,8 @@ if(experienceSection){
     {
       period:'2024',
       title:'Facilitator — Google Career Certificates × Telkom',
-      description:'Supported participants in the Advanced Data Analytics learning program by facilitating discussions, monitoring learning progress, clarifying technical concepts, and encouraging consistent completion of project-based coursework.',
-      chips:['Data Analytics','Facilitation','Mentoring','Google']
+      description:'Supported participants in the Google Advanced Data Analytics program by helping them understand and complete Data Analytics and Machine Learning materials, while providing mentoring and technical guidance throughout the learning process. Facilitated case study-based and hands-on learning to strengthen practical and professional skills, monitored participant progress, and supported successful programme completion. A total of 81 participants completed the programme, representing an 80.20% pass rate.',
+      chips:['Advanced Data Analytics','Machine Learning','Mentoring','Technical Guidance','Case Study Learning','Google × Telkom']
     },
     {
       period:'2024',
