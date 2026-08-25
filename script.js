@@ -169,6 +169,24 @@ if(projectsSection){
     if(title) title.textContent='Hospital Information System Implementation & Interoperability';
     if(description) description.textContent='A consolidated portfolio of professional healthcare technology work delivered through PT Alfatih Solusindo Technology and PT Periksa Solusi Indonesia. The scope covers end-to-end SIMRS implementation, requirements analysis, system configuration, functional testing, user training, rollout support, troubleshooting, and operational coordination across healthcare facilities. Key integration areas include SATUSEHAT, BPJS services, PACS and radiology worklists, Orthanc/DICOM workflows, pharmacy and supporting-service modules, as well as system readiness for hospital operational and accreditation requirements.';
     if(chips) chips.innerHTML=['SIMRS Implementation','SATUSEHAT','BPJS Integration','PACS & Radiology','Orthanc & DICOM','Healthcare Interoperability','User Training'].map(chip=>`<span>${chip}</span>`).join('');
+
+    if(!healthcareCard.querySelector('.healthcare-evidence')){
+      const evidence=document.createElement('figure');
+      evidence.className='healthcare-evidence';
+      evidence.innerHTML=`<button class="healthcare-evidence-media" type="button" aria-label="Open healthcare implementation field experience documentation"><img src="assets/healthcare-implementation-evidence.svg" alt="Selected field documentation from hospital information system implementation, training, coordination, and operational support" loading="lazy"></button><figcaption><strong>Selected Field Documentation</strong><span>Implementation, training, stakeholder coordination, and operational support across hospital environments.</span></figcaption>`;
+      healthcareCard.insertBefore(evidence,chips);
+
+      evidence.querySelector('.healthcare-evidence-media')?.addEventListener('click',()=>{
+        const overlay=document.createElement('div');
+        overlay.className='project-lightbox healthcare-lightbox';
+        const image=document.createElement('img');
+        image.src='assets/healthcare-implementation-evidence.svg';
+        image.alt='Healthcare implementation field experience documentation';
+        overlay.appendChild(image);
+        overlay.addEventListener('click',()=>overlay.remove());
+        document.body.appendChild(overlay);
+      });
+    }
   }
 
   cards.forEach((card,index)=>{
@@ -198,10 +216,19 @@ if(projectsSection){
     #projects .project-card:hover h3{transform:translateX(3px);color:#fff}
     #projects .project-card.reveal-on-scroll{transition-delay:var(--project-delay)!important;transform:translateY(28px) scale(.985)}
     #projects .project-card.reveal-on-scroll.is-visible{transform:none}
+    #projects .healthcare-evidence{margin:22px 0 18px;padding:10px;border:1px solid rgba(103,232,249,.16);border-radius:18px;background:linear-gradient(145deg,rgba(7,16,31,.72),rgba(13,25,48,.55));box-shadow:0 16px 38px rgba(2,8,23,.18);overflow:hidden}
+    #projects .healthcare-evidence-media{display:block;width:100%;border:0;padding:0;background:transparent;border-radius:13px;overflow:hidden;cursor:zoom-in;position:relative}
+    #projects .healthcare-evidence-media::after{content:'View documentation';position:absolute;right:14px;bottom:14px;padding:7px 10px;border-radius:999px;background:rgba(7,16,31,.78);border:1px solid rgba(103,232,249,.22);color:#e7f8ff;font-size:.69rem;font-weight:700;letter-spacing:.04em;opacity:0;transform:translateY(5px);transition:.25s ease}
+    #projects .healthcare-evidence-media img{display:block;width:100%;aspect-ratio:720/504;object-fit:cover;transition:transform .55s cubic-bezier(.2,.7,.2,1),filter .35s ease}
+    #projects .healthcare-evidence:hover .healthcare-evidence-media img{transform:scale(1.018);filter:saturate(1.04) contrast(1.02)}
+    #projects .healthcare-evidence:hover .healthcare-evidence-media::after{opacity:1;transform:none}
+    #projects .healthcare-evidence figcaption{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;padding:13px 8px 5px}
+    #projects .healthcare-evidence figcaption strong{font-size:.82rem;color:#f8fbff;white-space:nowrap}
+    #projects .healthcare-evidence figcaption span{font-size:.72rem;line-height:1.5;color:var(--muted);text-align:right;max-width:520px}
     @keyframes projectAmbient{0%,100%{transform:translate3d(0,0,0) scale(1);opacity:.7}50%{transform:translate3d(24px,-20px,0) scale(1.08);opacity:1}}
     @keyframes projectLine{0%,100%{transform:scaleX(.72);opacity:.6}50%{transform:scaleX(1.18);opacity:1}}
-    @media(max-width:900px){#projects .section-copy{max-width:100%;text-align:left!important;hyphens:none}#projects .project-card:hover{transform:translateY(-4px)}}
-    @media(prefers-reduced-motion:reduce){#projects::before,#projects::after,#projects .section-heading .eyebrow::before{animation:none!important}#projects .project-card,#projects .project-card h3,#projects .project-topline{transition:none}#projects .project-card:hover{transform:none}}
+    @media(max-width:900px){#projects .section-copy{max-width:100%;text-align:left!important;hyphens:none}#projects .project-card:hover{transform:translateY(-4px)}#projects .healthcare-evidence figcaption{display:block}#projects .healthcare-evidence figcaption span{display:block;text-align:left;margin-top:5px}}
+    @media(prefers-reduced-motion:reduce){#projects::before,#projects::after,#projects .section-heading .eyebrow::before{animation:none!important}#projects .project-card,#projects .project-card h3,#projects .project-topline,#projects .healthcare-evidence-media img{transition:none}#projects .project-card:hover{transform:none}}
   `;
   document.head.appendChild(projectsStyle);
 }
@@ -247,7 +274,7 @@ if(cityConnectCard){
 
   const style=document.createElement('style');
   style.textContent=`
-    .project-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:18px 0 8px}.project-shot{border:1px solid var(--line);border-radius:14px;padding:8px;background:#0b1020;cursor:zoom-in;overflow:hidden;transition:.2s transform,.2s border-color}.project-shot:hover{transform:translateY(-3px);border-color:rgba(138,180,255,.45)}.project-shot img{display:block;width:100%;height:165px;object-fit:contain}.project-shot-wide{grid-column:1/-1}.project-shot-wide img{height:190px}.project-shot-poster img{height:220px}.project-lightbox{position:fixed;inset:0;z-index:100;background:rgba(3,7,18,.9);display:flex;align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(10px)}.project-lightbox img{max-width:min(94vw,900px);max-height:90vh;object-fit:contain;filter:drop-shadow(0 30px 70px rgba(0,0,0,.45))}.project-lightbox::after{content:'Klik untuk menutup';position:absolute;bottom:22px;color:#fff;font-size:.8rem;opacity:.7}@media(max-width:560px){.project-gallery{grid-template-columns:1fr;gap:8px}.project-shot,.project-shot-wide{grid-column:auto}.project-shot{padding:6px}.project-shot img,.project-shot-wide img,.project-shot-poster img{height:auto;max-height:300px}}`;
+    .project-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:18px 0 8px}.project-shot{border:1px solid var(--line);border-radius:14px;padding:8px;background:#0b1020;cursor:zoom-in;overflow:hidden;transition:.2s transform,.2s border-color}.project-shot:hover{transform:translateY(-3px);border-color:rgba(138,180,255,.45)}.project-shot img{display:block;width:100%;height:165px;object-fit:contain}.project-shot-wide{grid-column:1/-1}.project-shot-wide img{height:190px}.project-shot-poster img{height:220px}.project-lightbox{position:fixed;inset:0;z-index:100;background:rgba(3,7,18,.9);display:flex;align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(10px)}.project-lightbox img{max-width:min(94vw,1100px);max-height:90vh;object-fit:contain;filter:drop-shadow(0 30px 70px rgba(0,0,0,.45))}.project-lightbox::after{content:'Click to close';position:absolute;bottom:22px;color:#fff;font-size:.8rem;opacity:.7}@media(max-width:560px){.project-gallery{grid-template-columns:1fr;gap:8px}.project-shot,.project-shot-wide{grid-column:auto}.project-shot{padding:6px}.project-shot img,.project-shot-wide img,.project-shot-poster img{height:auto;max-height:300px}}`;
   document.head.appendChild(style);
 
   gallery.querySelectorAll('.project-shot').forEach(button=>button.addEventListener('click',()=>{
