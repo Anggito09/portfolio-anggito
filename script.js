@@ -50,6 +50,29 @@ if(hero){
   document.head.appendChild(heroLayoutStyle);
 }
 
+// More universal and polished About section copy.
+const aboutSection=document.querySelector('#about');
+if(aboutSection){
+  const eyebrow=aboutSection.querySelector('.eyebrow');
+  const title=aboutSection.querySelector('h2');
+  const paragraphs=aboutSection.querySelectorAll('.split > div:last-child p');
+
+  if(eyebrow) eyebrow.textContent='About Me';
+  if(title) title.textContent='Curious, adaptable, and focused on creating practical solutions.';
+  if(paragraphs[0]) paragraphs[0].textContent='I am an Information Systems graduate with a strong interest in technology, digital transformation, data, and problem solving. I enjoy understanding how people work, identifying what can be improved, and turning ideas or requirements into solutions that are clear, useful, and practical.';
+  if(paragraphs[1]) paragraphs[1].textContent='My experience spans professional projects, research, product development, and collaborative initiatives. I am comfortable working across technical and non-technical teams, learning new environments quickly, and contributing wherever technology can create meaningful value.';
+
+  const aboutStyle=document.createElement('style');
+  aboutStyle.textContent=`
+    #about .split{align-items:start}
+    #about .split>div:last-child{text-align:justify;text-justify:inter-word}
+    #about .split>div:last-child p{max-width:720px;margin-left:auto;line-height:1.8}
+    #about h2{max-width:560px}
+    @media(max-width:900px){#about .split>div:last-child{text-align:left}#about .split>div:last-child p{margin-left:0;max-width:760px}}
+  `;
+  document.head.appendChild(aboutStyle);
+}
+
 const animatedElements=document.querySelectorAll('.section, .project-card, .research-card, .achievement-grid article, .skill-card, .cert-card, .education-card, .contact-card');
 animatedElements.forEach((element,index)=>{element.dataset.animate='';element.style.transitionDelay=`${Math.min(index%6,4)*70}ms`;});
 const revealObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target);}});},{threshold:.12});
