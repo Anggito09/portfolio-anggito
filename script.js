@@ -1,5 +1,55 @@
 const links=document.querySelectorAll('nav a');const sections=[...document.querySelectorAll('main section[id]')];const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){links.forEach(link=>link.classList.toggle('is-active',link.getAttribute('href')===`#${entry.target.id}`));}});},{rootMargin:'-20% 0px -65% 0px',threshold:0});sections.forEach(section=>observer.observe(section));
 
+// Professional English copy for the hero section.
+const hero=document.querySelector('.hero');
+if(hero){
+  const eyebrow=hero.querySelector('.eyebrow');
+  const title=hero.querySelector('h1');
+  const lead=hero.querySelector('.lead');
+  const actions=hero.querySelectorAll('.hero-actions a');
+  const stats=hero.querySelectorAll('.stats > div');
+  const focusItems=hero.querySelectorAll('.focus-item');
+
+  if(eyebrow) eyebrow.textContent='Technology · Data · Digital Solutions';
+  if(title) title.innerHTML='Building digital solutions that <span>work for people.</span>';
+  if(lead) lead.textContent="I'm Anggito Karta Wijaya, an Information Technology professional with experience in system implementation, requirements analysis, service integration, data processing, and digital solution development. I work across business needs, user expectations, and technical teams to deliver solutions that are practical, reliable, and meaningful.";
+  if(actions[0]) actions[0].textContent='View My Work';
+
+  const statContent=[
+    ['System Implementation','Requirements analysis, testing, training, and rollout'],
+    ['Data & Technology','Analytics, AI, automation, and integration'],
+    ['User & Business Focus','Problem solving, documentation, and coordination']
+  ];
+  stats.forEach((item,index)=>{
+    if(statContent[index]) item.innerHTML=`<strong>${statContent[index][0]}</strong><span>${statContent[index][1]}</span>`;
+  });
+
+  const focusContent=[
+    ['Implementation & Systems','Turning operational requirements into reliable, ready-to-use solutions.'],
+    ['Data & Digital Technology','Using data, integration, and technology to improve decisions and workflows.'],
+    ['Product & User Experience','Connecting user needs with practical, measurable implementations.']
+  ];
+  focusItems.forEach((item,index)=>{
+    if(!focusContent[index]) return;
+    const strong=item.querySelector('strong');
+    const small=item.querySelector('small');
+    if(strong) strong.textContent=focusContent[index][0];
+    if(small) small.textContent=focusContent[index][1];
+  });
+
+  // Keep the headline visually balanced and clearly left-aligned on desktop and mobile.
+  const heroLayoutStyle=document.createElement('style');
+  heroLayoutStyle.textContent=`
+    .hero-copy h1{max-width:11.5ch!important;text-align:left!important;text-wrap:balance;line-height:1.01!important;letter-spacing:-.055em!important;font-size:clamp(3rem,5.35vw,5.25rem)!important}
+    .hero-copy h1 span{display:inline}
+    .hero-copy .lead{max-width:720px;text-align:left}
+    .hero-copy .eyebrow{text-align:left}
+    @media(max-width:900px){.hero-copy h1{max-width:13ch!important;font-size:clamp(2.8rem,9vw,4.8rem)!important}}
+    @media(max-width:560px){.hero-copy h1{max-width:100%!important;font-size:clamp(2.55rem,12vw,3.75rem)!important;line-height:1.04!important}}
+  `;
+  document.head.appendChild(heroLayoutStyle);
+}
+
 const animatedElements=document.querySelectorAll('.section, .project-card, .research-card, .achievement-grid article, .skill-card, .cert-card, .education-card, .contact-card');
 animatedElements.forEach((element,index)=>{element.dataset.animate='';element.style.transitionDelay=`${Math.min(index%6,4)*70}ms`;});
 const revealObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target);}});},{threshold:.12});
