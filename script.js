@@ -148,6 +148,52 @@ if(experienceSection){
   document.head.appendChild(experienceStyle);
 }
 
+const projectsSection=document.querySelector('#projects');
+if(projectsSection){
+  const eyebrow=projectsSection.querySelector('.section-heading .eyebrow');
+  const heading=projectsSection.querySelector('.section-heading h2');
+  const copy=projectsSection.querySelector('.section-heading .section-copy');
+  const cards=projectsSection.querySelectorAll('.project-card');
+
+  if(eyebrow) eyebrow.textContent='Featured Projects';
+  if(heading) heading.textContent='Selected Work & Projects';
+  if(copy) copy.textContent='A selection of projects that reflect my experience across healthcare technology, product development, artificial intelligence, and information systems.';
+
+  cards.forEach((card,index)=>{
+    card.style.setProperty('--project-delay',`${Math.min(index,8)*70}ms`);
+  });
+
+  const projectsStyle=document.createElement('style');
+  projectsStyle.textContent=`
+    #projects{position:relative;overflow:hidden;isolation:isolate}
+    #projects::before,#projects::after{content:"";position:absolute;border-radius:50%;pointer-events:none;z-index:-1;filter:blur(12px)}
+    #projects::before{width:420px;height:420px;left:-220px;top:120px;background:radial-gradient(circle,rgba(96,165,250,.09),transparent 70%);animation:projectAmbient 10s ease-in-out infinite}
+    #projects::after{width:340px;height:340px;right:-190px;bottom:80px;background:radial-gradient(circle,rgba(103,232,249,.07),transparent 70%);animation:projectAmbient 12s ease-in-out infinite reverse}
+    #projects .section-heading{position:relative;max-width:860px}
+    #projects .section-heading .eyebrow{display:inline-flex;align-items:center;gap:10px}
+    #projects .section-heading .eyebrow::before{content:"";width:28px;height:1px;background:linear-gradient(90deg,var(--accent),var(--accent2));box-shadow:0 0 12px rgba(103,232,249,.22);animation:projectLine 3s ease-in-out infinite}
+    #projects .section-heading h2{position:relative;display:inline-block;text-wrap:balance}
+    #projects .section-heading h2::after{content:"";display:block;width:84px;height:3px;margin-top:16px;border-radius:99px;background:linear-gradient(90deg,var(--accent),var(--accent2));box-shadow:0 0 16px rgba(96,165,250,.16);transition:width .35s ease,box-shadow .35s ease}
+    #projects .section-heading:hover h2::after{width:142px;box-shadow:0 0 24px rgba(103,232,249,.28)}
+    #projects .section-copy{max-width:760px;text-align:justify;text-justify:inter-word;hyphens:auto;line-height:1.75}
+    #projects .project-card{position:relative;overflow:hidden;transition:transform .34s cubic-bezier(.2,.7,.2,1),border-color .34s ease,box-shadow .34s ease,background .34s ease}
+    #projects .project-card::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 18%,rgba(96,165,250,.055) 48%,transparent 76%);transform:translateX(-120%);transition:transform .65s ease;pointer-events:none}
+    #projects .project-card:hover{transform:translateY(-8px);border-color:rgba(103,232,249,.28);box-shadow:0 26px 60px rgba(2,8,23,.22)}
+    #projects .project-card:hover::before{transform:translateX(120%)}
+    #projects .project-topline{transition:letter-spacing .28s ease,color .28s ease}
+    #projects .project-card:hover .project-topline{letter-spacing:.045em;color:var(--accent2)}
+    #projects .project-card h3{transition:transform .28s ease,color .28s ease}
+    #projects .project-card:hover h3{transform:translateX(3px);color:#fff}
+    #projects .project-card.reveal-on-scroll{transition-delay:var(--project-delay)!important;transform:translateY(28px) scale(.985)}
+    #projects .project-card.reveal-on-scroll.is-visible{transform:none}
+    @keyframes projectAmbient{0%,100%{transform:translate3d(0,0,0) scale(1);opacity:.7}50%{transform:translate3d(24px,-20px,0) scale(1.08);opacity:1}}
+    @keyframes projectLine{0%,100%{transform:scaleX(.72);opacity:.6}50%{transform:scaleX(1.18);opacity:1}}
+    @media(max-width:900px){#projects .section-copy{text-align:left;hyphens:none}#projects .project-card:hover{transform:translateY(-4px)}}
+    @media(prefers-reduced-motion:reduce){#projects::before,#projects::after,#projects .section-heading .eyebrow::before{animation:none!important}#projects .project-card,#projects .project-card h3,#projects .project-topline{transition:none}#projects .project-card:hover{transform:none}}
+  `;
+  document.head.appendChild(projectsStyle);
+}
+
 const animatedElements=document.querySelectorAll('.section, .project-card, .research-card, .achievement-grid article, .skill-card, .cert-card, .education-card, .contact-card');
 animatedElements.forEach((element,index)=>{element.dataset.animate='';element.style.transitionDelay=`${Math.min(index%6,4)*70}ms`;});
 const revealObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target);}});},{threshold:.12});
