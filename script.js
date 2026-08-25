@@ -1,4 +1,9 @@
-const links=document.querySelectorAll('nav a');const sections=[...document.querySelectorAll('main section[id]')];const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){links.forEach(link=>{link.style.color=link.getAttribute('href')===`#${entry.target.id}`?'#ffffff':'';});}});},{threshold:.35});sections.forEach(section=>observer.observe(section));
+const links=document.querySelectorAll('nav a');const sections=[...document.querySelectorAll('main section[id]')];const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){links.forEach(link=>link.classList.toggle('is-active',link.getAttribute('href')===`#${entry.target.id}`));}});},{rootMargin:'-20% 0px -65% 0px',threshold:0});sections.forEach(section=>observer.observe(section));
+
+const animatedElements=document.querySelectorAll('.section, .project-card, .research-card, .achievement-grid article, .skill-card, .cert-card, .education-card, .contact-card');
+animatedElements.forEach((element,index)=>{element.dataset.animate='';element.style.transitionDelay=`${Math.min(index%6,4)*70}ms`;});
+const revealObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target);}});},{threshold:.12});
+animatedElements.forEach(element=>revealObserver.observe(element));
 
 // Use profile photo uploaded in the repository root.
 const profilePhoto=document.querySelector('.profile-photo');
