@@ -159,6 +159,18 @@ if(projectsSection){
   if(heading) heading.textContent='Selected Work & Projects';
   if(copy) copy.textContent='A selection of projects that reflect my experience across healthcare technology, product development, artificial intelligence, and information systems.';
 
+  const healthcareCard=cards[0];
+  if(healthcareCard){
+    const topline=healthcareCard.querySelector('.project-topline');
+    const title=healthcareCard.querySelector('h3');
+    const description=healthcareCard.querySelector('p');
+    const chips=healthcareCard.querySelector('.chips');
+    if(topline) topline.textContent='Healthcare Information Systems · Professional Experience';
+    if(title) title.textContent='Hospital Information System Implementation & Interoperability';
+    if(description) description.textContent='A consolidated portfolio of professional healthcare technology work delivered through PT Alfatih Solusindo Technology and PT Periksa Solusi Indonesia. The scope covers end-to-end SIMRS implementation, requirements analysis, system configuration, functional testing, user training, rollout support, troubleshooting, and operational coordination across healthcare facilities. Key integration areas include SATUSEHAT, BPJS services, PACS and radiology worklists, Orthanc/DICOM workflows, pharmacy and supporting-service modules, as well as system readiness for hospital operational and accreditation requirements.';
+    if(chips) chips.innerHTML=['SIMRS Implementation','SATUSEHAT','BPJS Integration','PACS & Radiology','Orthanc & DICOM','Healthcare Interoperability','User Training'].map(chip=>`<span>${chip}</span>`).join('');
+  }
+
   cards.forEach((card,index)=>{
     card.style.setProperty('--project-delay',`${Math.min(index,8)*70}ms`);
   });
