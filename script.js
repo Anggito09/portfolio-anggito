@@ -93,8 +93,8 @@ if(experienceSection){
     {
       period:'2025 — 2026',
       title:'Technical & Functional Implementor — PT Alfatih Solusindo Technology',
-      description:'Managed end-to-end implementation and functional configuration of healthcare information systems across clinical, administrative, finance, pharmacy, logistics, and supporting-service modules. Responsibilities included requirements analysis, system configuration, testing, user assistance, documentation, troubleshooting, and coordination for system and radiology/PACS integration.',
-      chips:['System Implementation','Functional Analysis','Healthcare IT','PACS & Radiology','User Support']
+      description:'Managed end-to-end implementation and functional configuration of healthcare information systems across multiple hospitals, covering clinical, administrative, finance, pharmacy, logistics, and supporting-service modules. Responsibilities also included onboarding new client data into databases, validating and maintaining master data, preparing operational reports and data visualizations, supporting Odoo-related processes, troubleshooting, user assistance, documentation, and coordination for system and radiology/PACS integrations.',
+      chips:['System Implementation','Database & Client Data','Reporting & Visualization','Odoo','Healthcare IT','PACS & Radiology']
     },
     {
       period:'2025',
