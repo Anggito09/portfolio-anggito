@@ -88,31 +88,31 @@ if(experienceSection){
       chips:['SIMRS Implementation','SATUSEHAT','Accreditation Support','PACS & Radiology','BPJS Integration','User Training']
     },
     {
-      period:'Jun 2025 — Jun 2026 · Karawang, Indonesia',
+      period:'Jun 2025 — Jun 2026 · Subang / Jakarta, Indonesia',
       title:'Technical & Functional Implementor — PT Alfatih Solusindo Technology',
       description:'Managed end-to-end SIMRS implementation and functional configuration across multiple hospitals, including requirements analysis, system setup, testing, user training, troubleshooting, documentation, SATUSEHAT support, BPJS integration, and radiology/PACS integration. The role also involved direct database work for onboarding new client data, validating and maintaining master data, investigating data issues, and supporting data migration and setup activities. In addition, prepared operational reports and data visualizations and supported Odoo-related processes as part of broader hospital system implementation and client support.',
       chips:['SIMRS Implementation','SATUSEHAT','BPJS Integration','Database & Client Data','Reporting & Visualization','Odoo','PACS & Radiology']
     },
     {
-      period:'Feb 2025 — Jun 2025 · Surabaya, Indonesia',
+      period:'2025',
       title:'Coding & AI Instructor — Teach Code',
       description:'Facilitated practical learning in programming and artificial intelligence, helping learners understand technical concepts through structured exercises, project-based activities, and hands-on guidance.',
       chips:['Coding','Artificial Intelligence','Teaching','Mentoring']
     },
     {
-      period:'May 2024 — Oct 2024 · Bandung, Indonesia',
-      title:'Facilitator — Google Career Certificates × Telkom · PT Dicoding Indonesia',
+      period:'May 2024 — Oct 2024 · Indonesia',
+      title:'Facilitator — Google Career Certificates × Telkom',
       description:'Supported participants in the Google Advanced Data Analytics program by helping them understand and complete Data Analytics and Machine Learning materials, while providing mentoring and technical guidance throughout the learning process. Facilitated case study-based and hands-on learning to strengthen practical and professional skills, monitored participant progress, and supported successful programme completion. A total of 81 participants completed the programme, representing an 80.20% pass rate.',
       chips:['Advanced Data Analytics','Machine Learning','Mentoring','Technical Guidance','Case Study Learning','Google × Telkom']
     },
     {
-      period:'Feb 2024 — Jun 2024 · Jakarta, Indonesia',
+      period:'2024',
       title:'R&D / Learning & Curriculum — PT Algonacci Sobat Nusantara',
       description:'Contributed to research and development activities, learning-material design, curriculum improvement, and technical mentoring to support structured and practical learning experiences for internal and client-facing programs.',
       chips:['Research & Development','Curriculum','Learning Design','Mentoring']
     },
     {
-      period:'Aug 2023 — Jul 2024 · Jember, Indonesia',
+      period:'2023 — 2024 · Jember, Indonesia',
       title:'Head of Artificial Intelligence Laboratory — Universitas Jember',
       description:'Led academic and operational activities within the Artificial Intelligence Laboratory, supporting practical classes, student projects, research initiatives, and collaborative learning in artificial intelligence and data-related topics.',
       chips:['Leadership','Artificial Intelligence','Research','Academic Support']
