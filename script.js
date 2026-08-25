@@ -37,7 +37,6 @@ if(hero){
     if(small) small.textContent=focusContent[index][1];
   });
 
-  // Keep headings balanced while making descriptive copy neatly justified.
   const heroLayoutStyle=document.createElement('style');
   heroLayoutStyle.textContent=`
     .hero-copy h1{max-width:11.5ch!important;text-align:left!important;text-wrap:balance;line-height:1.01!important;letter-spacing:-.055em!important;font-size:clamp(3rem,5.35vw,5.25rem)!important}
@@ -50,7 +49,6 @@ if(hero){
   document.head.appendChild(heroLayoutStyle);
 }
 
-// More universal and polished About section copy.
 const aboutSection=document.querySelector('#about');
 if(aboutSection){
   const eyebrow=aboutSection.querySelector('.eyebrow');
@@ -73,7 +71,6 @@ if(aboutSection){
   document.head.appendChild(aboutStyle);
 }
 
-// Refined professional experience copy with consistent positioning across implementation roles.
 const experienceSection=document.querySelector('#experience');
 if(experienceSection){
   const eyebrow=experienceSection.querySelector('.section-heading .eyebrow');
@@ -93,8 +90,8 @@ if(experienceSection){
     {
       period:'2025 — 2026',
       title:'Technical & Functional Implementor — PT Alfatih Solusindo Technology',
-      description:'Managed end-to-end implementation and functional configuration of healthcare information systems across multiple hospitals, covering clinical, administrative, finance, pharmacy, logistics, and supporting-service modules. Responsibilities also included onboarding new client data into databases, validating and maintaining master data, preparing operational reports and data visualizations, supporting Odoo-related processes, troubleshooting, user assistance, documentation, and coordination for system and radiology/PACS integrations.',
-      chips:['System Implementation','Database & Client Data','Reporting & Visualization','Odoo','Healthcare IT','PACS & Radiology']
+      description:'Managed end-to-end SIMRS implementation and functional configuration across multiple hospitals, including requirements analysis, system setup, testing, user training, troubleshooting, documentation, SATUSEHAT support, BPJS integration, and radiology/PACS integration. The role also involved direct database work for onboarding new client data, validating and maintaining master data, investigating data issues, and supporting data migration and setup activities. In addition, prepared operational reports and data visualizations and supported Odoo-related processes as part of broader hospital system implementation and client support.',
+      chips:['SIMRS Implementation','SATUSEHAT','BPJS Integration','Database & Client Data','Reporting & Visualization','Odoo','PACS & Radiology']
     },
     {
       period:'2025',
@@ -156,11 +153,9 @@ animatedElements.forEach((element,index)=>{element.dataset.animate='';element.st
 const revealObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target);}});},{threshold:.12});
 animatedElements.forEach(element=>revealObserver.observe(element));
 
-// Use profile photo uploaded in the repository root.
 const profilePhoto=document.querySelector('.profile-photo');
 if(profilePhoto){profilePhoto.src='anggito-profile.jpg';}
 
-// Gentle scroll reveal for sections/cards. Respects reduced-motion preferences.
 const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 if(!reduceMotion){
   const revealTargets=[...document.querySelectorAll('.section-heading,.split,.timeline article,.project-card,.research-card,.education-card,.achievement-grid article,.skill-card,.cert-card,.contact-card')];
@@ -179,7 +174,6 @@ if(!reduceMotion){
   revealTargets.forEach(element=>revealObserver.observe(element));
 }
 
-// CityConnect visual gallery
 const cityConnectCard=[...document.querySelectorAll('.project-card')].find(card=>card.querySelector('h3')?.textContent.trim()==='CityConnect');
 if(cityConnectCard){
   const gallery=document.createElement('div');
