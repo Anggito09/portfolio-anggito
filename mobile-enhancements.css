@@ -14,7 +14,7 @@
   .hero-copy { min-width: 0; }
   .hero .eyebrow { font-size: .69rem; letter-spacing: .15em; line-height: 1.45; margin-bottom: 13px; }
   .hero h1 { font-size: clamp(2.35rem, 10.8vw, 4rem); line-height: .99; letter-spacing: -.055em; margin-bottom: 22px; text-wrap: balance; }
-  .hero .lead { font-size: .99rem; line-height: 1.75; margin: 0; max-width: 100%; }
+  .hero .lead { font-size: .99rem; line-height: 1.75; margin: 0; max-width: 100%; text-align: justify; text-justify: inter-word; hyphens: auto; }
   .hero-actions { display: grid; grid-template-columns: 1.35fr 1fr 1fr; gap: 9px; margin: 27px 0 30px; }
   .hero-actions .btn { min-height: 48px; padding: 11px 12px; border-radius: 14px; font-size: .88rem; white-space: nowrap; }
   .stats { gap: 10px; }
@@ -31,7 +31,7 @@
   .section-heading { margin-bottom: 30px; }
   .section-heading .eyebrow, #about .eyebrow { font-size: .7rem; letter-spacing: .16em; }
   h2 { font-size: clamp(2rem, 9.3vw, 3.2rem); line-height: 1.05; text-wrap: balance; }
-  .section-copy, .split p { font-size: .98rem; line-height: 1.72; }
+  .section-copy, .split p { font-size: .98rem; line-height: 1.72; text-align: justify; text-justify: inter-word; hyphens: auto; }
 
   #about .split { gap: 30px; }
   #about h2::after { margin-top: 14px; }
@@ -47,13 +47,14 @@
   #experience .timeline article::before { left: 5px; top: 29px; width: 10px; height: 10px; }
   #experience .timeline-meta { font-size: .78rem; line-height: 1.5; margin-bottom: 10px; }
   #experience .timeline h3 { font-size: 1.14rem; line-height: 1.4; margin-bottom: 10px; }
-  #experience .timeline p { font-size: .94rem; line-height: 1.72; }
+  #experience .timeline p { font-size: .94rem; line-height: 1.72; text-align: justify; text-justify: inter-word; hyphens: auto; }
   #experience .chips { gap: 7px; margin-top: 15px; }
   #experience .chips span { font-size: .68rem; padding: 6px 9px; }
 
   .project-grid, .research-grid, .skill-grid, .cert-grid, .achievement-grid { gap: 14px; }
   .project-card, .research-card, .skill-card, .cert-card, .achievement-grid article { border-radius: 18px; }
   .project-card { min-height: auto; }
+  .project-card p, .research-card p, .skill-card p, .cert-card p, .achievement-grid p, .education-card p, .contact-card h2 { text-align: justify; text-justify: inter-word; hyphens: auto; }
   .contact-card { padding: 28px 22px; border-radius: 22px; }
 
   .hero-copy, .hero-visual, #about .split > div, #experience .timeline article,
