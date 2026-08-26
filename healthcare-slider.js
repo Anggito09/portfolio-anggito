@@ -5,7 +5,13 @@
 
   const slides=[
     {src:'assets/healthcare-field-01.webp',caption:'Hospital Coordination · Implementation Discussion'},
-    {src:'assets/healthcare-field-02.webp',caption:'Hospital Coordination · Stakeholder Session'}
+    {src:'assets/healthcare-field-02.webp',caption:'Hospital Coordination · Stakeholder Session'},
+    {src:'assets/healthcare-field-03.webp',caption:'SIMRS Implementation · User Coordination Session'},
+    {src:'assets/healthcare-field-04.webp',caption:'Implementation Workshop · Hospital Team Discussion'},
+    {src:'assets/healthcare-field-05.webp',caption:'System Support · On-Site Technical Assistance'},
+    {src:'assets/healthcare-field-06.webp',caption:'Technical Coordination · Implementation Review'},
+    {src:'assets/healthcare-field-07.webp',caption:'On-Site Support · Implementation Team'},
+    {src:'assets/healthcare-field-08.webp',caption:'Hospital Operations · Rehabilitation Services Area'}
   ];
   let current=0;
 
