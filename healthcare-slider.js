@@ -6,14 +6,15 @@
   const slides=[
     {src:'assets/healthcare-field-01.webp',caption:'Hospital Coordination · Implementation Discussion'},
     {src:'assets/healthcare-field-02.webp',caption:'Hospital Coordination · Stakeholder Session'},
-    {src:'assets/healthcare-field-03.webp',caption:'SIMRS Implementation · User Coordination Session'},
-    {src:'assets/healthcare-field-04.webp',caption:'Implementation Workshop · Hospital Team Discussion'},
-    {src:'assets/healthcare-field-05.webp',caption:'System Support · On-Site Technical Assistance'},
-    {src:'assets/healthcare-field-06.webp',caption:'Technical Coordination · Implementation Review'},
-    {src:'assets/healthcare-field-07.webp',caption:'On-Site Support · Implementation Team'},
-    {src:'assets/healthcare-field-08.webp',caption:'Hospital Operations · Rehabilitation Services Area'}
+    {src:'assets/healthcare-field-03.webp',caption:'SIMRS Implementation · Hospital User Training & Coordination'},
+    {src:'assets/healthcare-field-04.webp',caption:'Implementation Workshop · Hospital Stakeholder Discussion'},
+    {src:'assets/healthcare-field-05.webp',caption:'System Configuration · On-Site Technical Assistance'},
+    {src:'assets/healthcare-field-06.webp',caption:'Technical Coordination · Integration & Implementation Review'},
+    {src:'assets/healthcare-field-07.webp',caption:'On-Site Support · Operational & Technical Team'},
+    {src:'assets/healthcare-field-08.webp',caption:'Hospital Operations · Field Observation & Service Area'}
   ];
   let current=0;
+  let autoplayTimer=null;
 
   const figure=document.createElement('figure');
   figure.className='healthcare-evidence healthcare-carousel';
@@ -23,7 +24,7 @@
       <button class="healthcare-carousel-media" type="button" aria-label="Open current documentation photo"><img alt="" decoding="async"></button>
       <button class="healthcare-nav healthcare-next" type="button" aria-label="Next photo">›</button>
     </div>
-    <figcaption><strong class="healthcare-caption-title"></strong><span>Selected professional field documentation from hospital implementation, coordination, training, and operational support.</span></figcaption>
+    <figcaption><strong class="healthcare-caption-title"></strong><span>Selected professional field documentation from hospital implementation, coordination, training, integration, and operational support.</span></figcaption>
     <div class="healthcare-carousel-meta"><div class="healthcare-dots" aria-label="Choose documentation photo"></div><span class="healthcare-counter"></span></div>`;
   old.replaceWith(figure);
 
@@ -31,6 +32,8 @@
   const title=figure.querySelector('.healthcare-caption-title');
   const counter=figure.querySelector('.healthcare-counter');
   const dots=figure.querySelector('.healthcare-dots');
+
+  slides.forEach(({src})=>{const preload=new Image();preload.src=src;});
 
   const render=(index,direction=1)=>{
     current=(index+slides.length)%slides.length;
@@ -44,34 +47,46 @@
     img.classList.add(direction<0?'slide-in-left':'slide-in-right');
   };
 
+  const stopAutoplay=()=>{if(autoplayTimer){clearInterval(autoplayTimer);autoplayTimer=null;}};
+  const startAutoplay=()=>{
+    stopAutoplay();
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    autoplayTimer=setInterval(()=>render(current+1,1),5200);
+  };
+
   slides.forEach((_,i)=>{
     const dot=document.createElement('button');
     dot.type='button';
     dot.className='healthcare-dot';
     dot.setAttribute('aria-label',`Go to photo ${i+1}`);
-    dot.addEventListener('click',()=>render(i,i<current?-1:1));
+    dot.addEventListener('click',()=>{render(i,i<current?-1:1);startAutoplay();});
     dots.appendChild(dot);
   });
 
-  figure.querySelector('.healthcare-prev').addEventListener('click',()=>render(current-1,-1));
-  figure.querySelector('.healthcare-next').addEventListener('click',()=>render(current+1,1));
+  figure.querySelector('.healthcare-prev').addEventListener('click',()=>{render(current-1,-1);startAutoplay();});
+  figure.querySelector('.healthcare-next').addEventListener('click',()=>{render(current+1,1);startAutoplay();});
   const shell=figure.querySelector('.healthcare-carousel-shell');
   shell.addEventListener('keydown',e=>{
-    if(e.key==='ArrowLeft'){e.preventDefault();render(current-1,-1);}
-    if(e.key==='ArrowRight'){e.preventDefault();render(current+1,1);}
+    if(e.key==='ArrowLeft'){e.preventDefault();render(current-1,-1);startAutoplay();}
+    if(e.key==='ArrowRight'){e.preventDefault();render(current+1,1);startAutoplay();}
   });
   let startX=0;
-  shell.addEventListener('touchstart',e=>{startX=e.changedTouches[0].clientX;},{passive:true});
-  shell.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-startX;if(Math.abs(dx)>45)render(current+(dx<0?1:-1),dx<0?1:-1);},{passive:true});
+  shell.addEventListener('touchstart',e=>{startX=e.changedTouches[0].clientX;stopAutoplay();},{passive:true});
+  shell.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-startX;if(Math.abs(dx)>45)render(current+(dx<0?1:-1),dx<0?1:-1);startAutoplay();},{passive:true});
+  shell.addEventListener('mouseenter',stopAutoplay);
+  shell.addEventListener('mouseleave',startAutoplay);
+  shell.addEventListener('focusin',stopAutoplay);
+  shell.addEventListener('focusout',startAutoplay);
 
   figure.querySelector('.healthcare-carousel-media').addEventListener('click',()=>{
+    stopAutoplay();
     const overlay=document.createElement('div');
     overlay.className='project-lightbox healthcare-slider-lightbox';
     const full=document.createElement('img');
     full.src=slides[current].src;
     full.alt=slides[current].caption;
     overlay.appendChild(full);
-    overlay.addEventListener('click',()=>overlay.remove());
+    overlay.addEventListener('click',()=>{overlay.remove();startAutoplay();});
     document.body.appendChild(overlay);
   });
 
@@ -89,10 +104,10 @@
     #projects .healthcare-carousel figcaption strong{font-size:.82rem;color:#f8fbff;white-space:normal}
     #projects .healthcare-carousel figcaption span{font-size:.72rem;line-height:1.5;color:var(--muted);text-align:right;max-width:430px}
     #projects .healthcare-carousel-meta{display:flex;align-items:center;justify-content:space-between;padding:4px 8px 3px;gap:16px}
-    #projects .healthcare-dots{display:flex;align-items:center;gap:7px}
+    #projects .healthcare-dots{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
     #projects .healthcare-dot{width:8px;height:8px;border:0;border-radius:999px;padding:0;background:rgba(255,255,255,.24);cursor:pointer;transition:.25s ease}
     #projects .healthcare-dot.is-active{width:24px;background:var(--accent2);box-shadow:0 0 12px rgba(103,232,249,.35)}
-    #projects .healthcare-counter{font-size:.7rem;font-weight:700;letter-spacing:.12em;color:var(--muted)}
+    #projects .healthcare-counter{font-size:.7rem;font-weight:700;letter-spacing:.12em;color:var(--muted);white-space:nowrap}
     #projects .slide-in-right{animation:healthcareSlideRight .34s ease both}#projects .slide-in-left{animation:healthcareSlideLeft .34s ease both}
     @keyframes healthcareSlideRight{from{opacity:.18;transform:translateX(16px) scale(.992)}to{opacity:1;transform:none}}
     @keyframes healthcareSlideLeft{from{opacity:.18;transform:translateX(-16px) scale(.992)}to{opacity:1;transform:none}}
@@ -102,4 +117,5 @@
   `;
   document.head.appendChild(style);
   render(0,1);
+  startAutoplay();
 })();
