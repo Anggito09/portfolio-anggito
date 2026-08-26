@@ -15,28 +15,31 @@
   const style=document.createElement('style');
   style.textContent=`
     #experience .timeline article{
-      grid-template-columns:minmax(320px,34%) minmax(0,1fr)!important;
-      gap:34px!important;
+      grid-template-columns:220px minmax(0,1fr)!important;
+      gap:28px!important;
       align-items:start!important;
+      padding:28px 0!important;
     }
     #experience .timeline-meta{
-      max-width:none!important;
-      width:100%!important;
-      white-space:nowrap!important;
+      max-width:220px!important;
+      width:auto!important;
+      white-space:normal!important;
       line-height:1.45!important;
       align-self:start!important;
       padding-top:2px;
-      font-size:.86rem!important;
+      font-size:.84rem!important;
       letter-spacing:0!important;
+      overflow-wrap:normal!important;
+      word-break:normal!important;
     }
     #experience .timeline article>div:last-child{min-width:0!important}
-    @media(max-width:1180px){
-      #experience .timeline article{grid-template-columns:300px minmax(0,1fr)!important;gap:28px!important}
-      #experience .timeline-meta{white-space:normal!important}
+    @media(min-width:1200px){
+      #experience .timeline article{grid-template-columns:235px minmax(0,1fr)!important;gap:30px!important}
+      #experience .timeline-meta{max-width:235px!important}
     }
     @media(max-width:900px){
-      #experience .timeline article{grid-template-columns:1fr!important;gap:8px!important}
-      #experience .timeline-meta{white-space:normal!important;width:auto!important;font-size:.9rem!important}
+      #experience .timeline article{grid-template-columns:1fr!important;gap:8px!important;padding:24px 0!important}
+      #experience .timeline-meta{max-width:none!important;width:auto!important;font-size:.9rem!important}
     }
   `;
   document.head.appendChild(style);
