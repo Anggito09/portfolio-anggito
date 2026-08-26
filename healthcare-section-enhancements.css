@@ -1,0 +1,256 @@
+/* Premium presentation for Hospital Information System Implementation & Interoperability */
+#projects .project-card.featured{
+  position:relative;
+  overflow:hidden;
+  border:1px solid rgba(103,232,249,.18);
+  background:
+    radial-gradient(circle at 88% 8%,rgba(59,130,246,.12),transparent 30%),
+    radial-gradient(circle at 10% 92%,rgba(34,211,238,.07),transparent 34%),
+    linear-gradient(145deg,rgba(10,24,45,.98),rgba(7,17,34,.99));
+  box-shadow:0 26px 70px rgba(2,8,23,.25),inset 0 1px 0 rgba(255,255,255,.035);
+  isolation:isolate;
+}
+#projects .project-card.featured::after{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  z-index:-1;
+  pointer-events:none;
+  background:linear-gradient(115deg,transparent 20%,rgba(103,232,249,.07) 43%,rgba(96,165,250,.08) 52%,transparent 75%);
+  transform:translateX(-120%);
+  animation:healthcareSheen 8s ease-in-out infinite;
+}
+
+#projects .project-card.featured .project-topline{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  width:fit-content;
+  margin-bottom:16px;
+  padding:7px 11px;
+  border:1px solid rgba(103,232,249,.17);
+  border-radius:999px;
+  background:rgba(103,232,249,.055);
+  color:#84eff8;
+  font-size:.72rem;
+  font-weight:800;
+  line-height:1.2;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  animation:healthcareLabelFloat 4.8s ease-in-out infinite;
+}
+#projects .project-card.featured .project-topline::before{
+  content:"";
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#67e8f9;
+  box-shadow:0 0 0 5px rgba(103,232,249,.08),0 0 14px rgba(103,232,249,.42);
+  animation:healthcareStatusPulse 2.2s ease-in-out infinite;
+}
+
+#projects .project-card.featured > h3{
+  max-width:900px;
+  margin:0 0 20px;
+  font-size:clamp(2.15rem,4.5vw,4.35rem);
+  line-height:1.02;
+  letter-spacing:-.055em;
+  font-weight:800;
+  text-wrap:balance;
+  color:#f8fbff;
+  text-shadow:0 10px 34px rgba(2,8,23,.25);
+  animation:healthcareTitleIn .85s cubic-bezier(.16,.82,.3,1) both;
+}
+#projects .project-card.featured > h3::after{
+  content:"";
+  display:block;
+  width:92px;
+  height:4px;
+  margin-top:17px;
+  border-radius:999px;
+  background:linear-gradient(90deg,#60a5fa,#67e8f9);
+  box-shadow:0 0 18px rgba(103,232,249,.25);
+  transform-origin:left center;
+  animation:healthcareUnderline 1s .18s cubic-bezier(.2,.8,.2,1) both;
+}
+
+#projects .project-card.featured > p{
+  max-width:940px;
+  margin:0 0 22px;
+  color:#aebed5;
+  font-size:1rem;
+  line-height:1.82;
+  letter-spacing:.002em;
+  text-align:justify;
+  text-justify:inter-word;
+  hyphens:auto;
+  animation:healthcareCopyIn .8s .12s ease both;
+}
+
+#projects .project-card.featured > .chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:20px;
+}
+#projects .project-card.featured > .chips span{
+  position:relative;
+  overflow:hidden;
+  padding:8px 12px;
+  border:1px solid rgba(125,177,255,.17);
+  border-radius:999px;
+  background:rgba(96,165,250,.05);
+  font-size:.72rem;
+  font-weight:650;
+  letter-spacing:.01em;
+  transition:transform .25s ease,border-color .25s ease,background .25s ease,box-shadow .25s ease;
+}
+#projects .project-card.featured > .chips span:hover{
+  transform:translateY(-2px);
+  border-color:rgba(103,232,249,.34);
+  background:rgba(103,232,249,.08);
+  box-shadow:0 8px 24px rgba(2,8,23,.18);
+}
+
+#projects .project-card.featured .healthcare-carousel{
+  width:min(84%,900px)!important;
+  margin:30px auto 20px!important;
+  padding:12px!important;
+  border:1px solid rgba(103,232,249,.20)!important;
+  border-radius:24px!important;
+  background:linear-gradient(145deg,rgba(5,14,29,.9),rgba(13,27,50,.7))!important;
+  box-shadow:0 22px 58px rgba(2,8,23,.32),inset 0 1px 0 rgba(255,255,255,.035)!important;
+  animation:healthcareMediaIn .85s .2s cubic-bezier(.2,.75,.2,1) both;
+}
+#projects .project-card.featured .healthcare-carousel-shell{
+  border-radius:18px!important;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.025);
+}
+#projects .project-card.featured .healthcare-carousel figcaption{
+  padding:16px 10px 7px!important;
+}
+#projects .project-card.featured .healthcare-carousel figcaption strong{
+  font-size:.84rem!important;
+  letter-spacing:-.01em;
+}
+#projects .project-card.featured .healthcare-carousel figcaption span{
+  font-size:.73rem!important;
+  line-height:1.55!important;
+}
+
+@keyframes healthcareTitleIn{
+  from{opacity:0;transform:translateY(20px);filter:blur(7px);letter-spacing:-.075em}
+  to{opacity:1;transform:translateY(0);filter:blur(0);letter-spacing:-.055em}
+}
+@keyframes healthcareCopyIn{
+  from{opacity:0;transform:translateY(13px)}
+  to{opacity:1;transform:none}
+}
+@keyframes healthcareMediaIn{
+  from{opacity:0;transform:translateY(20px) scale(.985)}
+  to{opacity:1;transform:none}
+}
+@keyframes healthcareUnderline{
+  from{transform:scaleX(0);opacity:.2}
+  to{transform:scaleX(1);opacity:1}
+}
+@keyframes healthcareLabelFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-2px)}
+}
+@keyframes healthcareStatusPulse{
+  0%,100%{transform:scale(1);opacity:1}
+  50%{transform:scale(.78);opacity:.68}
+}
+@keyframes healthcareSheen{
+  0%,72%{transform:translateX(-120%);opacity:0}
+  78%{opacity:1}
+  90%,100%{transform:translateX(120%);opacity:0}
+}
+
+@media(max-width:900px){
+  #projects .project-card.featured{
+    padding:24px 20px!important;
+    border-radius:22px!important;
+  }
+  #projects .project-card.featured .project-topline{
+    margin-bottom:14px;
+    padding:6px 10px;
+    font-size:.66rem;
+    letter-spacing:.07em;
+  }
+  #projects .project-card.featured > h3{
+    max-width:100%;
+    margin-bottom:17px;
+    font-size:clamp(1.85rem,8.7vw,3rem);
+    line-height:1.06;
+    letter-spacing:-.045em;
+  }
+  #projects .project-card.featured > h3::after{
+    width:74px;
+    height:3px;
+    margin-top:14px;
+  }
+  #projects .project-card.featured > p{
+    max-width:100%;
+    font-size:.92rem;
+    line-height:1.74;
+    text-align:justify!important;
+    text-justify:inter-word!important;
+    hyphens:auto!important;
+    -webkit-hyphens:auto!important;
+  }
+  #projects .project-card.featured .healthcare-carousel{
+    width:100%!important;
+    margin:23px 0 17px!important;
+    padding:9px!important;
+    border-radius:18px!important;
+  }
+}
+
+@media(max-width:560px){
+  #projects .project-card.featured{
+    padding:20px 16px!important;
+    border-radius:19px!important;
+  }
+  #projects .project-card.featured .project-topline{
+    max-width:100%;
+    white-space:normal;
+    line-height:1.35;
+  }
+  #projects .project-card.featured > h3{
+    font-size:clamp(1.72rem,8.6vw,2.35rem);
+    line-height:1.08;
+    letter-spacing:-.04em;
+  }
+  #projects .project-card.featured > p{
+    font-size:.86rem;
+    line-height:1.7;
+  }
+  #projects .project-card.featured > .chips{
+    gap:6px;
+    margin-top:17px;
+  }
+  #projects .project-card.featured > .chips span{
+    padding:6px 9px;
+    font-size:.62rem;
+  }
+  #projects .project-card.featured .healthcare-carousel figcaption strong{
+    font-size:.76rem!important;
+  }
+  #projects .project-card.featured .healthcare-carousel figcaption span{
+    font-size:.68rem!important;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  #projects .project-card.featured::after,
+  #projects .project-card.featured .project-topline,
+  #projects .project-card.featured .project-topline::before,
+  #projects .project-card.featured > h3,
+  #projects .project-card.featured > h3::after,
+  #projects .project-card.featured > p,
+  #projects .project-card.featured .healthcare-carousel{
+    animation:none!important;
+  }
+}
