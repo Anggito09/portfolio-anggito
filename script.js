@@ -1,8 +1,13 @@
 (()=>{
-  const css=document.createElement('link');
-  css.rel='stylesheet';
-  css.href='mobile-enhancements.css?v=20260826-3';
-  document.head.appendChild(css);
+  const loadCss=(href)=>{
+    const css=document.createElement('link');
+    css.rel='stylesheet';
+    css.href=href;
+    document.head.appendChild(css);
+  };
+
+  loadCss('mobile-enhancements.css?v=20260826-4');
+  loadCss('motion-enhancements.css?v=20260826-1');
 
   const load=(src)=>new Promise((resolve,reject)=>{
     const s=document.createElement('script');
@@ -12,8 +17,8 @@
     document.head.appendChild(s);
   });
 
-  load('script-core.js?v=20260826-3')
-    .then(()=>load('experience-period-fix.js?v=20260826-3'))
-    .then(()=>load('healthcare-slider.js?v=20260826-3'))
+  load('script-core.js?v=20260826-4')
+    .then(()=>load('experience-period-fix.js?v=20260826-4'))
+    .then(()=>load('healthcare-slider.js?v=20260826-4'))
     .catch(console.error);
 })();
