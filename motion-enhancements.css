@@ -1,0 +1,210 @@
+/* Subtle typography and interaction motion. Designed to stay professional. */
+
+/* Hero highlight: animated gradient text */
+.hero h1 span {
+  background: linear-gradient(90deg, #60a5fa 0%, #67e8f9 35%, #93c5fd 65%, #60a5fa 100%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: textGradientFlow 6s ease-in-out infinite;
+  filter: drop-shadow(0 0 14px rgba(96,165,250,.10));
+}
+
+/* Eyebrows get a soft tracking/breathing effect */
+.eyebrow {
+  animation: eyebrowBreath 4.5s ease-in-out infinite;
+  transform-origin: left center;
+}
+
+/* Section titles reveal with a very light shimmer */
+.section-heading h2,
+#about h2 {
+  position: relative;
+  isolation: isolate;
+}
+.section-heading h2::before,
+#about h2::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(110deg, transparent 25%, rgba(255,255,255,.07) 46%, transparent 67%);
+  transform: translateX(-130%);
+  animation: headingSweep 7s ease-in-out infinite;
+  mix-blend-mode: screen;
+}
+
+/* Brand receives a restrained glow instead of a distracting bounce */
+.brand {
+  animation: brandGlow 4.8s ease-in-out infinite;
+}
+
+/* Buttons: soft sheen and lift */
+.btn {
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0);
+  transition: transform .28s cubic-bezier(.2,.7,.2,1), box-shadow .28s ease, border-color .28s ease !important;
+}
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: -40% -70%;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 43%, rgba(255,255,255,.18) 50%, transparent 57%);
+  transform: translateX(-55%) rotate(8deg);
+  animation: buttonSheen 6.5s ease-in-out infinite;
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+.btn:active {
+  transform: translateY(0) scale(.985);
+}
+
+/* Chips gently react on hover/touch capable desktop browsers */
+.chips span {
+  transition: transform .24s ease, border-color .24s ease, background .24s ease, box-shadow .24s ease;
+}
+.chips span:hover {
+  transform: translateY(-2px);
+  border-color: rgba(103,232,249,.28);
+  background: rgba(96,165,250,.08);
+  box-shadow: 0 8px 20px rgba(2,8,23,.12);
+}
+
+/* Cards feel alive without constantly moving */
+.project-card,
+.research-card,
+.skill-card,
+.cert-card,
+.education-card,
+.achievement-grid article,
+#experience .timeline article {
+  will-change: transform;
+}
+.project-card:hover,
+.research-card:hover,
+.skill-card:hover,
+.cert-card:hover,
+.education-card:hover,
+.achievement-grid article:hover {
+  transform: translateY(-5px);
+}
+
+/* Mobile-specific refinement */
+@media (max-width: 900px) {
+  .hero h1 {
+    animation: heroTitleIn .82s cubic-bezier(.2,.75,.2,1) both;
+  }
+  .hero .lead {
+    animation: heroCopyIn .82s .12s cubic-bezier(.2,.75,.2,1) both;
+  }
+  .hero-actions {
+    animation: heroCopyIn .82s .2s cubic-bezier(.2,.75,.2,1) both;
+  }
+  .hero h1 span {
+    animation: textGradientFlow 5.5s ease-in-out infinite, textGlowPulse 3.8s ease-in-out infinite;
+  }
+  .section-heading h2,
+  #about h2 {
+    animation: mobileHeadingIn .7s cubic-bezier(.2,.75,.2,1) both;
+  }
+  .timeline-meta,
+  .project-topline,
+  .research-type,
+  .education-year {
+    animation: accentTextPulse 4.6s ease-in-out infinite;
+  }
+
+  /* Keep mobile typography readable while animation runs */
+  .hero .lead,
+  #about .split > div:last-child p,
+  #experience .timeline p,
+  .section-copy,
+  .project-card p,
+  .research-card p,
+  .skill-card p,
+  .cert-card p,
+  .education-card p,
+  .achievement-grid p {
+    text-align: justify !important;
+    text-justify: inter-word !important;
+    hyphens: auto !important;
+    -webkit-hyphens: auto !important;
+  }
+}
+
+@keyframes textGradientFlow {
+  0%,100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+@keyframes textGlowPulse {
+  0%,100% { filter: drop-shadow(0 0 10px rgba(96,165,250,.08)); }
+  50% { filter: drop-shadow(0 0 18px rgba(103,232,249,.16)); }
+}
+@keyframes eyebrowBreath {
+  0%,100% { opacity: .86; letter-spacing: inherit; }
+  50% { opacity: 1; }
+}
+@keyframes headingSweep {
+  0%,68%,100% { transform: translateX(-130%); opacity: 0; }
+  75% { opacity: .8; }
+  86% { transform: translateX(130%); opacity: 0; }
+}
+@keyframes brandGlow {
+  0%,100% { filter: drop-shadow(0 0 0 rgba(103,232,249,0)); }
+  50% { filter: drop-shadow(0 0 7px rgba(103,232,249,.14)); }
+}
+@keyframes buttonSheen {
+  0%,72%,100% { transform: translateX(-55%) rotate(8deg); opacity: 0; }
+  78% { opacity: .75; }
+  88% { transform: translateX(55%) rotate(8deg); opacity: 0; }
+}
+@keyframes heroTitleIn {
+  from { opacity: 0; transform: translateY(22px); filter: blur(5px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+@keyframes heroCopyIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes mobileHeadingIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes accentTextPulse {
+  0%,100% { filter: brightness(1); }
+  50% { filter: brightness(1.14); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero h1,
+  .hero h1 span,
+  .hero .lead,
+  .hero-actions,
+  .eyebrow,
+  .brand,
+  .section-heading h2,
+  #about h2,
+  .section-heading h2::before,
+  #about h2::before,
+  .btn::after,
+  .timeline-meta,
+  .project-topline,
+  .research-type,
+  .education-year {
+    animation: none !important;
+  }
+  .project-card,
+  .research-card,
+  .skill-card,
+  .cert-card,
+  .education-card,
+  .achievement-grid article,
+  .btn,
+  .chips span {
+    transition: none !important;
+  }
+}
