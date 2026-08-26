@@ -40,61 +40,62 @@
   #about .split > div:last-child p { margin-bottom: 18px; }
   #about .split > div:last-child p:last-child { margin-bottom: 0; }
 
-  /* Experience mobile redesign: clean cards, no overlapping timeline rail */
+  /* Experience: cleaner mobile cards with separated meta, content and chips */
   #experience { overflow: hidden; }
   #experience .section-heading h2 { font-size: clamp(2rem, 8.8vw, 3rem); }
-  #experience .timeline { display: grid; gap: 18px; position: relative; }
+  #experience .timeline { display: grid; gap: 16px; position: relative; }
   #experience .timeline::before { display: none !important; }
   #experience .timeline article {
     display: block;
     position: relative;
     overflow: hidden;
     margin: 0;
-    padding: 24px 20px 22px;
-    border: 1px solid rgba(125,177,255,.16);
+    padding: 22px 18px 20px;
+    border: 1px solid rgba(125,177,255,.15);
     border-radius: 22px;
-    background: linear-gradient(145deg,rgba(13,28,53,.92),rgba(8,20,39,.96));
-    box-shadow: 0 16px 40px rgba(2,8,23,.16), inset 0 1px 0 rgba(255,255,255,.025);
+    background: linear-gradient(145deg,rgba(12,26,49,.96),rgba(8,18,35,.98));
+    box-shadow: 0 16px 38px rgba(2,8,23,.15), inset 0 1px 0 rgba(255,255,255,.025);
     transform: translateZ(0);
-    transition: transform .32s cubic-bezier(.2,.7,.2,1), border-color .32s ease, box-shadow .32s ease;
+    transition: transform .3s cubic-bezier(.2,.7,.2,1), border-color .3s ease, box-shadow .3s ease;
   }
   #experience .timeline article::before {
     content: "";
     position: absolute;
     left: 0;
-    top: 22px;
+    top: 20px;
     width: 3px;
-    height: 52px;
+    height: 44px;
     border: 0;
     border-radius: 0 99px 99px 0;
     background: linear-gradient(180deg,var(--accent2),var(--accent));
-    box-shadow: 0 0 18px rgba(103,232,249,.38);
+    box-shadow: 0 0 14px rgba(103,232,249,.35);
   }
   #experience .timeline article::after {
     content: "";
     position: absolute;
-    width: 150px;
-    height: 150px;
-    right: -75px;
-    top: -80px;
+    width: 130px;
+    height: 130px;
+    right: -62px;
+    top: -72px;
     border-radius: 50%;
-    background: radial-gradient(circle,rgba(96,165,250,.12),transparent 68%);
+    background: radial-gradient(circle,rgba(96,165,250,.10),transparent 68%);
     pointer-events: none;
-    animation: experienceCardGlow 5.5s ease-in-out infinite;
+    animation: experienceCardGlow 6s ease-in-out infinite;
   }
-  #experience .timeline article:active { transform: scale(.992); }
+  #experience .timeline article:active { transform: scale(.994); }
+
   #experience .timeline-meta {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    margin: 0 0 13px;
-    padding: 7px 11px;
+    margin: 0 0 14px;
+    padding: 6px 10px;
     border: 1px solid rgba(103,232,249,.16);
     border-radius: 999px;
-    background: rgba(103,232,249,.055);
-    color: #6ee7f7;
-    font-size: .76rem;
-    line-height: 1.35;
+    background: rgba(103,232,249,.05);
+    color: #79edf9;
+    font-size: .74rem;
+    line-height: 1.3;
     letter-spacing: .01em;
     font-weight: 800;
     width: fit-content;
@@ -106,14 +107,16 @@
     flex: 0 0 7px;
     border-radius: 50%;
     background: var(--accent2);
-    box-shadow: 0 0 0 4px rgba(103,232,249,.08), 0 0 14px rgba(103,232,249,.28);
+    box-shadow: 0 0 0 4px rgba(103,232,249,.08), 0 0 12px rgba(103,232,249,.22);
     animation: experienceDotPulse 2.4s ease-in-out infinite;
   }
+  #experience .timeline-meta br { display: none; }
+
   #experience .timeline h3 {
     position: relative;
     z-index: 1;
-    margin: 0 0 14px;
-    font-size: 1.15rem;
+    margin: 0 0 13px;
+    font-size: 1.08rem;
     line-height: 1.35;
     letter-spacing: -.025em;
     text-wrap: balance;
@@ -123,19 +126,20 @@
     z-index: 1;
     margin: 0;
     color: #a9bad3;
-    font-size: .92rem;
-    line-height: 1.72;
-    text-align: justify;
-    text-justify: inter-word;
-    hyphens: auto;
+    font-size: .9rem;
+    line-height: 1.68;
+    text-align: left;
+    hyphens: none;
+    overflow-wrap: anywhere;
   }
-  #experience .chips { position: relative; z-index: 1; gap: 8px; margin-top: 18px; }
+  #experience .chips { position: relative; z-index: 1; display: flex; gap: 7px; margin-top: 17px; flex-wrap: wrap; }
   #experience .chips span {
-    padding: 7px 11px;
+    padding: 6px 10px;
     border-color: rgba(125,177,255,.16);
     background: rgba(96,165,250,.045);
-    font-size: .67rem;
-    line-height: 1.25;
+    font-size: .66rem;
+    line-height: 1.2;
+    white-space: nowrap;
   }
 
   .project-grid, .research-grid, .skill-grid, .cert-grid, .achievement-grid { gap: 14px; }
@@ -181,14 +185,14 @@
   .section-copy, .split p { font-size: .92rem; line-height: 1.68; }
   #about .split > div:last-child { padding: 18px 15px 18px 20px; }
 
-  #experience .timeline { gap: 16px; }
-  #experience .timeline article { padding: 21px 17px 20px 19px; border-radius: 20px; }
-  #experience .timeline article::before { top: 20px; height: 48px; }
-  #experience .timeline-meta { font-size: .71rem; padding: 6px 9px; margin-bottom: 12px; }
-  #experience .timeline h3 { font-size: 1.05rem; line-height: 1.38; margin-bottom: 12px; }
-  #experience .timeline p { font-size: .88rem; line-height: 1.68; }
-  #experience .chips { gap: 7px; margin-top: 16px; }
-  #experience .chips span { font-size: .63rem; padding: 6px 9px; }
+  #experience .timeline { gap: 14px; }
+  #experience .timeline article { padding: 20px 16px 18px; border-radius: 19px; }
+  #experience .timeline article::before { top: 19px; height: 40px; }
+  #experience .timeline-meta { font-size: .69rem; padding: 6px 9px; margin-bottom: 12px; }
+  #experience .timeline h3 { font-size: 1rem; line-height: 1.34; margin-bottom: 11px; }
+  #experience .timeline p { font-size: .86rem; line-height: 1.62; }
+  #experience .chips { gap: 6px; margin-top: 15px; }
+  #experience .chips span { font-size: .61rem; padding: 6px 8px; }
 
   .project-card, .research-card { padding: 20px; }
   .project-card h3 { font-size: 1.25rem; }
@@ -202,11 +206,11 @@
 }
 @keyframes experienceDotPulse {
   0%,100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(.8); opacity: .68; }
+  50% { transform: scale(.82); opacity: .7; }
 }
 @keyframes experienceCardGlow {
-  0%,100% { transform: translate3d(0,0,0) scale(1); opacity: .65; }
-  50% { transform: translate3d(-12px,12px,0) scale(1.08); opacity: 1; }
+  0%,100% { transform: translate3d(0,0,0) scale(1); opacity: .6; }
+  50% { transform: translate3d(-10px,10px,0) scale(1.06); opacity: 1; }
 }
 
 @media (prefers-reduced-motion: reduce) {
