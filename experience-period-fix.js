@@ -14,15 +14,29 @@
 
   const style=document.createElement('style');
   style.textContent=`
-    #experience .timeline article{grid-template-columns:260px minmax(0,1fr)!important;gap:30px!important}
-    #experience .timeline-meta{white-space:normal!important;line-height:1.45!important;align-self:start!important;padding-top:2px;max-width:250px}
-    @media(min-width:1100px){
-      #experience .timeline article{grid-template-columns:285px minmax(0,1fr)!important}
-      #experience .timeline-meta{max-width:275px}
+    #experience .timeline article{
+      grid-template-columns:minmax(320px,34%) minmax(0,1fr)!important;
+      gap:34px!important;
+      align-items:start!important;
+    }
+    #experience .timeline-meta{
+      max-width:none!important;
+      width:100%!important;
+      white-space:nowrap!important;
+      line-height:1.45!important;
+      align-self:start!important;
+      padding-top:2px;
+      font-size:.86rem!important;
+      letter-spacing:0!important;
+    }
+    #experience .timeline article>div:last-child{min-width:0!important}
+    @media(max-width:1180px){
+      #experience .timeline article{grid-template-columns:300px minmax(0,1fr)!important;gap:28px!important}
+      #experience .timeline-meta{white-space:normal!important}
     }
     @media(max-width:900px){
       #experience .timeline article{grid-template-columns:1fr!important;gap:8px!important}
-      #experience .timeline-meta{max-width:none!important}
+      #experience .timeline-meta{white-space:normal!important;width:auto!important;font-size:.9rem!important}
     }
   `;
   document.head.appendChild(style);
