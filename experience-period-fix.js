@@ -1,16 +1,28 @@
 (()=>{
-  const periods=['2026 — Present','2025 — 2026','2025','2024','2024','2023 — 2024'];
+  const periods=[
+    'Jun 2026 — Present · Jakarta, Indonesia',
+    'Jun 2025 — Jun 2026 · Karawang, Indonesia',
+    'Feb 2025 — Jun 2025 · Surabaya, Indonesia',
+    'May 2024 — Oct 2024 · Bandung, Indonesia',
+    'Feb 2024 — Jun 2024 · Jakarta, Indonesia',
+    'Aug 2023 — Aug 2024 · Jember, Indonesia'
+  ];
+
   document.querySelectorAll('#experience .timeline article .timeline-meta').forEach((meta,index)=>{
     if(periods[index]) meta.textContent=periods[index];
   });
 
   const style=document.createElement('style');
   style.textContent=`
-    #experience .timeline article{grid-template-columns:180px minmax(0,1fr)!important;gap:30px!important}
-    #experience .timeline-meta{white-space:nowrap!important;line-height:1.35!important;align-self:start!important;padding-top:2px}
+    #experience .timeline article{grid-template-columns:260px minmax(0,1fr)!important;gap:30px!important}
+    #experience .timeline-meta{white-space:normal!important;line-height:1.45!important;align-self:start!important;padding-top:2px;max-width:250px}
+    @media(min-width:1100px){
+      #experience .timeline article{grid-template-columns:285px minmax(0,1fr)!important}
+      #experience .timeline-meta{max-width:275px}
+    }
     @media(max-width:900px){
       #experience .timeline article{grid-template-columns:1fr!important;gap:8px!important}
-      #experience .timeline-meta{white-space:normal!important}
+      #experience .timeline-meta{max-width:none!important}
     }
   `;
   document.head.appendChild(style);
