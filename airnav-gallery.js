@@ -1,12 +1,12 @@
 (()=>{
   const init=()=>{
-    const card=[...document.querySelectorAll('.project-card')].find((item)=>item.querySelector('h3')?.textContent.trim()==='AirNav Assist');
+    const card=[...document.querySelectorAll('.project-card')].find((item)=>item.querySelector('h3')?.textContent.trim().startsWith('AirNav Assist'));
     if(!card || card.querySelector('.airnav-showcase')) return;
 
     card.classList.add('airnav-card-enhanced');
 
     const title=card.querySelector('h3');
-    if(title){
+    if(title && !card.querySelector('.airnav-project-subtitle')){
       const subtitle=document.createElement('div');
       subtitle.className='airnav-project-subtitle';
       subtitle.textContent='Integrated Internal Platform for AirNav Indonesia';
@@ -22,15 +22,15 @@
           <span class="airnav-showcase-kicker">Selected Interfaces</span>
           <strong>AirNav Assist Web Platform</strong>
         </div>
-        <span class="airnav-showcase-count">06 screens</span>
+        <span class="airnav-showcase-count">02 screens</span>
       </div>
       <div class="airnav-showcase-grid">
         <button class="airnav-shot airnav-shot-login" type="button" data-full="assets/airnav/airnav-login.webp" aria-label="Buka tampilan Login AirNav Assist">
-          <span class="airnav-shot-media"><img src="assets/airnav/airnav-login.webp" alt="Tampilan login AirNav Assist" loading="lazy" decoding="async"></span>
+          <span class="airnav-shot-media"><img src="assets/airnav/airnav-login.webp?v=20260827-2" alt="Tampilan login AirNav Assist" loading="lazy" decoding="async"></span>
           <span class="airnav-shot-copy"><b>Login & Authentication</b><small>Entry point pengguna ke platform internal.</small></span>
         </button>
         <button class="airnav-shot airnav-shot-admin" type="button" data-full="assets/airnav/airnav-admin.webp" aria-label="Buka rangkuman dashboard admin AirNav Assist">
-          <span class="airnav-shot-media"><img src="assets/airnav/airnav-admin.webp" alt="Rangkuman dashboard admin AirNav Assist untuk Artikel, Pembelajaran, Test, E-Logbook, dan Pengguna" loading="lazy" decoding="async"></span>
+          <span class="airnav-shot-media"><img src="assets/airnav/airnav-admin.webp?v=20260827-2" alt="Rangkuman dashboard admin AirNav Assist untuk Artikel, Pembelajaran, Test, E-Logbook, dan Pengguna" loading="lazy" decoding="async"></span>
           <span class="airnav-shot-copy"><b>Admin Management Suite</b><small>Artikel · Pembelajaran · Test · E-Logbook · Pengguna</small></span>
         </button>
       </div>
@@ -87,7 +87,7 @@
     showcase.querySelectorAll('.airnav-shot').forEach((shot)=>{
       shot.addEventListener('click',()=>{
         const preview=lightbox.querySelector('img');
-        preview.src=shot.dataset.full;
+        preview.src=shot.dataset.full+'?v=20260827-2';
         preview.alt=shot.querySelector('img')?.alt||'AirNav Assist screenshot preview';
         lightbox.classList.add('is-open');
         document.body.style.overflow='hidden';
