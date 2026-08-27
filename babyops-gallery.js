@@ -60,7 +60,7 @@
     #projects .babyops-screen:hover img{filter:drop-shadow(0 24px 40px rgba(103,232,249,.22)) drop-shadow(0 12px 20px rgba(2,8,23,.38))}
     #projects .babyops-feature-screen{border:0;background:transparent}
     #projects .babyops-device{display:flex;align-items:center;justify-content:center;min-height:auto;padding:0;border-radius:0;background:transparent;overflow:visible}
-    #projects .babyops-screen img{display:block;width:auto;max-width:100%;height:322px;object-fit:contain;border-radius:22px;background:transparent;filter:drop-shadow(0 18px 28px rgba(2,8,23,.38)) drop-shadow(0 6px 12px rgba(2,8,23,.22));transition:transform .35s cubic-bezier(.2,.7,.2,1),filter .35s ease}
+    #projects .babyops-screen img{display:block;width:auto;max-width:100%;height:322px;object-fit:contain;border-radius:22px;background:transparent;image-rendering:-webkit-optimize-contrast;image-rendering:crisp-edges;filter:drop-shadow(0 18px 28px rgba(2,8,23,.38)) drop-shadow(0 6px 12px rgba(2,8,23,.22));transition:transform .35s cubic-bezier(.2,.7,.2,1),filter .35s ease}
     #projects .babyops-screen:hover img{transform:translateY(-2px) scale(1.03);filter:drop-shadow(0 24px 40px rgba(103,232,249,.18)) drop-shadow(0 16px 28px rgba(2,8,23,.42))}
     #projects .babyops-screen figcaption{min-height:44px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:9px 4px 0;font-size:.7rem;line-height:1.35;font-weight:750;text-align:center;color:#a9b8cc}
     #projects .babyops-screen figcaption span{display:block;margin-bottom:4px;font-size:.52rem;font-weight:900;letter-spacing:.12em;color:#67e8f9}
