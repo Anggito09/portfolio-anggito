@@ -119,11 +119,12 @@
     #projects .cityconnect-preview-grid::-webkit-scrollbar{height:7px}
     #projects .cityconnect-preview-grid::-webkit-scrollbar-track{background:rgba(255,255,255,.035);border-radius:999px}
     #projects .cityconnect-preview-grid::-webkit-scrollbar-thumb{background:linear-gradient(90deg,rgba(103,232,249,.28),rgba(167,139,250,.28));border-radius:999px}
-    #projects .cityconnect-screen{scroll-snap-align:start;margin:0;min-width:0;padding:12px 10px 11px;border:1px solid rgba(148,163,184,.13);border-radius:20px;background:linear-gradient(180deg,rgba(17,30,54,.72),rgba(5,14,29,.8));box-shadow:0 10px 24px rgba(2,8,23,.12);transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease,background .28s ease;cursor:zoom-in}
-    #projects .cityconnect-screen:hover{transform:translateY(-5px);border-color:rgba(103,232,249,.32);background:linear-gradient(180deg,rgba(19,36,63,.95),rgba(7,18,37,.95));box-shadow:0 18px 36px rgba(2,8,23,.27)}
-    #projects .cityconnect-device{display:flex;align-items:center;justify-content:center;min-height:330px;padding:4px;border-radius:15px;background:radial-gradient(circle at 50% 45%,rgba(103,232,249,.055),transparent 63%);overflow:hidden}
-    #projects .cityconnect-screen img{display:block;width:auto;max-width:100%;height:322px;object-fit:contain;border-radius:12px;filter:drop-shadow(0 12px 18px rgba(2,8,23,.28));transition:transform .28s ease,filter .28s ease}
-    #projects .cityconnect-screen:hover img{transform:scale(1.025);filter:drop-shadow(0 15px 24px rgba(2,8,23,.34))}
+    /* Hapus background putih — samain BabyOps biar mengambang clean */
+    #projects .cityconnect-screen{scroll-snap-align:start;margin:0;min-width:0;padding:6px 6px 8px;border:0;border-radius:0;background:transparent;box-shadow:none;transition:transform .28s ease,filter .28s ease;cursor:zoom-in}
+    #projects .cityconnect-screen:hover{transform:translateY(-6px);border-color:transparent;background:transparent;box-shadow:none}
+    #projects .cityconnect-device{display:flex;align-items:center;justify-content:center;min-height:auto;padding:0;border-radius:0;background:transparent;overflow:visible}
+    #projects .cityconnect-screen img{display:block;width:auto;max-width:100%;height:322px;object-fit:contain;border-radius:22px;background:transparent;filter:drop-shadow(0 18px 28px rgba(2,8,23,.38)) drop-shadow(0 6px 12px rgba(2,8,23,.22));transition:transform .28s ease,filter .28s ease}
+    #projects .cityconnect-screen:hover img{transform:translateY(-2px) scale(1.02);filter:drop-shadow(0 22px 36px rgba(2,8,23,.45)) drop-shadow(0 8px 16px rgba(2,8,23,.28))}
     #projects .cityconnect-screen figcaption{min-height:44px;display:flex;align-items:center;justify-content:center;gap:7px;padding:9px 4px 0;font-size:.7rem;line-height:1.35;font-weight:750;text-align:center;color:#a9b8cc}
     #projects .cityconnect-screen figcaption b{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:7px;background:rgba(103,232,249,.13);border:1px solid rgba(103,232,249,.18);font-size:.51rem;color:#67e8f9}
     #projects .cityconnect-screen.image-unavailable{background:linear-gradient(145deg,#111d31,#0a1424)}

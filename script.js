@@ -21,9 +21,9 @@
     .then(()=>load('experience-period-fix.js?v=20260827-2'))
     .then(()=>load('healthcare-slider.js?v=20260827-1'))
     .then(()=>loadCss('healthcare-section-enhancements.css?v=20260827-1'))
-    .then(()=>load('babyops-enhancements.js?v=20260827-1'))
-    .then(()=>load('babyops-gallery.js?v=20260827-3'))
-    .then(()=>load('cityconnect-enhancements.js?v=20260827-3'))
+    .then(()=>load('babyops-enhancements.js?v=20260827-2'))
+    .then(()=>load('babyops-gallery.js?v=20260827-5'))
+    .then(()=>load('cityconnect-enhancements.js?v=20260827-4'))
     .then(()=>load('kamerain-enhancements.js?v=20260827-1'))
     .catch(console.error);
 })();
