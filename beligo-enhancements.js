@@ -17,7 +17,7 @@
   if(chips) chips.innerHTML=['Price Comparison','Product Reviews','Smart Recommendation','Community Discussion','E-Commerce','Web Platform'].map(item=>`<span>${item}</span>`).join('');
 
   if(link){
-    link.textContent='View Beligo Project ↗';
+    link.remove();
   }
 
   if(!card.querySelector('.beligo-award')){
