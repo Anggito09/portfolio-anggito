@@ -18,24 +18,23 @@
     const home=existing.find(el=>(el.dataset.src||'').includes('cityconnect-homepage'));
     const spot=existing.find(el=>(el.dataset.src||'').includes('cityconnect-cityspot'));
 
-    const login=figure('assets/cityconnect-login.webp?v=20260827-4','CityConnect login and account access screen','Login');
-    const talk=figure('assets/cityconnect-citytalk.webp?v=20260827-4','CityConnect CityTalk community discussion feed','CityTalk');
-    const event=figure('assets/cityconnect-cityevent.webp?v=20260827-4','CityConnect CityEvent community activity feed','CityEvent');
+    const login=figure('assets/cityconnect-login.webp?v=20260827-5','CityConnect login and account access screen','Login');
+    const event=figure('assets/cityconnect-cityevent.webp?v=20260827-5','CityConnect CityEvent community activity feed','CityEvent');
 
-    // Urutan pengalaman mobile: Login → Homepage → SpotCity → CityTalk → CityEvent.
+    // Urutan pengalaman mobile: Login → Homepage → SpotCity → CityEvent.
     grid.innerHTML='';
-    [login,home,spot,talk,event].filter(Boolean).forEach(el=>grid.appendChild(el));
+    [login,home,spot,event].filter(Boolean).forEach(el=>grid.appendChild(el));
     grid.scrollLeft=0;
 
     const helper=document.querySelector('#projects .cityconnect-preview-head small');
-    if(helper) helper.textContent='5 layar utama CityConnect — Login, Homepage, SpotCity, CityTalk, dan CityEvent.';
+    if(helper) helper.textContent='4 layar utama CityConnect — Login, Homepage, SpotCity, dan CityEvent.';
 
     const addFallback=(img)=>{
       img.addEventListener('error',()=>{
         const src=img.getAttribute('src')||'';
         if(src.startsWith('assets/')){
           const cleanSrc=src.split('?')[0];
-          img.src=`https://raw.githubusercontent.com/Anggito09/portfolio-anggito/main/${cleanSrc}?v=20260827-4`;
+          img.src=`https://raw.githubusercontent.com/Anggito09/portfolio-anggito/main/${cleanSrc}?v=20260827-5`;
         }else{
           img.closest('.cityconnect-screen')?.classList.add('image-unavailable');
         }
