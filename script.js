@@ -19,8 +19,8 @@
 
   load('script-core.js?v=20260827-1')
     .then(()=>load('experience-period-fix.js?v=20260827-2'))
-    .then(()=>load('healthcare-slider.js?v=20260827-1'))
-    .then(()=>loadCss('healthcare-section-enhancements.css?v=20260827-1'))
+    .then(()=>load('healthcare-slider.js?v=20260827-2'))
+    .then(()=>loadCss('healthcare-section-enhancements.css?v=20260827-2'))
     .then(()=>load('babyops-enhancements.js?v=20260827-2'))
     .then(()=>load('babyops-gallery.js?v=20260827-5'))
     .then(()=>load('cityconnect-enhancements.js?v=20260827-9'))
@@ -29,5 +29,6 @@
     .then(()=>load('beligo-gallery.js?v=20260827-1'))
     .then(()=>load('kamerain-enhancements.js?v=20260827-10'))
     .then(()=>load('kamerain-polish.js?v=20260827-1'))
+    .then(()=>load('beligo-family-enhancements.js?v=20260827-1'))
     .catch(console.error);
 })();

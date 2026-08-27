@@ -1,5 +1,12 @@
 (()=>{
   const card=document.querySelector('#projects .project-card');
+  // Lampu ala BabyOps — bohlam kecil di tengah atas dengan glow
+  if(card && !card.querySelector('.healthcare-lamp-bulb')){
+    const bulb=document.createElement('div');
+    bulb.className='healthcare-lamp-bulb';
+    bulb.setAttribute('aria-hidden','true');
+    card.prepend(bulb);
+  }
   const old=card?.querySelector('.healthcare-evidence');
   if(!old) return;
 
