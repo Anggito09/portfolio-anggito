@@ -25,6 +25,7 @@
     .then(()=>load('babyops-gallery.js?v=20260827-5'))
     .then(()=>load('cityconnect-enhancements.js?v=20260827-9'))
     .then(()=>load('cityconnect-gallery-complete.js?v=20260827-4'))
+    .then(()=>load('beligo-enhancements.js?v=20260827-1'))
     .then(()=>load('kamerain-enhancements.js?v=20260827-10'))
     .then(()=>load('kamerain-polish.js?v=20260827-1'))
     .catch(console.error);
