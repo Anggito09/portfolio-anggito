@@ -141,7 +141,7 @@
     #projects .cityconnect-preview-head small code{padding:1px 5px;border-radius:6px;background:rgba(255,255,255,.06);color:#c4d4ea;font-size:.68rem}
     #projects .cityconnect-scroll-hint{grid-column:2;grid-row:1/3;align-self:center;padding:7px 11px;border:1px solid rgba(103,232,249,.13);border-radius:999px;background:rgba(103,232,249,.055);font-size:.62rem;font-weight:700;letter-spacing:.04em;color:#8ea6c4;white-space:nowrap}
     #projects .cityconnect-scroll-hint b{margin-left:5px;color:#67e8f9;font-size:.82rem}
-    #projects .cityconnect-preview-grid{position:relative;z-index:1;display:grid;grid-auto-flow:column;grid-auto-columns:clamp(158px,13.5vw,175px);gap:10px;overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:x mandatory;padding:4px 4px 12px;scrollbar-width:thin;scrollbar-color:rgba(103,232,249,.28) rgba(255,255,255,.035);align-items:start;justify-content:start}
+    #projects .cityconnect-preview-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;overflow:visible;padding:4px 2px 4px;align-items:start;justify-content:start}
     #projects .cityconnect-preview-grid::-webkit-scrollbar{height:7px}
     #projects .cityconnect-preview-grid::-webkit-scrollbar-track{background:rgba(255,255,255,.035);border-radius:999px}
     #projects .cityconnect-preview-grid::-webkit-scrollbar-thumb{background:linear-gradient(90deg,rgba(103,232,249,.28),rgba(167,139,250,.28));border-radius:999px}
