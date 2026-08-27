@@ -31,5 +31,6 @@
     .then(()=>load('kamerain-polish.js?v=20260827-1'))
     .then(()=>load('beligo-family-enhancements.js?v=20260827-3'))
     .then(()=>load('airnav-gallery.js?v=20260827-airnav-hd'))
+    .then(()=>load('mutant-gallery.js?v=20260827-mutant-v1'))
     .catch(console.error);
 })();
