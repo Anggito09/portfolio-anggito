@@ -18,17 +18,38 @@
   if(chips) chips.innerHTML=['Smart City','Air Quality','Community Platform','Public Reporting','UX/UI','Award Winning'].map(x=>`<span>${x}</span>`).join('');
   if(oldLink) oldLink.remove();
 
+  if(!card.querySelector('.cityconnect-award')){
+    const award=document.createElement('div');
+    award.className='cityconnect-award';
+    award.innerHTML=`<span>🏆</span><div><small>ACHIEVEMENT</small><strong>2nd Place · Smart City Competition</strong></div>`;
+    if(desc) desc.after(award);
+  }
+
+  if(!card.querySelector('.cityconnect-details')){
+    const details=document.createElement('div');
+    details.className='cityconnect-details';
+    details.innerHTML=`
+      <div class="cityconnect-detail">
+        <span class="cityconnect-detail-icon">01</span>
+        <div><strong>Air Quality Intelligence</strong><small>Real-time AQI monitoring with visual dashboards for environmental awareness.</small></div>
+      </div>
+      <div class="cityconnect-detail">
+        <span class="cityconnect-detail-icon">02</span>
+        <div><strong>Community & Safety</strong><small>Public reporting, community forums, and collaborative urban management.</small></div>
+      </div>
+      <div class="cityconnect-detail">
+        <span class="cityconnect-detail-icon">03</span>
+        <div><strong>City Discovery</strong><small>Integrated tourism and local information to connect citizens with their city.</small></div>
+      </div>`;
+    const awardEl=card.querySelector('.cityconnect-award');
+    if(awardEl) awardEl.after(details);
+    else if(desc) desc.after(details);
+  }
+
   const showcase=document.createElement('div');
   showcase.className='cityconnect-showcase';
-  // Mirip BabyOps: sisain 2 dulu, nanti tinggal tambah <figure> lagi untuk upload baru
+  // Mirip BabyOps 1:1 — tanpa tombol View Project / Explore Screens, sisain 2 dulu
   showcase.innerHTML=`
-    <div class="cityconnect-copy">
-      <div class="cityconnect-award"><span>🏆</span><div><small>ACHIEVEMENT</small><strong>2nd Place · Smart City Competition</strong></div></div>
-      <div class="cityconnect-actions">
-        <a href="https://l1nk.dev/CityConnect" target="_blank" rel="noreferrer" class="cityconnect-btn primary">View Project <b>↗</b></a>
-        <button type="button" class="cityconnect-btn gallery-jump">Explore Screens <b>↓</b></button>
-      </div>
-    </div>
     <div class="cityconnect-preview" aria-label="CityConnect app screens">
       <div class="cityconnect-preview-head">
         <div class="cityconnect-preview-title"><span>APP PREVIEW</span><strong>CityConnect Mobile Experience</strong></div>
@@ -85,25 +106,30 @@
       openLightbox(fig.dataset.src || img.src,img.alt);
     });
   });
-  showcase.querySelector('.gallery-jump')?.addEventListener('click',()=>showcase.querySelector('.cityconnect-preview-grid')?.scrollIntoView({behavior:'smooth',block:'center'}));
 
   const style=document.createElement('style');
   style.textContent=`
-    #projects .cityconnect-featured{grid-column:1/-1;position:relative;min-height:auto;padding:32px;border-color:rgba(96,165,250,.2);background:radial-gradient(circle at 88% 12%,rgba(59,130,246,.16),transparent 28%),radial-gradient(circle at 12% 92%,rgba(16,185,129,.09),transparent 30%),linear-gradient(135deg,#101b30 0%,#0f1a2c 50%,#101f28 100%);box-shadow:0 28px 70px rgba(2,8,23,.2)}
+    #projects .cityconnect-featured{grid-column:1/-1;position:relative;isolation:isolate;overflow:hidden;min-height:auto;padding:32px;border-color:rgba(96,165,250,.2);background:radial-gradient(circle at 88% 12%,rgba(59,130,246,.16),transparent 28%),radial-gradient(circle at 12% 92%,rgba(16,185,129,.09),transparent 30%),linear-gradient(135deg,#101b30 0%,#0f1a2c 50%,#101f28 100%);box-shadow:0 28px 70px rgba(2,8,23,.2)}
+    #projects .cityconnect-featured::after{content:"";position:absolute;inset:-45%;z-index:-1;background:conic-gradient(from 180deg,transparent 0 76%,rgba(59,130,246,.07) 82%,rgba(103,232,249,.06) 88%,transparent 94%);animation:cityAmbientSpin 16s linear infinite;pointer-events:none}
     #projects .cityconnect-featured:hover{border-color:rgba(96,165,250,.38);box-shadow:0 34px 78px rgba(2,8,23,.28)}
-    #projects .cityconnect-featured>h3{font-size:clamp(1.8rem,3vw,2.55rem);line-height:1.08;margin-bottom:13px;max-width:800px}
-    #projects .cityconnect-featured>p{max-width:900px;font-size:.95rem;line-height:1.72;color:#b5c2d8}
-    #projects .cityconnect-featured>.project-topline{color:#7dd3fc}
-    #projects .cityconnect-showcase{display:grid;grid-template-columns:270px minmax(0,1fr);gap:24px;align-items:stretch;margin:24px 0 4px}
-    #projects .cityconnect-copy{display:flex;flex-direction:column;justify-content:space-between;gap:18px;padding:19px;border:1px solid rgba(125,211,252,.12);border-radius:19px;background:linear-gradient(160deg,rgba(15,35,59,.78),rgba(8,22,37,.56));box-shadow:inset 0 1px 0 rgba(255,255,255,.025)}
-    #projects .cityconnect-award{display:flex;align-items:center;gap:12px;padding:13px;border-radius:15px;background:rgba(251,191,36,.055);border:1px solid rgba(251,191,36,.13)}
-    #projects .cityconnect-award>span{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:13px;background:rgba(251,191,36,.1);font-size:1.25rem}
-    #projects .cityconnect-award small{display:block;margin-bottom:2px;font-size:.55rem;font-weight:900;letter-spacing:.14em;color:#fbbf24}
-    #projects .cityconnect-award strong{display:block;font-size:.77rem;line-height:1.35;color:#eaf3ff}
-    #projects .cityconnect-actions{display:grid;gap:9px}
-    #projects .cityconnect-btn{appearance:none;border:1px solid rgba(255,255,255,.1);min-height:42px;padding:10px 13px;border-radius:12px;background:rgba(255,255,255,.04);color:#e9f2ff;font:inherit;font-size:.76rem;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:.22s ease}
-    #projects .cityconnect-btn:hover{transform:translateY(-2px);border-color:rgba(125,211,252,.35);background:rgba(125,211,252,.07)}
-    #projects .cityconnect-btn.primary{border-color:rgba(96,165,250,.28);background:linear-gradient(135deg,#60a5fa,#67e8f9);color:#071423;box-shadow:0 10px 26px rgba(59,130,246,.18)}
+    #projects .cityconnect-featured .project-topline{display:inline-flex;align-items:center;width:fit-content;padding:7px 11px;border:1px solid rgba(125,211,252,.2);border-radius:999px;background:rgba(59,130,246,.07);color:#7dd3fc;letter-spacing:.1em;font-size:.7rem;font-weight:800;animation:cityBadgeFloat 4.6s ease-in-out infinite}
+    #projects .cityconnect-featured>h3{max-width:800px;margin-top:15px;font-size:clamp(1.8rem,3vw,2.55rem);line-height:1.08;margin-bottom:13px;background:linear-gradient(100deg,#fff 12%,#dbeafe 42%,#93c5fd 67%,#67e8f9 88%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:cityTitleReveal .85s cubic-bezier(.2,.75,.2,1) both, cityTitleFlow 8s ease-in-out 1s infinite}
+    #projects .cityconnect-featured>p{max-width:900px;margin-top:16px;font-size:.95rem;line-height:1.72;color:#b5c2d8;text-align:justify!important;text-justify:inter-word;animation:cityFadeUp .8s .12s both}
+    /* CityConnect now 1:1 BabyOps — no side buttons, award like BabyOps */
+    #projects .cityconnect-showcase{display:block;margin:24px 0 4px}
+    #projects .cityconnect-award{display:flex;align-items:center;gap:13px;width:fit-content;max-width:100%;margin:18px 0 4px;padding:12px 15px;border:1px solid rgba(251,191,36,.2);border-radius:15px;background:linear-gradient(135deg,rgba(251,191,36,.09),rgba(245,158,11,.035));box-shadow:inset 0 1px 0 rgba(255,255,255,.025)}
+    #projects .cityconnect-award>span{display:grid;place-items:center;width:42px;height:42px;flex:0 0 42px;border-radius:12px;background:rgba(251,191,36,.12);font-size:1.25rem}
+    #projects .cityconnect-award small{display:block;font-size:.53rem;font-weight:900;letter-spacing:.14em;color:#fbbf24}
+    #projects .cityconnect-award strong{display:block;margin-top:2px;font-size:.79rem;line-height:1.35;color:#fff4c7}
+    /* Header details ala BabyOps — 3 poin premium untuk CityConnect */
+    #projects .cityconnect-details{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:24px 0 16px}
+    #projects .cityconnect-detail{display:grid;grid-template-columns:36px minmax(0,1fr);gap:11px;align-items:start;padding:15px;border:1px solid rgba(125,211,252,.13);border-radius:16px;background:linear-gradient(145deg,rgba(15,35,59,.55),rgba(8,22,37,.45));transition:transform .28s ease,border-color .28s ease,background .28s ease,box-shadow .28s ease;animation:cityDetailIn .7s both}
+    #projects .cityconnect-detail:nth-child(2){animation-delay:.08s}#projects .cityconnect-detail:nth-child(3){animation-delay:.16s}
+    #projects .cityconnect-detail:hover{transform:translateY(-4px);border-color:rgba(125,211,252,.32);background:linear-gradient(145deg,rgba(17,45,75,.75),rgba(10,30,51,.65));box-shadow:0 14px 30px rgba(2,8,23,.18)}
+    #projects .cityconnect-detail-icon{display:grid;place-items:center;width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,rgba(96,165,250,.15),rgba(103,232,249,.10));border:1px solid rgba(125,211,252,.16);color:#7dd3fc;font-size:.66rem;font-weight:800;animation:cityIconGlow 3s ease-in-out infinite}
+    #projects .cityconnect-detail:nth-child(2) .cityconnect-detail-icon{animation-delay:.5s}#projects .cityconnect-detail:nth-child(3) .cityconnect-detail-icon{animation-delay:1s}
+    #projects .cityconnect-detail strong{display:block;font-size:.86rem;line-height:1.35;color:#f8fbff}#projects .cityconnect-detail small{display:block;margin-top:5px;font-size:.72rem;line-height:1.55;color:#8fb8d8}
+    @keyframes cityDetailIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}@keyframes cityIconGlow{0%,100%{box-shadow:0 0 0 rgba(96,165,250,0)}50%{box-shadow:0 0 14px rgba(96,165,250,.25),0 0 0 4px rgba(96,165,250,.07)}}
     /* Mirip BabyOps preview - 1:1 style */
     #projects .cityconnect-preview{position:relative;margin:0;padding:22px 20px 18px;overflow:hidden;border:1px solid rgba(103,232,249,.12);border-radius:24px;background:linear-gradient(145deg,rgba(15,28,50,.9),rgba(8,17,34,.72));box-shadow:inset 0 1px 0 rgba(255,255,255,.035),0 18px 45px rgba(2,8,23,.16)}
     #projects .cityconnect-preview::before{content:"";position:absolute;width:280px;height:280px;right:-120px;top:-170px;border-radius:50%;background:radial-gradient(circle,rgba(103,232,249,.12),transparent 68%);pointer-events:none}
@@ -132,10 +158,10 @@
     .cityconnect-lightbox{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:28px;background:rgba(1,5,14,.91);backdrop-filter:blur(11px);animation:cityLightIn .18s ease}
     .cityconnect-lightbox img{max-width:min(1120px,92vw);max-height:88vh;object-fit:contain;border-radius:16px;box-shadow:0 30px 90px rgba(0,0,0,.5)}
     .cityconnect-lightbox button{position:fixed;right:24px;top:20px;width:42px;height:42px;border:1px solid rgba(255,255,255,.16);border-radius:50%;background:rgba(15,23,42,.8);color:#fff;font-size:1.5rem;cursor:pointer}
-    @keyframes cityLightIn{from{opacity:0}to{opacity:1}}
-    @media(max-width:900px){#projects .cityconnect-featured{padding:27px}#projects .cityconnect-showcase{grid-template-columns:1fr}#projects .cityconnect-copy{display:grid;grid-template-columns:1fr auto;align-items:center}#projects .cityconnect-actions{grid-template-columns:1fr 1fr;min-width:300px}#projects .cityconnect-preview{padding:18px 16px 15px;border-radius:21px}#projects .cityconnect-preview-head{grid-template-columns:1fr;margin-bottom:15px}#projects .cityconnect-preview-head small{grid-column:1}#projects .cityconnect-scroll-hint{display:none}#projects .cityconnect-preview-grid{grid-auto-columns:176px;gap:11px}#projects .cityconnect-device{min-height:310px}#projects .cityconnect-screen img{height:302px}}
-    @media(max-width:600px){#projects .cityconnect-featured{padding:20px 15px;border-radius:19px}#projects .cityconnect-featured>h3{font-size:1.65rem}#projects .cityconnect-featured>p{font-size:.84rem}#projects .cityconnect-copy{display:block;padding:14px}#projects .cityconnect-actions{grid-template-columns:1fr 1fr;min-width:0;margin-top:12px}#projects .cityconnect-preview{margin-top:4px;padding:15px 12px 13px;border-radius:18px}#projects .cityconnect-preview-title{gap:6px 9px}#projects .cityconnect-preview-title strong{font-size:.93rem}#projects .cityconnect-preview-head small{font-size:.67rem;line-height:1.55}#projects .cityconnect-preview-grid{grid-auto-columns:160px;gap:10px;padding-bottom:11px}#projects .cityconnect-screen{padding:9px 8px 9px;border-radius:17px}#projects .cityconnect-device{min-height:282px}#projects .cityconnect-screen img{height:274px;border-radius:10px}#projects .cityconnect-screen figcaption{min-height:40px;font-size:.64rem}.cityconnect-lightbox{padding:16px}.cityconnect-lightbox button{right:14px;top:14px}}
-    @media(prefers-reduced-motion:reduce){#projects .cityconnect-screen,#projects .cityconnect-screen img,#projects .cityconnect-btn{transition:none!important}.cityconnect-lightbox{animation:none!important}}
+    @keyframes cityLightIn{from{opacity:0}to{opacity:1}}@keyframes cityAmbientSpin{to{transform:rotate(360deg)}}@keyframes cityBadgeFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}@keyframes cityTitleReveal{from{opacity:0;transform:translateY(18px);filter:blur(8px)}to{opacity:1;transform:none;filter:blur(0)}}@keyframes cityTitleFlow{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}@keyframes cityFadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+    @media(max-width:900px){#projects .cityconnect-featured{padding:27px}#projects .cityconnect-details{grid-template-columns:1fr;gap:9px;margin-top:20px}#projects .cityconnect-detail{grid-template-columns:34px 1fr;padding:13px}#projects .cityconnect-preview{padding:18px 16px 15px;border-radius:21px}#projects .cityconnect-preview-head{grid-template-columns:1fr;margin-bottom:15px}#projects .cityconnect-preview-head small{grid-column:1}#projects .cityconnect-scroll-hint{display:none}#projects .cityconnect-preview-grid{grid-auto-columns:176px;gap:11px}#projects .cityconnect-device{min-height:310px}#projects .cityconnect-screen img{height:302px}}
+    @media(max-width:600px){#projects .cityconnect-featured{padding:20px 15px;border-radius:19px}#projects .cityconnect-featured>h3{font-size:1.65rem}#projects .cityconnect-featured>p{font-size:.84rem}#projects .cityconnect-preview{margin-top:4px;padding:15px 12px 13px;border-radius:18px}#projects .cityconnect-preview-title{gap:6px 9px}#projects .cityconnect-preview-title strong{font-size:.93rem}#projects .cityconnect-preview-head small{font-size:.67rem;line-height:1.55}#projects .cityconnect-preview-grid{grid-auto-columns:160px;gap:10px;padding-bottom:11px}#projects .cityconnect-screen{padding:9px 8px 9px;border-radius:17px}#projects .cityconnect-device{min-height:282px}#projects .cityconnect-screen img{height:274px;border-radius:10px}#projects .cityconnect-screen figcaption{min-height:40px;font-size:.64rem}.cityconnect-lightbox{padding:16px}.cityconnect-lightbox button{right:14px;top:14px}}
+    @media(prefers-reduced-motion:reduce){#projects .cityconnect-featured::after,#projects .cityconnect-featured .project-topline,#projects .cityconnect-featured>h3,#projects .cityconnect-featured>p,#projects .cityconnect-detail,#projects .cityconnect-detail-icon,#projects .cityconnect-screen,#projects .cityconnect-screen img{animation:none!important;transition:none!important}.cityconnect-lightbox{animation:none!important}}
   `;
   document.head.appendChild(style);
 })();
