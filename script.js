@@ -29,6 +29,6 @@
     .then(()=>load('beligo-gallery.js?v=20260827-1'))
     .then(()=>load('kamerain-enhancements.js?v=20260827-10'))
     .then(()=>load('kamerain-polish.js?v=20260827-1'))
-    .then(()=>load('beligo-family-enhancements.js?v=20260827-1'))
+    .then(()=>load('beligo-family-enhancements.js?v=20260827-2'))
     .catch(console.error);
 })();

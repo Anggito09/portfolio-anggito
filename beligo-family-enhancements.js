@@ -9,7 +9,7 @@
       title:'Beligo — Smart Price Comparison & Shopping Decision Platform',
       desc:'A web-based smart price comparison and personalized recommendation platform that helps users find the best deals across multiple marketplaces based on preferences and budget. The platform analyzes product data, user preferences, and price trends to deliver tailored shopping guidance. Awarded 3rd Place at the National Business Plan Competition.',
       chips:['Smart Price Comparison','Recommendation Engine','Multi-Marketplace','Web Platform','Business Award'],
-      link:'https://l1nk.dev/BeligoNasional'
+      link:null
     },
     {
       key:'AirNav Assist',
@@ -61,7 +61,9 @@
     if(title) title.textContent=cfg.title;
     if(desc) desc.textContent=cfg.desc;
     if(chips) chips.innerHTML=cfg.chips.map(c=>`<span>${c}</span>`).join('');
-    if(link){
+    if(cfg.key==='Beligo'){
+      if(link) link.remove();
+    } else if(link){
       link.href=cfg.link;
       link.textContent='View Project ↗';
       link.target='_blank';
