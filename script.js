@@ -26,5 +26,6 @@
     .then(()=>load('cityconnect-enhancements.js?v=20260827-6'))
     .then(()=>load('cityconnect-gallery-complete.js?v=20260827-3'))
     .then(()=>load('kamerain-enhancements.js?v=20260827-1'))
+    .then(()=>load('kamerain-polish.js?v=20260827-1'))
     .catch(console.error);
 })();
