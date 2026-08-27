@@ -9,11 +9,14 @@
     if(oldLink) oldLink.remove();
 
     const title=card.querySelector('h3');
-    if(title && !card.querySelector('.airnav-project-subtitle')){
-      const subtitle=document.createElement('div');
-      subtitle.className='airnav-project-subtitle';
-      subtitle.textContent='Integrated Internal Platform for AirNav Indonesia';
-      title.insertAdjacentElement('afterend', subtitle);
+    if(title){
+      title.classList.add('airnav-title');
+      if(!card.querySelector('.airnav-project-subtitle')){
+        const subtitle=document.createElement('div');
+        subtitle.className='airnav-project-subtitle';
+        subtitle.textContent='Integrated Internal Platform for AirNav Indonesia';
+        title.insertAdjacentElement('afterend', subtitle);
+      }
     }
 
     // Header badge ala BabyOps/Beligo — identitas enterprise + link GitHub
@@ -100,6 +103,10 @@
         .project-card.airnav-card-enhanced{grid-column:1/-1;position:relative;isolation:isolate;overflow:hidden;border-color:rgba(45,212,191,.22)!important;background:radial-gradient(circle at 90% 8%,rgba(45,212,191,.13),transparent 28%),radial-gradient(circle at 10% 94%,rgba(59,130,246,.09),transparent 30%),linear-gradient(145deg,rgba(13,31,44,.98),rgba(8,22,36,.99))!important;box-shadow:0 26px 62px rgba(2,8,23,.22),inset 0 1px 0 rgba(255,255,255,.025)}
         .project-card.airnav-card-enhanced::after{content:"";position:absolute;inset:-45%;z-index:-1;background:conic-gradient(from 180deg,transparent 0 76%,rgba(45,212,191,.07) 82%,rgba(59,130,246,.06) 88%,transparent 94%);animation:airnavAmbientSpin 16s linear infinite;pointer-events:none}
         .airnav-card-enhanced .airnav-project-subtitle{margin:-2px 0 14px;font-size:.9rem;font-weight:800;letter-spacing:.02em;color:#7ee8d6;text-shadow:0 0 18px rgba(45,212,191,.25);animation:airnavSubtitleGlow 3.6s ease-in-out infinite}
+        /* ===== TITLE ANIMATION — eye catching ===== */
+        .airnav-card-enhanced .airnav-title{position:relative;display:inline-block;background:linear-gradient(100deg,#fff 8%,#ccfbf1 30%,#5eead4 50%,#93c5fd 70%,#fff 92%);background-size:260% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:airnavTitleShine 5.5s linear infinite}
+        .airnav-card-enhanced .airnav-title::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:3px;border-radius:999px;background:linear-gradient(90deg,#2dd4bf,#60a5fa,transparent);transform:scaleX(0);transform-origin:left;animation:airnavTitleLine 2.6s ease-in-out infinite}
+        .airnav-card-enhanced .airnav-title:hover{filter:drop-shadow(0 0 16px rgba(45,212,191,.55))}
         /* ===== HEADER BADGE (ala BabyOps/Beligo award) ===== */
         #projects .airnav-badge{position:relative;overflow:hidden;display:flex;align-items:center;gap:13px;width:fit-content;max-width:100%;margin:18px 0 4px;padding:12px 15px;border:1px solid rgba(45,212,191,.22);border-radius:15px;background:linear-gradient(135deg,rgba(45,212,191,.09),rgba(59,130,246,.035));box-shadow:inset 0 1px 0 rgba(255,255,255,.025);animation:airnavBadgeIn .75s .2s both}
         #projects .airnav-badge::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.13) 50%,transparent 65%);transform:translateX(-130%);animation:airnavAwardShine 4s ease-in-out infinite}
@@ -137,10 +144,13 @@
         .airnav-shot-copy{display:grid;gap:4px;padding:12px 13px 14px}.airnav-shot-copy b{font-size:.88rem;color:#e8f6f3;line-height:1.2}.airnav-shot-copy small{font-size:.74rem;line-height:1.45;color:#8fb0ab}
         .airnav-showcase-note{position:relative;z-index:1;margin:10px 3px 0;color:#7f9d98;font-size:.72rem}
         /* ===== LIGHTBOX ===== */
-        .airnav-lightbox{position:fixed;inset:0;z-index:99999;display:grid;place-items:center;padding:24px;background:rgba(2,6,23,.88);backdrop-filter:blur(12px);opacity:0;visibility:hidden;transition:opacity .2s ease,visibility .2s ease}
-        .airnav-lightbox.is-open{opacity:1;visibility:visible}.airnav-lightbox img{max-width:min(1180px,94vw);max-height:88vh;width:auto;height:auto;border-radius:14px;box-shadow:0 28px 80px rgba(0,0,0,.45);background:#fff}.airnav-lightbox-close{position:fixed;right:22px;top:20px;width:44px;height:44px;border:1px solid rgba(255,255,255,.25);border-radius:50%;background:rgba(255,255,255,.12);color:#fff;font-size:1.65rem;cursor:pointer}
+        .airnav-lightbox{position:fixed;inset:0;z-index:99999;display:grid;place-items:center;padding:24px;background:rgba(2,6,23,.88);backdrop-filter:blur(12px);opacity:0;visibility:hidden;transition:opacity .2s ease,visibility .2s ease;touch-action:none;overscroll-behavior:contain}
+        .airnav-lightbox.is-open{opacity:1;visibility:visible}.airnav-lightbox img{max-width:min(1180px,94vw);max-height:88vh;width:auto;height:auto;border-radius:14px;box-shadow:0 28px 80px rgba(0,0,0,.45);background:#fff;transform-origin:50% 50%;will-change:transform;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
+        .airnav-zoom-hint{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);padding:7px 12px;border-radius:999px;background:rgba(15,23,42,.78);border:1px solid rgba(255,255,255,.12);color:#cbd5e1;font-size:.66rem;font-weight:700;letter-spacing:.03em;pointer-events:none;white-space:nowrap;opacity:0;transition:opacity .25s ease}
+        .airnav-lightbox.is-open .airnav-zoom-hint{opacity:1}.airnav-lightbox-close{position:fixed;right:22px;top:20px;width:44px;height:44px;border:1px solid rgba(255,255,255,.25);border-radius:50%;background:rgba(255,255,255,.12);color:#fff;font-size:1.65rem;cursor:pointer;z-index:2}.airnav-zoom-controls{position:fixed;right:16px;bottom:16px;display:flex;flex-direction:column;gap:8px}.airnav-zoom-btn{width:40px;height:40px;border:1px solid rgba(255,255,255,.22);border-radius:50%;background:rgba(15,23,42,.8);color:#fff;font-size:1.3rem;font-weight:800;line-height:1;cursor:pointer;transition:transform .15s ease,background .15s ease}.airnav-zoom-btn:hover{transform:scale(1.08);background:rgba(45,212,191,.25)}
         /* ===== KEYFRAMES ===== */
         @keyframes airnavAmbientSpin{to{transform:rotate(360deg)}}@keyframes airnavSubtitleGlow{0%,100%{opacity:.85;text-shadow:0 0 12px rgba(45,212,191,.18)}50%{opacity:1;text-shadow:0 0 22px rgba(45,212,191,.4)}}
+        @keyframes airnavTitleShine{0%{background-position:0% 50%}100%{background-position:260% 50%}}@keyframes airnavTitleLine{0%{transform:scaleX(0);opacity:.3}45%{transform:scaleX(1);opacity:1}70%{transform:scaleX(1);opacity:1}100%{transform:scaleX(0);opacity:0}}
         @keyframes airnavBadgeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}@keyframes airnavAwardShine{0%,66%,100%{transform:translateX(-130%)}82%{transform:translateX(130%)}}
         @keyframes airnavDetailIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}@keyframes airnavIconGlow{0%,100%{box-shadow:0 0 0 rgba(45,212,191,0)}50%{box-shadow:0 0 14px rgba(45,212,191,.3),0 0 0 4px rgba(45,212,191,.07)}}
         @keyframes airnavPreviewGlow{0%,100%{border-color:rgba(45,212,191,.16);box-shadow:inset 0 1px 0 rgba(255,255,255,.035),0 18px 45px rgba(2,8,23,.18)}50%{border-color:rgba(45,212,191,.26);box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 22px 55px rgba(45,212,191,.09)}}
@@ -150,7 +160,7 @@
         @media(max-width:900px){#projects .airnav-details{grid-template-columns:1fr;gap:9px;margin-top:20px}#projects .airnav-detail{grid-template-columns:34px 1fr;padding:13px}.airnav-showcase{padding:16px 14px 13px;border-radius:21px}.airnav-showcase-grid{grid-auto-columns:280px}.airnav-shot-media{height:190px}}
         @media(max-width:760px){.project-card.airnav-card-enhanced{grid-column:auto}.airnav-badge{width:100%;padding:10px 12px}.airnav-badge-link{margin-left:0}.airnav-showcase{margin:12px -2px 14px;padding:14px 12px 13px;border-radius:18px}.airnav-showcase-grid{grid-auto-columns:260px;gap:12px}.airnav-shot-media{height:180px}.airnav-showcase-head{align-items:center}.airnav-showcase-count{font-size:.66rem}.airnav-lightbox{padding:12px}.airnav-lightbox img{max-width:96vw;max-height:84vh}.airnav-lightbox-close{right:12px;top:12px}}
         @media(max-width:430px){.airnav-showcase-grid{grid-auto-columns:240px}.airnav-shot-media{height:165px}.airnav-showcase-head strong{font-size:.92rem}.airnav-project-subtitle{font-size:.84rem!important}}
-        @media(prefers-reduced-motion:reduce){.project-card.airnav-card-enhanced::after,.airnav-card-enhanced .airnav-project-subtitle,#projects .airnav-badge,#projects .airnav-detail,#projects .airnav-detail-icon,.airnav-showcase,.airnav-showcase::before,.airnav-showcase::after,.airnav-showcase-count,.airnav-shot{animation:none!important;transition:none!important}}
+        @media(prefers-reduced-motion:reduce){.project-card.airnav-card-enhanced::after,.airnav-card-enhanced .airnav-project-subtitle,.airnav-card-enhanced .airnav-title,.airnav-card-enhanced .airnav-title::after,#projects .airnav-badge,#projects .airnav-detail,#projects .airnav-detail-icon,.airnav-showcase,.airnav-showcase::before,.airnav-showcase::after,.airnav-showcase-count,.airnav-shot{animation:none!important;transition:none!important}}
       `;
       document.head.appendChild(style);
     }
@@ -162,12 +172,107 @@
       lightbox.setAttribute('role','dialog');
       lightbox.setAttribute('aria-modal','true');
       lightbox.setAttribute('aria-label','AirNav Assist screenshot preview');
-      lightbox.innerHTML='<button class="airnav-lightbox-close" type="button" aria-label="Tutup preview">×</button><img alt="AirNav Assist screenshot preview">';
+      lightbox.innerHTML='<button class="airnav-lightbox-close" type="button" aria-label="Tutup preview">×</button><img class="airnav-lightbox-img" alt="AirNav Assist screenshot preview"><div class="airnav-zoom-hint">Pinch to zoom · double-tap to zoom · scroll to zoom</div><div class="airnav-zoom-controls"><button class="airnav-zoom-btn" type="button" data-zoom="-">−</button><button class="airnav-zoom-btn" type="button" data-zoom="+">+</button></div>';
       document.body.appendChild(lightbox);
-      const close=()=>{lightbox.classList.remove('is-open');document.body.style.overflow='';};
+
+      const img=lightbox.querySelector('img');
+      let scale=1,tx=0,ty=0;
+      const apply=()=>{img.style.transform=`translate(${tx}px,${ty}px) scale(${scale})`;};
+      const reset=()=>{scale=1;tx=0;ty=0;img.style.transition='';apply();};
+      const close=()=>{lightbox.classList.remove('is-open');document.body.style.overflow='';reset();};
       lightbox.querySelector('.airnav-lightbox-close').addEventListener('click',close);
-      lightbox.addEventListener('click',(event)=>{if(event.target===lightbox) close();});
       document.addEventListener('keydown',(event)=>{if(event.key==='Escape'&&lightbox.classList.contains('is-open')) close();});
+
+      // Wheel zoom (desktop)
+      lightbox.addEventListener('wheel',(event)=>{
+        if(!lightbox.classList.contains('is-open')) return;
+        event.preventDefault();
+        const factor=event.deltaY<0?1.12:0.89;
+        scale=Math.min(6,Math.max(1,scale*factor));
+        img.style.transition='transform .12s ease';
+        apply();
+      },{passive:false});
+
+      // Pointer Events — unified mouse drag + touch pinch/pan
+      const pointers={};
+      let gesture=null;
+      let lastTap=0;
+      let suppressClose=false;
+
+      const onPointerDown=(event)=>{
+        if(!lightbox.classList.contains('is-open')) return;
+        pointers[event.pointerId]={x:event.clientX,y:event.clientY,moved:false};
+        const ids=Object.keys(pointers);
+        if(ids.length===2){
+          const [a,b]=ids;
+          gesture={type:'pinch',dist:Math.hypot(pointers[a].x-pointers[b].x,pointers[a].y-pointers[b].y),scale,tx,ty,mx:(pointers[a].x+pointers[b].x)/2,my:(pointers[a].y+pointers[b].y)/2};
+          img.style.transition='';
+        }else if(ids.length===1&&scale>1){
+          gesture={type:'pan',x:event.clientX,y:event.clientY,tx,ty};
+          img.style.transition='';
+        }
+      };
+      const onPointerMove=(event)=>{
+        if(!lightbox.classList.contains('is-open')||!gesture) return;
+        if(!pointers[event.pointerId]) return;
+        pointers[event.pointerId]={x:event.clientX,y:event.clientY,moved:true};
+        const ids=Object.keys(pointers);
+        if(ids.length===2){
+          const [a,b]=ids;
+          const d=Math.hypot(pointers[a].x-pointers[b].x,pointers[a].y-pointers[b].y);
+          const mx=(pointers[a].x+pointers[b].x)/2;
+          const my=(pointers[a].y+pointers[b].y)/2;
+          if(gesture.type==='pinch'){
+            scale=Math.min(6,Math.max(1,gesture.scale*(d/gesture.dist)));
+            tx=gesture.tx+(mx-gesture.mx);
+            ty=gesture.ty+(my-gesture.my);
+          }else{
+            gesture={type:'pinch',dist:d,scale,tx,ty,mx,my};
+          }
+          apply();
+        }else if(ids.length===1){
+          if(gesture.type==='pan'){
+            tx=gesture.tx+(event.clientX-gesture.x);
+            ty=gesture.ty+(event.clientY-gesture.y);
+          }else{
+            gesture={type:'pan',x:event.clientX,y:event.clientY,tx,ty};
+          }
+          apply();
+        }
+        if(ids.length>=1) event.preventDefault();
+      };
+      const onPointerUp=(event)=>{
+        const p=pointers[event.pointerId];
+        if(p) delete pointers[event.pointerId];
+        if(p&&!p.moved&&Object.keys(pointers).length===0){
+          const now=Date.now();
+          if(now-lastTap<320){
+            scale=scale>1?1:2.2;
+            tx=0;ty=0;
+            img.style.transition='transform .25s ease';
+            apply();
+          }
+          lastTap=now;
+        }
+        if(p&&p.moved) suppressClose=true;
+        gesture=null;
+        if(Object.keys(pointers).length===0) setTimeout(()=>{suppressClose=false;},80);
+      };
+
+      lightbox.addEventListener('pointerdown',onPointerDown);
+      window.addEventListener('pointermove',onPointerMove);
+      window.addEventListener('pointerup',onPointerUp);
+      window.addEventListener('pointercancel',onPointerUp);
+      lightbox.addEventListener('click',(event)=>{if(event.target===lightbox&&!suppressClose) close();});
+
+      // Zoom buttons
+      lightbox.querySelectorAll('.airnav-zoom-btn').forEach((btn)=>{
+        btn.addEventListener('click',()=>{
+          scale=Math.min(6,Math.max(1,scale+(btn.dataset.zoom==='+'?0.6:-0.6)));
+          img.style.transition='transform .15s ease';
+          apply();
+        });
+      });
     }
 
     showcase.querySelectorAll('.airnav-shot').forEach((shot)=>{
