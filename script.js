@@ -23,7 +23,7 @@
     .then(()=>loadCss('healthcare-section-enhancements.css?v=20260827-2'))
     .then(()=>load('babyops-enhancements.js?v=20260827-3'))
     .then(()=>load('babyops-gallery.js?v=20260827-6'))
-    .then(()=>load('cityconnect-enhancements.js?v=20260827-9'))
+    .then(()=>load('cityconnect-enhancements.js?v=20260827-10'))
     .then(()=>load('cityconnect-gallery-complete.js?v=20260827-4'))
     .then(()=>load('beligo-enhancements.js?v=20260827-1'))
     .then(()=>load('beligo-gallery.js?v=20260827-2'))
