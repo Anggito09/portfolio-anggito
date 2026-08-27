@@ -18,9 +18,9 @@
     const home=existing.find(el=>(el.dataset.src||'').includes('cityconnect-homepage'));
     const spot=existing.find(el=>(el.dataset.src||'').includes('cityconnect-cityspot'));
 
-    const login=figure('assets/cityconnect-login.webp','CityConnect login and account access screen','Login');
-    const talk=figure('assets/cityconnect-citytalk.webp','CityConnect CityTalk community discussion feed','CityTalk');
-    const event=figure('assets/cityconnect-cityevent.webp','CityConnect CityEvent community activity feed','CityEvent');
+    const login=figure('assets/cityconnect-login.webp?v=20260827-2','CityConnect login and account access screen','Login');
+    const talk=figure('assets/cityconnect-citytalk.webp?v=20260827-2','CityConnect CityTalk community discussion feed','CityTalk');
+    const event=figure('assets/cityconnect-cityevent.webp?v=20260827-2','CityConnect CityEvent community activity feed','CityEvent');
 
     // Urutan pengalaman mobile: Login → Homepage → SpotCity → CityTalk → CityEvent.
     grid.innerHTML='';
@@ -33,8 +33,12 @@
     const addFallback=(img)=>{
       img.addEventListener('error',()=>{
         const src=img.getAttribute('src')||'';
-        if(src.startsWith('assets/')) img.src=`https://raw.githubusercontent.com/Anggito09/portfolio-anggito/main/${src}`;
-        else img.closest('.cityconnect-screen')?.classList.add('image-unavailable');
+        if(src.startsWith('assets/')){
+          const cleanSrc=src.split('?')[0];
+          img.src=`https://raw.githubusercontent.com/Anggito09/portfolio-anggito/main/${cleanSrc}?v=20260827-2`;
+        }else{
+          img.closest('.cityconnect-screen')?.classList.add('image-unavailable');
+        }
       },{once:true});
     };
 
