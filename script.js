@@ -22,5 +22,6 @@
     .then(()=>load('healthcare-slider.js?v=20260827-1'))
     .then(()=>loadCss('healthcare-section-enhancements.css?v=20260827-1'))
     .then(()=>load('babyops-enhancements.js?v=20260827-1'))
+    .then(()=>load('babyops-gallery.js?v=20260827-2'))
     .catch(console.error);
 })();
