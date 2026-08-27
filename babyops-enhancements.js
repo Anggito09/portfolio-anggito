@@ -12,10 +12,10 @@
   const link=card.querySelector('.text-link');
 
   if(topline) topline.textContent='AI · Mobile · Award-Winning Project';
-  if(title) title.textContent='BabyOps — Infant Cry Interpretation & Rule-Based Health Screening';
+  if(title) title.textContent='BabyOps Infant Cry Intelligence & Health Screening';
   if(description) description.textContent='A mobile application designed to help new parents interpret infant cries using Dunstan Baby Language. The audio pipeline applies MFCC feature extraction and K-Nearest Neighbor classification, while a Forward Chaining expert-system module supports rule-based symptom screening. The product was developed iteratively using the Spiral model to support risk analysis, user feedback, testing, training, and continuous refinement.';
   if(chips) chips.innerHTML=['MFCC','K-Nearest Neighbor','Forward Chaining','Dunstan Baby Language','Spiral Model','Mobile AI'].map(item=>`<span>${item}</span>`).join('');
-  if(link) link.textContent='View BabyOps Project ↗';
+  if(link) link.remove();
 
   if(!card.querySelector('.babyops-details')){
     const details=document.createElement('div');
@@ -34,7 +34,6 @@
         <div><strong>Iterative Development</strong><small>The Spiral model supports prototyping, risk evaluation, user testing, release, and feedback.</small></div>
       </div>`;
     if(chips) card.insertBefore(details,chips);
-    else if(link) card.insertBefore(details,link);
     else card.appendChild(details);
   }
 
@@ -177,7 +176,6 @@
     #projects .babyops-enhanced .chips{margin-top:6px}
     #projects .babyops-enhanced .chips span{transition:transform .22s ease,border-color .22s ease,background .22s ease}
     #projects .babyops-enhanced .chips span:hover{transform:translateY(-2px);border-color:rgba(167,139,250,.28);background:rgba(139,92,246,.06)}
-    #projects .babyops-enhanced .text-link{display:inline-flex;margin-top:18px;font-weight:700}
 
     @keyframes babyopsTitleReveal{from{opacity:0;transform:translateY(18px);filter:blur(8px)}to{opacity:1;transform:none;filter:blur(0)}}
     @keyframes babyopsTitleFlow{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
