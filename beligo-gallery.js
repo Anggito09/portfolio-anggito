@@ -50,8 +50,8 @@
     #projects .beligo-gallery-track{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
     #projects .beligo-shot{min-width:0;padding:10px;border:1px solid rgba(148,163,184,.16);border-radius:16px;background:rgba(255,255,255,.03);transition:transform .22s ease,border-color .22s ease,background .22s ease,box-shadow .22s ease}
     #projects .beligo-shot:hover{transform:translateY(-4px);border-color:rgba(134,239,172,.42);background:rgba(16,185,129,.045);box-shadow:0 16px 30px rgba(2,8,23,.22)}
-    #projects .beligo-shot-frame{overflow:hidden;border-radius:12px;background:#fff;box-shadow:0 10px 24px rgba(0,0,0,.2)}
-    #projects .beligo-shot-frame img{display:block;width:100%;aspect-ratio:359/608;object-fit:cover}
+    #projects .beligo-shot-frame{overflow:hidden;border-radius:12px;background:#fff;box-shadow:0 10px 24px rgba(0,0,0,.2);display:flex;align-items:center;justify-content:center;min-height:320px}
+    #projects .beligo-shot-frame img{display:block;width:auto;max-width:100%;height:auto;max-height:420px;object-fit:contain;object-position:center;image-rendering:-webkit-optimize-contrast;image-rendering:crisp-edges}
     #projects .beligo-shot-copy{display:grid;grid-template-columns:28px minmax(0,1fr);gap:9px;align-items:start;margin-top:10px}
     #projects .beligo-shot-copy>b{display:grid;place-items:center;width:28px;height:28px;border-radius:999px;background:linear-gradient(135deg,#34d399,#86efac);color:#062b16;font-size:.68rem;font-weight:900}
     #projects .beligo-shot-copy>div{display:grid;gap:3px;min-width:0}
