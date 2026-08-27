@@ -33,5 +33,6 @@
     .then(()=>load('airnav-gallery.js?v=20260827-airnav-hd'))
     .then(()=>load('mutant-gallery.js?v=20260827-mutant-v1'))
     .then(()=>load('ambulance-enhancements.js?v=20260827-ambulance-v1'))
+    .then(()=>load('ambulance-gallery.js?v=20260827-ambulance-v1'))
     .catch(console.error);
 })();
