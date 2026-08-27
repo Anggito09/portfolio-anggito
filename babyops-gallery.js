@@ -4,12 +4,12 @@
 
   const preview=document.createElement('section');
   preview.className='babyops-preview';
-  preview.setAttribute('aria-label','BabyOps splash and onboarding screens');
+  preview.setAttribute('aria-label','BabyOps app screens');
   preview.innerHTML=`
     <div class="babyops-preview-head">
       <span>APP PREVIEW</span>
-      <strong>Splash & Onboarding</strong>
-      <small>Early BabyOps mobile experience introducing cry interpretation and mother education.</small>
+      <strong>BabyOps Mobile Experience</strong>
+      <small>Selected BabyOps screens covering splash, onboarding, baby needs, mother education, and the Home experience.</small>
     </div>
     <div class="babyops-preview-grid">
       <figure class="babyops-screen">
@@ -27,6 +27,10 @@
       <figure class="babyops-screen">
         <img src="assets/babyops/babyops-onboarding-mother.webp" alt="BabyOps onboarding screen for mother education" loading="lazy">
         <figcaption>Mother Education</figcaption>
+      </figure>
+      <figure class="babyops-screen babyops-home-screen">
+        <img src="assets/babyops/babyops-home.webp" alt="BabyOps Home screen with disease history and education content" loading="lazy">
+        <figcaption>Home</figcaption>
       </figure>
     </div>`;
 
@@ -91,7 +95,7 @@
       position:relative;
       z-index:1;
       display:grid;
-      grid-template-columns:repeat(4,minmax(0,1fr));
+      grid-template-columns:repeat(5,minmax(0,1fr));
       gap:14px;
     }
     #projects .babyops-screen{
@@ -111,7 +115,7 @@
     #projects .babyops-screen img{
       display:block;
       width:100%;
-      height:clamp(230px,29vw,360px);
+      height:clamp(230px,25vw,350px);
       object-fit:contain;
       border-radius:13px;
       filter:drop-shadow(0 12px 20px rgba(2,8,23,.24));
@@ -127,9 +131,9 @@
       from{opacity:0;transform:translateY(14px)}
       to{opacity:1;transform:none}
     }
-    @media(max-width:900px){
+    @media(max-width:1100px){
       #projects .babyops-preview-grid{
-        grid-template-columns:repeat(4,minmax(140px,1fr));
+        grid-template-columns:repeat(5,minmax(150px,1fr));
         overflow-x:auto;
         scroll-snap-type:x mandatory;
         padding:2px 2px 8px;
@@ -144,7 +148,7 @@
       #projects .babyops-preview-head{margin-bottom:13px}
       #projects .babyops-preview-head strong{font-size:.92rem}
       #projects .babyops-preview-head small{font-size:.68rem}
-      #projects .babyops-preview-grid{grid-template-columns:repeat(4,148px);gap:10px}
+      #projects .babyops-preview-grid{grid-template-columns:repeat(5,148px);gap:10px}
       #projects .babyops-screen{padding:8px 8px 7px;border-radius:15px}
       #projects .babyops-screen img{height:272px;border-radius:11px}
       #projects .babyops-screen figcaption{font-size:.64rem}
