@@ -1,7 +1,16 @@
 (()=>{
   const init=()=>{
     const card=[...document.querySelectorAll('.project-card')].find((item)=>item.querySelector('h3')?.textContent.trim().startsWith('Smart Ambulance'));
-    if(!card || card.querySelector('.ambulance-showcase')) return;
+    if(!card) return;
+    const existing=card.querySelector('.ambulance-showcase');
+    if(existing){
+      const hasComingSoon=existing.querySelector('source[src*="ambulance-coming-soon"]');
+      const hasDemo=existing.querySelector('source[src*="ambulance-demo.mp4"]');
+      const hasV8=existing.innerHTML.includes('ambulance-v9');
+      const hasYtThumb=existing.innerHTML.includes('ambulance-yt-thumb');
+      if(hasComingSoon && hasDemo && hasV8 && hasYtThumb) return;
+      existing.remove();
+    }
 
     const screens=[
       {src:'assets/ambulance/ambulance-login.webp', title:'Login', desc:'Secure sign-in for patients and responders.', alt:'Smart Ambulance login screen'},
@@ -21,20 +30,32 @@
     const showcase=document.createElement('div');
     showcase.className='ambulance-showcase';
     showcase.setAttribute('aria-label','Smart Ambulance app showcase');
-    const v='20260827-ambulance-v1';
+    const v='20260828-ambulance-v9';
     showcase.innerHTML=`
       <div class="ambulance-showcase-head">
         <div>
-          <span class="ambulance-showcase-kicker">App Preview · Demo · Review</span>
+          <span class="ambulance-showcase-kicker">App Preview</span>
           <strong>Smart Ambulance Mobile Experience</strong>
         </div>
         <span class="ambulance-showcase-count">${String(screens.length).padStart(2,'0')} screens</span>
       </div>
       <div class="ambulance-video">
         <div class="ambulance-video-frame">
-          <iframe src="https://www.youtube.com/embed/vsSAr4rEcsM" title="Smart Ambulance Service Centre — demo & review" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          <video controls preload="metadata" poster="assets/ambulance/ambulance-home.webp?v=${v}" aria-label="Smart Ambulance app demo — fixx.mp4 (booking to tracking flow)">
+            <source src="assets/ambulance/ambulance-demo.mp4?v=${v}" type="video/mp4">
+            Your browser does not support video playback.
+          </video>
         </div>
-        <div class="ambulance-video-caption"><span>▶ APP DEMO & REVIEW</span><strong>Watch the Smart Ambulance application in action</strong></div>
+        <div class="ambulance-video-caption"><span>▶ APP DEMO — FIXX.MP4</span><strong>App demo — booking to tracking flow (fixx.mp4)</strong></div>
+      </div>
+      <div class="ambulance-video">
+        <div class="ambulance-video-frame">
+          <video controls muted loop playsinline preload="metadata" poster="assets/ambulance/ambulance-yt-thumb.jpg?v=${v}" aria-label="Smart Ambulance app preview — Coming Soon Our Application (YouTube thumbnail)">
+            <source src="assets/ambulance/ambulance-coming-soon.mp4?v=${v}" type="video/mp4">
+            Your browser does not support video playback.
+          </video>
+        </div>
+        <div class="ambulance-video-caption"><span>▶ APP PREVIEW — COMING SOON OUR APPLICATION</span><strong>Preview aplikasi Smart Ambulance — thumbnail sesuai YouTube (bukan demo alur)</strong></div>
       </div>
       <div class="ambulance-actions">
         <a class="ambulance-action-btn primary" href="https://github.com/mr-lunart/PPAP-CH2-PS284" target="_blank" rel="noreferrer">GitHub Repository ↗</a>
@@ -69,6 +90,7 @@
         .ambulance-video{position:relative;z-index:1;margin-bottom:16px}
         .ambulance-video-frame{position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;border:1px solid rgba(251,113,133,.2);background:#0a0610;box-shadow:0 18px 40px rgba(2,8,23,.35)}
         .ambulance-video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+        .ambulance-video-frame video{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:contain;background:#0a0610}
         .ambulance-video-caption{display:grid;gap:3px;margin:10px 2px 0}.ambulance-video-caption span{font-size:.55rem;font-weight:900;letter-spacing:.14em;color:#fb7185}.ambulance-video-caption strong{font-size:.8rem;color:#e8c9d0;font-weight:700}
         .ambulance-actions{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:9px;margin:2px 0 18px}
         .ambulance-action-btn{display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:10px 16px;border:1px solid rgba(251,113,133,.28);border-radius:12px;background:rgba(244,63,94,.08);color:#fda4af;font-size:.78rem;font-weight:800;text-decoration:none;transition:transform .22s ease,border-color .22s ease,background .22s ease,box-shadow .22s ease}

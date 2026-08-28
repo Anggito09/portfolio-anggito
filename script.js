@@ -33,6 +33,9 @@
     .then(()=>load('airnav-gallery.js?v=20260827-airnav-hd'))
     .then(()=>load('mutant-gallery.js?v=20260827-mutant-v1'))
     .then(()=>load('ambulance-enhancements.js?v=20260827-ambulance-v1'))
-    .then(()=>load('ambulance-gallery.js?v=20260827-ambulance-v1'))
+    .then(()=>load('ambulance-gallery.js?v=20260828-ambulance-v9'))
+    .then(()=>load('handsight-enhancements.js?v=20260828-handsight-v5'))
+    .then(()=>load('handsight-gallery.js?v=20260828-handsight-v5'))
+    .then(()=>load('handsight-demo.js?v=20260828-handsight-v5'))
     .catch(console.error);
 })();

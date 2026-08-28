@@ -23,8 +23,10 @@
     if(desc && !card.querySelector('.ambulance-badge')){
       const badge=document.createElement('div');
       badge.className='ambulance-badge';
-      badge.innerHTML=`<span class="ambulance-badge-icon">🚑</span><div><small>MOBILE HEALTHCARE · AI + CLOUD + MOBILE</small><strong>Online Ambulance Booking &amp; Emergency Response</strong><em>Face recognition · location tracking · real-time monitoring · 24/7 free booking</em></div><a class="ambulance-badge-link" href="https://acesse.one/PusatPelayananAmbulancePintar" target="_blank" rel="noreferrer">Visit ↗</a>`;
+      badge.innerHTML=`<span class="ambulance-badge-icon">🚑</span><div><small>MOBILE HEALTHCARE · AI + CLOUD + MOBILE</small><strong>Online Ambulance Booking &amp; Emergency Response</strong><em>Face recognition · location tracking · real-time monitoring · 24/7 free booking</em></div>`;
       desc.after(badge);
+    } else if(card.querySelector('.ambulance-badge')){
+      card.querySelector('.ambulance-badge-link')?.remove();
     }
 
     if(!card.querySelector('.ambulance-background')){
