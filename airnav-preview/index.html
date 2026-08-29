@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AirNav Assist — Integrated Internal Platform for AirNav Indonesia</title>
+<meta name="description" content="AirNav Assist — Integrated internal platform for AirNav Indonesia Tanjungpinang branch. Internal news, e-logbook, video learning, org structure & performance checks. Laravel enterprise system.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--teal:#2dd4bf;--teal2:#5eead4;--blue:#60a5fa;--bg:#070e1a;--card:#0d1f2e;--muted:#93b8b3;--line:rgba(45,212,191,.14)}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:#eafff9;line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.container{max-width:1180px;margin:0 auto;padding:0 20px}
+.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(7,14,26,.78);border-bottom:1px solid rgba(45,212,191,.12)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:56px}
+.brand{font-weight:900;letter-spacing:-.03em;font-size:1.15rem}
+.brand span{color:var(--teal2)}
+.nav-links{display:flex;gap:18px;flex-wrap:wrap;font-size:.78rem;font-weight:700;color:var(--muted)}
+.nav-links a:hover{color:var(--teal2)}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:9px 14px;border-radius:12px;border:1px solid rgba(45,212,191,.22);background:rgba(45,212,191,.08);color:var(--teal2);font-size:.78rem;font-weight:800;transition:transform .2s,background .2s,border-color .2s}
+.btn:hover{transform:translateY(-2px);background:rgba(45,212,191,.14);border-color:rgba(45,212,191,.35)}
+.btn.primary{background:linear-gradient(135deg,rgba(45,212,191,.22),rgba(96,165,250,.16));color:#fff;border-color:rgba(45,212,191,.32)}
+.hero{position:relative;overflow:hidden;padding:48px 0 28px;background:radial-gradient(circle at 85% 10%,rgba(45,212,191,.14),transparent 30%),radial-gradient(circle at 10% 90%,rgba(59,130,246,.08),transparent 30%),linear-gradient(145deg,#0a1a2a,#07101e)}
+.hero::after{content:"";position:absolute;inset:-40%;background:conic-gradient(from 180deg,transparent 0 74%,rgba(45,212,191,.06) 82%,rgba(59,130,246,.05) 88%,transparent 94%);animation:spin 18s linear infinite;pointer-events:none}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);gap:28px;align-items:center}
+.kicker{display:inline-flex;align-items:center;gap:8px;padding:5px 10px;border-radius:999px;border:1px solid rgba(45,212,191,.18);background:rgba(45,212,191,.07);font-size:.58rem;font-weight:900;letter-spacing:.14em;color:var(--teal2)}
+.hero h1{margin:14px 0 12px;font-size:clamp(1.9rem,3.6vw,2.85rem);line-height:1.05;letter-spacing:-.04em}
+.hero h1 em{font-style:normal;background:linear-gradient(100deg,#fff 10%,#ccfbf1 30%,#5eead4 55%,#93c5fd 78%,#fff 92%);background-size:260% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 5.5s linear infinite}
+.hero p{max-width:640px;color:#b9d4d0;font-size:.92rem;line-height:1.75}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.hero-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.hero-badges span{padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);font-size:.68rem;font-weight:700;color:#cfe8e4}
+.hero-visual{position:relative;min-height:360px;display:grid;place-items:center}
+.hero-card{position:relative;width:min(100%,520px);border-radius:20px;overflow:hidden;border:1px solid rgba(45,212,191,.18);background:#0f2436;box-shadow:0 28px 60px rgba(0,0,0,.35)}
+.hero-card img{width:100%;display:block;object-fit:cover}
+.hero-card-bar{height:32px;display:flex;align-items:center;gap:6px;padding:0 12px;background:#fff;border-bottom:1px solid #e5e7eb}
+.hero-card-bar i{width:7px;height:7px;border-radius:50%;background:#e5e7eb}
+.hero-card-bar i:first-child{background:#fb7185}
+.hero-card-bar i:nth-child(2){background:#fbbf24}
+.hero-card-bar i:nth-child(3){background:#34d399}
+.hero-card-bar em{margin-left:auto;font-style:normal;font-size:.55rem;font-weight:700;color:#94a3b8}
+.section{padding:36px 0}
+.section-alt{background:linear-gradient(180deg,rgba(13,31,44,.35),transparent)}
+.eyebrow{font-size:.62rem;font-weight:900;letter-spacing:.16em;color:var(--teal2)}
+.section h2{margin:6px 0 10px;font-size:clamp(1.35rem,2.4vw,1.85rem);letter-spacing:-.03em}
+.section-copy{max-width:720px;color:var(--muted);font-size:.88rem;line-height:1.7}
+.features{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+.feat{padding:16px;border-radius:16px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(16,42,56,.55),rgba(8,26,40,.45))}
+.feat b{display:flex;align-items:center;gap:8px;font-size:.86rem}
+.feat i{display:grid;place-items:center;width:32px;height:32px;border-radius:10px;background:linear-gradient(135deg,rgba(45,212,191,.16),rgba(59,130,246,.12));border:1px solid rgba(45,212,191,.18);color:var(--teal2);font-style:normal;font-size:.62rem;font-weight:900}
+.feat small{display:block;margin-top:6px;color:var(--muted);font-size:.72rem;line-height:1.6}
+.screens-head{display:flex;align-items:end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.screens-head strong{font-size:1.02rem}
+.screens-head span{padding:6px 10px;border-radius:999px;background:rgba(45,212,191,.1);border:1px solid rgba(45,212,191,.18);color:var(--teal2);font-size:.72rem;font-weight:800}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.shot{border:1px solid rgba(255,255,255,.06);border-radius:16px;overflow:hidden;background:rgba(255,255,255,.02);cursor:zoom-in;transition:transform .25s,border-color .25s,box-shadow .25s}
+.shot:hover{transform:translateY(-4px);border-color:rgba(45,212,191,.28);box-shadow:0 18px 36px rgba(2,8,23,.28)}
+.shot-media{position:relative;height:220px;overflow:hidden;background:#081420}
+.shot-media img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .45s}
+.shot:hover .shot-media img{transform:scale(1.03)}
+.shot-media::after{content:'↗';position:absolute;right:10px;top:10px;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:rgba(2,8,23,.78);border:1px solid rgba(45,212,191,.22);color:var(--teal2);font-size:.85rem;font-weight:800}
+.shot-copy{padding:12px 13px 14px}
+.shot-copy b{font-size:.86rem;color:#eafff9}
+.shot-copy small{display:block;margin-top:4px;color:var(--muted);font-size:.72rem;line-height:1.5}
+.note{margin-top:10px;color:#7f9d98;font-size:.72rem}
+.lightbox{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:24px;background:rgba(2,6,23,.88);backdrop-filter:blur(12px);opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s}
+.lightbox.is-open{opacity:1;visibility:visible}
+.lightbox img{max-width:min(1180px,94vw);max-height:88vh;border-radius:14px;background:#fff;box-shadow:0 28px 80px rgba(0,0,0,.45)}
+.lightbox-close{position:fixed;right:20px;top:18px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.1);color:#fff;font-size:1.6rem;cursor:pointer}
+.footer{padding:22px 0;border-top:1px solid rgba(45,212,191,.1);color:var(--muted);font-size:.74rem}
+.footer-inner{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes shine{0%{background-position:0% 50%}100%{background-position:260% 50%}}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.features{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.shot-media{height:200px}}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.shot-media{height:220px}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#">AirNav <span>Assist</span></a>
+    <nav class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#screens">Screens</a>
+      <a href="http://airnavassist.my.id/" target="_blank" rel="noreferrer">Live Site</a>
+      <a href="https://github.com/Anggito09/airnav" target="_blank" rel="noreferrer">GitHub</a>
+    </nav>
+    <a class="btn primary" href="http://airnavassist.my.id/" target="_blank" rel="noreferrer">Live Site ↗</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="kicker">ENTERPRISE SYSTEM · LARAVEL · INTERNAL PLATFORM</div>
+      <h1>AirNav Assist — <em>Integrated Internal Platform</em> for AirNav Indonesia</h1>
+      <p>An integrated platform for AirNav Indonesia — Tanjungpinang branch — with internal news, video learning, org structure, e-logbook, and performance checks. Built with Laravel 10, role-based access, and structured workflows across units.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="http://airnavassist.my.id/" target="_blank" rel="noreferrer">Visit Live Site ↗</a>
+        <a class="btn" href="#screens">Explore Screens ↗</a>
+        <a class="btn" href="https://github.com/Anggito09/airnav" target="_blank" rel="noreferrer">View Source on GitHub ↗</a>
+      </div>
+      <div class="hero-badges">
+        <span>Laravel 10</span><span>Role-based Access</span><span>E-Logbook</span><span>Video Learning</span><span>Performance Check</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-card-bar"><i></i><i></i><i></i><em>airnav-assist — internal platform</em></div>
+        <img src="../assets/airnav/airnav-beranda.webp" alt="AirNav Assist home screen" loading="eager" decoding="async">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="features" class="section">
+  <div class="container">
+    <div class="eyebrow">What it does</div>
+    <h2>Enterprise portal for daily operations</h2>
+    <p class="section-copy">Centralizes internal news, organizational structure, learning, and operational logging — designed for the Tanjungpinang branch with clear roles for admins and users.</p>
+    <div class="features">
+      <div class="feat"><b><i>01</i> Enterprise Portal</b><small>Internal news, organizational structure, and role-based access in one centralized platform.</small></div>
+      <div class="feat"><b><i>02</i> E-Logbook & Video Learning</b><small>Digital work logging and video-based learning to support unit competency and knowledge sharing.</small></div>
+      <div class="feat"><b><i>03</i> Performance & Workflow</b><small>Performance checks, competency tests, and structured workflows across branch units.</small></div>
+    </div>
+  </div>
+</section>
+
+<section id="screens" class="section section-alt">
+  <div class="container">
+    <div class="screens-head">
+      <div>
+        <div class="eyebrow">Selected Interfaces</div>
+        <strong>AirNav Assist Web Platform — 18 screens</strong>
+      </div>
+      <span>18 screens · user + admin</span>
+    </div>
+    <div class="grid" id="grid"></div>
+    <div class="note">Click any image for full size. Static preview — full Laravel app requires PHP + MySQL. Live: <a href="http://airnavassist.my.id/" target="_blank" rel="noreferrer" style="color:var(--teal2);text-decoration:underline">airnavassist.my.id ↗</a> · Source: <a href="https://github.com/Anggito09/airnav" target="_blank" rel="noreferrer" style="color:var(--teal2);text-decoration:underline">Anggito09/airnav</a>.</div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <span>© 2026 AirNav Assist — Static preview for portfolio. Full app: Laravel 10 + MySQL.</span>
+    <span><a href="http://airnavassist.my.id/" target="_blank" rel="noreferrer" style="color:var(--teal2)">Live: airnavassist.my.id ↗</a> · <a href="https://github.com/Anggito09/airnav" target="_blank" rel="noreferrer" style="color:var(--teal2)">GitHub: Anggito09/airnav ↗</a></span>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Screenshot preview">
+  <button class="lightbox-close" type="button" aria-label="Close preview">×</button>
+  <img alt="AirNav Assist screenshot preview">
+</div>
+
+<script>
+const screens=[
+  {src:'../assets/airnav/airnav-login.webp', title:'Login & Authentication', desc:'Entry point to the internal platform.'},
+  {src:'../assets/airnav/airnav-beranda.webp', title:'Home', desc:'Main user dashboard with activity summary.'},
+  {src:'../assets/airnav/airnav-artikel.webp', title:'Articles', desc:'Internal knowledge article list.'},
+  {src:'../assets/airnav/airnav-artikel-2.webp', title:'Article Detail', desc:'Article detail page for full reading.'},
+  {src:'../assets/airnav/airnav-pembelajaran.webp', title:'Learning', desc:'Video learning and course modules.'},
+  {src:'../assets/airnav/airnav-pembelajaran-fix.webp', title:'Learning — Updated', desc:'Improved learning module view.'},
+  {src:'../assets/airnav/airnav-elogbook.webp', title:'E-Logbook', desc:'Daily electronic work logging.'},
+  {src:'../assets/airnav/airnav-elogbook-2.webp', title:'E-Logbook Detail', desc:'Entry details and logbook history.'},
+  {src:'../assets/airnav/airnav-test-list.webp', title:'Test List', desc:'Competency test and evaluation list.'},
+  {src:'../assets/airnav/airnav-test-list-2.webp', title:'Test List Variant', desc:'Variant of the test list view.'},
+  {src:'../assets/airnav/airnav-test-content.webp', title:'Test Content', desc:'Question content and test materials.'},
+  {src:'../assets/airnav/airnav-test-hasil.webp', title:'Test Results', desc:'Results, scores, and evaluation.'},
+  {src:'../assets/airnav/airnav-akun.webp', title:'Account', desc:'Profile management and account settings.'},
+  {src:'../assets/airnav/airnav-admin-artikel.webp', title:'Admin: Articles', desc:'Manage and publish articles.'},
+  {src:'../assets/airnav/airnav-admin-pembelajaran.webp', title:'Admin: Learning', desc:'Manage learning modules.'},
+  {src:'../assets/airnav/airnav-admin-elogbook.webp', title:'Admin: E-Logbook', desc:'Manage and verify e-logbook.'},
+  {src:'../assets/airnav/airnav-admin-pengguna.webp', title:'Admin: Users', desc:'Manage user data and roles.'},
+  {src:'../assets/airnav/airnav-admin-test.webp', title:'Admin: Tests', desc:'Manage question bank and tests.'},
+];
+const v='20260828-airnav-preview-v1';
+const grid=document.getElementById('grid');
+grid.innerHTML=screens.map(s=>`
+  <button class="shot" type="button" data-full="${s.src}" aria-label="Open ${s.title}">
+    <span class="shot-media"><img src="${s.src}?v=${v}" alt="${s.title}" loading="lazy" decoding="async"></span>
+    <span class="shot-copy"><b>${s.title}</b><small>${s.desc}</small></span>
+  </button>
+`).join('');
+const lb=document.getElementById('lightbox');
+const lbImg=lb.querySelector('img');
+const close=()=>{lb.classList.remove('is-open');document.body.style.overflow='';};
+lb.querySelector('.lightbox-close').addEventListener('click',close);
+lb.addEventListener('click',e=>{if(e.target===lb) close();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&lb.classList.contains('is-open')) close();});
+grid.querySelectorAll('.shot').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    lbImg.src=btn.dataset.full+'?v='+v;
+    lbImg.alt=btn.querySelector('img')?.alt||'AirNav Assist screenshot';
+    lb.classList.add('is-open');
+    document.body.style.overflow='hidden';
+  });
+});
+grid.querySelectorAll('img').forEach(img=>{
+  img.addEventListener('error',()=>{
+    const s=img.getAttribute('src')||'';
+    if(s.startsWith('../assets/')){
+      img.src='https://raw.githubusercontent.com/Anggito09/portfolio-anggito/main/'+s.slice(3).split('?')[0]+'?v='+v;
+    }
+  },{once:true});
+});
+</script>
+</body>
+</html>

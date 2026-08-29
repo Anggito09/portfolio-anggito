@@ -5,8 +5,9 @@
 
     card.classList.add('airnav-card-enhanced');
 
-    const oldLink=card.querySelector('.text-link');
-    if(oldLink) oldLink.remove();
+    // Preserve new Live Site / Preview / GitHub links in .airnav-links — only remove legacy l1nk.dev link if present
+    const legacyLink=card.querySelector('.text-link[href*="l1nk.dev"]');
+    if(legacyLink) legacyLink.remove();
 
     const title=card.querySelector('h3');
     if(title){
@@ -24,7 +25,7 @@
     if(desc && !card.querySelector('.airnav-badge')){
       const badge=document.createElement('div');
       badge.className='airnav-badge';
-      badge.innerHTML=`<span class="airnav-badge-icon">🛫</span><div><small>ENTERPRISE SYSTEM · LIVE INTERNAL PLATFORM</small><strong>AirNav Indonesia — Tanjungpinang Branch</strong><em>Laravel internal platform: news, e-logbook, video learning, org structure &amp; performance check</em></div><a class="airnav-badge-link" href="https://github.com/AndoZR/airnav" target="_blank" rel="noreferrer">GitHub ↗</a>`;
+      badge.innerHTML=`<span class="airnav-badge-icon">🛫</span><div><small>ENTERPRISE SYSTEM · LIVE INTERNAL PLATFORM</small><strong>AirNav Indonesia — Tanjungpinang Branch</strong><em>Laravel internal platform: news, e-logbook, video learning, org structure &amp; performance check</em></div><span style="display:flex;gap:8px;margin-left:auto;flex-wrap:wrap"><a class="airnav-badge-link" href="http://airnavassist.my.id/" target="_blank" rel="noreferrer">Live Site ↗</a><a class="airnav-badge-link" href="https://github.com/Anggito09/airnav" target="_blank" rel="noreferrer">GitHub ↗</a></span>`;
       desc.after(badge);
     }
 
