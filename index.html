@@ -61,6 +61,44 @@
     @media(max-width:600px){#research .research-card-enhanced .research-meta{gap:5px}#research .meta-badge{font-size:.55rem;padding:3px 7px}}
     @media(prefers-reduced-motion:reduce){#research .section-heading .eyebrow,#research .section-heading h2,#research .section-heading h2::after,#research .section-heading .section-copy,#research .research-card-enhanced,#research .research-card-enhanced .research-type,#research .research-card-enhanced .research-number,#research .meta-badge{animation:none!important;transition:none!important}#research .research-card-enhanced::before{display:none}}
   </style>
+  <style id="achievements-polish">
+    /* ===== Achievements — premium & animated ===== */
+    #achievements .section-heading{max-width:920px;margin-bottom:22px}
+    #achievements .section-heading .eyebrow{color:#f9a8d4;letter-spacing:.16em;animation:achEyebrowIn .7s both, achEyebrowGlow 3.4s ease-in-out infinite}
+    #achievements .section-heading h2{position:relative;display:inline-block;background:linear-gradient(100deg,#fff 6%,#fce7f3 22%,#f9a8d4 42%,#f472b6 62%,#c4b5fd 78%,#fff 92%);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:achTitleShine 4.2s linear infinite, achTitleFloat 3.8s ease-in-out infinite, achTitleIn .85s cubic-bezier(.2,.7,.2,1) both;filter:drop-shadow(0 0 14px rgba(249,168,212,.18))}
+    #achievements .section-heading h2::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:3px;border-radius:999px;background:linear-gradient(90deg,#f472b6,#c084fc,#60a5fa,transparent);transform:scaleX(0);transform-origin:left;animation:achTitleLine 2.4s ease-in-out infinite}
+    @keyframes achEyebrowIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+    @keyframes achEyebrowGlow{0%,100%{text-shadow:0 0 10px rgba(249,168,212,.15)}50%{text-shadow:0 0 18px rgba(249,168,212,.35)}}
+    @keyframes achTitleShine{0%{background-position:0% 50%}100%{background-position:300% 50%}}
+    @keyframes achTitleFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+    @keyframes achTitleIn{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+    @keyframes achTitleLine{0%{transform:scaleX(0);opacity:.3}45%{transform:scaleX(1);opacity:1}70%{transform:scaleX(1);opacity:1}100%{transform:scaleX(0);opacity:0}}
+    /* Education card */
+    #achievements .education-card{position:relative;overflow:hidden;isolation:isolate;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:22px 22px;border:1px solid rgba(249,168,212,.14);border-radius:18px;background:linear-gradient(145deg,rgba(22,28,52,.92),rgba(16,24,48,.88));box-shadow:0 12px 32px rgba(2,8,23,.14),inset 0 1px 0 rgba(255,255,255,.03);animation:achCardIn .7s .08s both;transition:transform .32s ease, border-color .32s ease, box-shadow .32s ease}
+    #achievements .education-card::before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;background:linear-gradient(120deg,transparent 10%,rgba(249,168,212,.18) 30%,rgba(196,181,253,.14) 55%,transparent 75%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .32s ease}
+    #achievements .education-card:hover{transform:translateY(-3px);border-color:rgba(249,168,212,.28);box-shadow:0 18px 42px rgba(2,8,23,.18),0 0 28px rgba(249,168,212,.08)}
+    #achievements .education-card:hover::before{opacity:1}
+    #achievements .education-card h3{font-family:'Inter',system-ui,sans-serif;font-weight:800;font-size:1.08rem;letter-spacing:-.02em;color:#f8fafc}
+    #achievements .education-card p{font-family:'Inter',system-ui,sans-serif;color:#cbd9ec;font-size:.88rem;line-height:1.65;text-align:justify;text-justify:inter-word;hyphens:none;-webkit-hyphens:none;word-break:normal;overflow-wrap:break-word}
+    #achievements .education-year{font-weight:800;letter-spacing:.1em;font-size:.66rem;color:#f9a8d4}
+    #achievements .education-score strong{font-family:'Inter',system-ui,sans-serif;font-weight:900;font-size:1.9rem;letter-spacing:-.04em;background:linear-gradient(135deg,#f472b6,#c084fc);-webkit-background-clip:text;background-clip:text;color:transparent}
+    /* Achievement grid — from top entrance */
+    #achievements .achievement-grid{perspective:900px}
+    #achievements .achievement-grid article{position:relative;overflow:hidden;isolation:isolate;display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:16px 14px;border:1px solid rgba(249,168,212,.12);border-radius:16px;background:linear-gradient(145deg,rgba(18,28,52,.88),rgba(13,22,44,.84));box-shadow:0 8px 22px rgba(2,8,23,.10),inset 0 1px 0 rgba(255,255,255,.02);animation:achItemIn .65s cubic-bezier(.2,.7,.2,1) both;transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease, background .3s ease}
+    #achievements .achievement-grid article:nth-child(1){animation-delay:.06s}#achievements .achievement-grid article:nth-child(2){animation-delay:.12s}#achievements .achievement-grid article:nth-child(3){animation-delay:.18s}#achievements .achievement-grid article:nth-child(4){animation-delay:.24s}#achievements .achievement-grid article:nth-child(5){animation-delay:.3s}#achievements .achievement-grid article:nth-child(6){animation-delay:.36s}
+    #achievements .achievement-grid article::before{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.06) 50%,transparent 65%);transform:translateX(-130%);transition:transform .6s ease;pointer-events:none}
+    #achievements .achievement-grid article:hover{transform:translateY(-4px) scale(1.015);border-color:rgba(249,168,212,.26);background:linear-gradient(145deg,rgba(22,32,60,.96),rgba(16,26,52,.92));box-shadow:0 16px 36px rgba(2,8,23,.18),0 0 22px rgba(249,168,212,.07)}
+    #achievements .achievement-grid article:hover::before{transform:translateX(130%)}
+    #achievements .achievement-grid article span:first-child{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,rgba(249,168,212,.14),rgba(196,181,253,.12));border:1px solid rgba(249,168,212,.14);font-size:1.15rem;animation:achIconFloat 3.4s ease-in-out infinite}
+    #achievements .achievement-grid article:nth-child(2) span:first-child{animation-delay:.3s}#achievements .achievement-grid article:nth-child(3) span:first-child{animation-delay:.6s}#achievements .achievement-grid article:nth-child(4) span:first-child{animation-delay:.9s}#achievements .achievement-grid article:nth-child(5) span:first-child{animation-delay:1.2s}#achievements .achievement-grid article:nth-child(6) span:first-child{animation-delay:1.5s}
+    #achievements .achievement-grid article h3{font-family:'Inter',system-ui,sans-serif;font-weight:800;font-size:.88rem;line-height:1.3;letter-spacing:-.015em;color:#f1f5f9}
+    #achievements .achievement-grid article p{font-family:'Inter',system-ui,sans-serif;font-size:.74rem;line-height:1.5;color:#cbd9ec;margin:0}
+    @keyframes achCardIn{from{opacity:0;transform:translateY(-14px) scale(.98)}to{opacity:1;transform:none}}
+    @keyframes achItemIn{from{opacity:0;transform:translateY(-18px) scale(.96)}to{opacity:1;transform:none}}
+    @keyframes achIconFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+    @media(max-width:600px){#achievements .education-card{flex-direction:column;align-items:flex-start;padding:18px}#achievements .section-heading h2{font-size:clamp(1.7rem,7vw,2.2rem)}}
+    @media(prefers-reduced-motion:reduce){#achievements .section-heading .eyebrow,#achievements .section-heading h2,#achievements .section-heading h2::after,#achievements .education-card,#achievements .achievement-grid article,#achievements .achievement-grid article span:first-child{animation:none!important;transition:none!important}}
+  </style>
 </head>
 <body>
 <header class="nav">
