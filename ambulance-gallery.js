@@ -41,12 +41,12 @@
       </div>
       <div class="ambulance-video">
         <div class="ambulance-video-frame">
-          <video controls preload="metadata" poster="assets/ambulance/ambulance-home.webp?v=${v}" aria-label="Smart Ambulance app demo — fixx.mp4 (booking to tracking flow)">
+          <video controls preload="metadata" poster="assets/ambulance/ambulance-home.webp?v=${v}" aria-label="Smart Ambulance app demo — booking to tracking flow">
             <source src="assets/ambulance/ambulance-demo.mp4?v=${v}" type="video/mp4">
             Your browser does not support video playback.
           </video>
         </div>
-        <div class="ambulance-video-caption"><span>▶ APP DEMO — FIXX.MP4</span><strong>App demo — booking to tracking flow (fixx.mp4)</strong></div>
+        <div class="ambulance-video-caption"><span>▶ APP DEMO</span><strong>App demo — booking to tracking flow</strong></div>
       </div>
       <div class="ambulance-video">
         <div class="ambulance-video-frame">
