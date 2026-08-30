@@ -49,6 +49,13 @@
     @keyframes researchTypeGlow{0%,100%{filter:brightness(1)}50%{filter:brightness(1.12)}}
     @keyframes researchNumberFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
     @keyframes researchBadgeIn{from{opacity:0;transform:translateY(6px) scale(.96)}to{opacity:1;transform:none}}
+    /* ===== Font Beauty — eye catching & readable ===== */
+    #research .research-card h3, #research .research-card-enhanced h3{font-family:'Inter',system-ui,-apple-system,sans-serif;font-weight:800;font-size:clamp(1.02rem,1.9vw,1.18rem);line-height:1.32;letter-spacing:-.022em;color:#f1f5f9;transition:background .3s ease, filter .3s ease, transform .3s ease}
+    #research .research-card-enhanced:hover h3{background:linear-gradient(90deg,#fff 0%,#e0f2fe 45%,#c4b5fd 78%,#f0eaff 100%);background-size:180% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 10px rgba(125,211,252,.18));animation:researchH3Shine 3s linear infinite}
+    #research .research-type{font-family:'Inter',system-ui,sans-serif;font-weight:900;letter-spacing:.11em;text-transform:uppercase}
+    #research .research-number{font-family:'Inter',system-ui,sans-serif;font-weight:900;font-size:1.35rem;letter-spacing:-.04em;background:linear-gradient(135deg,#38bdf8,#818cf8);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 8px rgba(56,189,248,.18))}
+    #research .research-card p, #research .research-card-enhanced p{font-family:'Inter',system-ui,sans-serif;font-weight:500;letter-spacing:.011em;color:#d6e3f5!important}
+    @keyframes researchH3Shine{0%{background-position:0% 50%}100%{background-position:180% 50%}}
     @keyframes researchKeywordIn{from{opacity:0;transform:translateY(6px) scale(.96)}to{opacity:1;transform:none}}
     @keyframes researchKeywordFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
     @media(max-width:600px){#research .research-card-enhanced .research-meta{gap:5px}#research .meta-badge{font-size:.55rem;padding:3px 7px}}
