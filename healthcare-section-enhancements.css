@@ -198,7 +198,7 @@
 #projects .project-card.featured .healthcare-lamp-bulb{
   position:absolute;
   left:50%;
-  top:16px;
+  top:8px;
   width:16px;
   height:16px;
   transform:translateX(-50%);
@@ -208,6 +208,9 @@
   animation:healthcareBulbPulse 2.8s ease-in-out infinite;
   pointer-events:none;
   z-index:2;
+}
+@media(max-width:560px){
+  #projects .project-card.featured .healthcare-lamp-bulb{top:3px;width:13px;height:13px}
 }
 @keyframes healthcareBulbPulse{
   0%,100%{transform:translateX(-50%) scale(1);box-shadow:0 0 10px rgba(251,191,36,.85),0 0 22px rgba(249,115,22,.45),0 0 0 7px rgba(251,191,36,.08),0 0 36px rgba(251,191,36,.16)}
