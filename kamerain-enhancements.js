@@ -34,8 +34,15 @@
 
           <div class="kamerain-brand-status"><i></i> LIVE BUSINESS</div>
 
-          <div class="kamerain-logo-wrap">
-            <img src="https://raw.githubusercontent.com/Anggito09/kamerain/main/public/kamerain-logo-v2.webp" alt="KameraIn logo" loading="lazy">
+          <div class="kamerain-logo-ring">
+            <div class="kamerain-logo-wrap kamerain-logo-wrap--cute">
+              <img src="https://raw.githubusercontent.com/Anggito09/kamerain/main/public/kamerain-logo-v2.webp" alt="KameraIn logo" loading="lazy">
+            </div>
+            <span class="kamerain-cute-icon cute-1" aria-hidden="true">📸</span>
+            <span class="kamerain-cute-icon cute-2" aria-hidden="true">✨</span>
+            <span class="kamerain-cute-icon cute-3" aria-hidden="true">🎀</span>
+            <span class="kamerain-cute-icon cute-4" aria-hidden="true">💖</span>
+            <span class="kamerain-cute-icon cute-5" aria-hidden="true">🌸</span>
           </div>
 
           <div class="kamerain-brand-caption">
@@ -80,9 +87,19 @@
       #projects .kamerain-brand-panel::after{content:"";position:absolute;width:210px;height:210px;border-radius:50%;left:-90px;bottom:-105px;background:radial-gradient(circle,rgba(251,191,36,.12),transparent 68%)}
       #projects .kamerain-brand-status{position:absolute;top:22px;right:24px;z-index:2;display:flex;align-items:center;gap:7px;padding:7px 10px;border:1px solid #f3e8ee;border-radius:999px;background:rgba(255,255,255,.88);font-size:.56rem;font-weight:900;letter-spacing:.09em;color:#7a3a4a}
       #projects .kamerain-brand-status i{width:7px;height:7px;border-radius:50%;background:#34d399;box-shadow:0 0 0 4px rgba(52,211,153,.12);animation:kamerainPulse 1.8s infinite}
+      #projects .kamerain-logo-ring{position:relative;z-index:2;width:168px;height:168px;display:grid;place-items:center;animation:kamerainRingFloat 3.8s ease-in-out infinite}
       #projects .kamerain-logo-wrap{position:relative;z-index:2;width:min(78%,310px);height:150px;display:flex;align-items:center;justify-content:center;padding:18px 24px;border-radius:24px;background:#fff;box-shadow:0 18px 42px rgba(72,28,55,.09),0 0 0 1px rgba(244,114,182,.08)}
+      #projects .kamerain-logo-wrap--cute{width:128px;height:128px;min-width:128px;min-height:128px;padding:14px;border-radius:50%;border:2px solid #fce7f3;box-shadow:0 16px 36px rgba(244,114,182,.18),0 0 0 10px rgba(253,242,248,.92),0 0 0 18px rgba(252,231,243,.45);overflow:hidden;animation:kamerainLogoPop .7s .2s cubic-bezier(.34,1.56,.64,1) both}
+      #projects .kamerain-logo-wrap--cute::after{content:"";position:absolute;inset:-2px;border-radius:50%;border:2px dashed rgba(244,114,182,.22);animation:kamerainDashedSpin 18s linear infinite;pointer-events:none}
+      #projects .kamerain-logo-wrap--cute img{border-radius:50%}
       #projects .kamerain-logo-wrap img{display:block;max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 10px 22px rgba(244,114,182,.10));transition:transform .35s ease}
       #projects .kamerain-featured:hover .kamerain-logo-wrap img{transform:scale(1.035)}
+      #projects .kamerain-cute-icon{position:absolute;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#fff;border:1px solid #fce7f3;box-shadow:0 6px 14px rgba(244,114,182,.14);font-size:.82rem;line-height:1;animation:kamerainIconFloat 3.2s ease-in-out infinite;pointer-events:none}
+      #projects .kamerain-cute-icon.cute-1{left:-6px;top:16px;animation-delay:.1s}
+      #projects .kamerain-cute-icon.cute-2{right:-8px;top:10px;width:28px;height:28px;font-size:.72rem;animation-delay:.4s}
+      #projects .kamerain-cute-icon.cute-3{left:4px;bottom:4px;width:28px;height:28px;font-size:.72rem;background:#fff0f6;animation-delay:.7s}
+      #projects .kamerain-cute-icon.cute-4{right:2px;bottom:14px;animation-delay:1s}
+      #projects .kamerain-cute-icon.cute-5{right:38%;top:-10px;width:26px;height:26px;font-size:.68rem;animation-delay:1.3s}
       #projects .kamerain-brand-caption{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:5px;margin-top:19px;text-align:center}
       #projects .kamerain-brand-caption strong{font-size:.82rem;color:#52263a;letter-spacing:.01em}
       #projects .kamerain-brand-caption span{font-size:.63rem;color:#9b7184;letter-spacing:.05em}
@@ -93,6 +110,10 @@
       #projects .kamerain-brand-dot.dot-b{width:5px;height:5px;left:61px;top:55px;background:#fbbf24}
       #projects .kamerain-brand-dot.dot-c{width:6px;height:6px;right:44px;bottom:45px;background:#fb7185}
       @keyframes kamerainPulse{0%,100%{opacity:1}50%{opacity:.45}}
+      @keyframes kamerainRingFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+      @keyframes kamerainLogoPop{from{opacity:0;transform:scale(.72)}to{opacity:1;transform:scale(1)}}
+      @keyframes kamerainDashedSpin{to{transform:rotate(360deg)}}
+      @keyframes kamerainIconFloat{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-7px) rotate(6deg)}}
 
       @media(max-width:980px){
         #projects .kamerain-featured{grid-template-columns:1fr;gap:32px;padding:34px}
@@ -117,8 +138,13 @@
         #projects .kamerain-brand-caption span{font-size:.57rem}
         #projects .kamerain-brand-footer{font-size:.51rem;gap:6px}
       }
+      @media(max-width:600px){
+        #projects .kamerain-logo-ring{width:138px;height:138px}
+        #projects .kamerain-logo-wrap--cute{width:108px;height:108px;min-width:108px;min-height:108px}
+        #projects .kamerain-cute-icon{width:26px;height:26px;font-size:.68rem}
+      }
       @media(prefers-reduced-motion:reduce){
-        #projects .kamerain-brand-status i,#projects .kamerain-brand-panel,#projects .kamerain-logo-wrap img{animation:none!important;transition:none!important}
+        #projects .kamerain-brand-status i,#projects .kamerain-brand-panel,#projects .kamerain-logo-wrap img,#projects .kamerain-logo-ring,#projects .kamerain-cute-icon{animation:none!important;transition:none!important}
       }
     `;
     document.head.appendChild(style);
