@@ -72,7 +72,7 @@
       #projects .kamerain-kicker i{width:34px;height:1px;background:linear-gradient(90deg,#f472b6,transparent)}
       #projects .kamerain-kicker b{padding:5px 9px;border:1px solid rgba(244,114,182,.2);border-radius:999px;background:rgba(244,114,182,.07);font-size:.61rem;letter-spacing:.06em;color:#fbcfe8}
       #projects .kamerain-featured h3{margin:0 0 16px;font-size:clamp(2rem,3vw,2.75rem);line-height:1.05;letter-spacing:-.045em;color:#fff}
-      #projects .kamerain-featured p{margin:0;max-width:610px;color:#b8c4d8;font-size:.96rem;line-height:1.72;text-align:left}
+      #projects .kamerain-featured p{margin:0;max-width:610px;color:#b8c4d8;font-size:.96rem;line-height:1.78;text-align:justify!important;text-justify:inter-word!important;hyphens:none!important;-webkit-hyphens:none!important;word-break:normal!important;overflow-wrap:break-word!important}
       #projects .kamerain-highlights{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
       #projects .kamerain-highlights span{padding:7px 11px;border:1px solid rgba(255,255,255,.09);border-radius:999px;background:rgba(255,255,255,.035);font-size:.69rem;font-weight:700;color:#dce5f1}
       #projects .kamerain-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
