@@ -32,7 +32,7 @@
     if(!card.querySelector('.ambulance-background')){
       const bg=document.createElement('div');
       bg.className='ambulance-background';
-      bg.innerHTML=`<div class="ambulance-bg-head"><span>BACKGROUND &amp; PURPOSE</span></div><p>Built to close Indonesia's emergency-response gap — where only about half of 1.5 million annual emergencies reach hospital care — Smart Ambulance replaces slow, less-accessible phone calls with fast, visible online booking. It digitizes ambulance dispatch to shorten response time during the critical "golden period", delivering faster medical assistance and better survival outcomes.</p>`;
+      bg.innerHTML=`<div class="ambulance-bg-head"><span>BACKGROUND &amp; PURPOSE</span></div><p>Built to close Indonesia emergency response gap where only about half of 1.5 million annual emergencies reach hospital care, Smart Ambulance replaces slow and less accessible phone calls with fast and visible online booking. It digitizes ambulance dispatch to shorten response time during the critical golden period, delivering faster medical assistance and better survival outcomes.</p>`;
       const badge=card.querySelector('.ambulance-badge');
       (badge||desc).after(bg);
     }
@@ -89,7 +89,7 @@
         #projects .ambulance-badge-link:hover{transform:translateY(-2px);background:rgba(244,63,94,.18);color:#ffe4e6}
         #projects .ambulance-background{margin:16px 0 4px;padding:14px 16px;border:1px solid rgba(251,113,133,.13);border-radius:16px;background:linear-gradient(145deg,rgba(244,63,94,.035),rgba(59,130,246,.025));animation:ambulanceBadgeIn .75s .26s both}
         #projects .ambulance-bg-head{font-size:.58rem;font-weight:900;letter-spacing:.14em;color:#fb7185;margin-bottom:8px}
-        #projects .ambulance-background p{margin:0;font-size:.86rem;line-height:1.72;color:#d9b6bd;text-align:justify;text-justify:inter-word}
+        #projects .ambulance-background p{margin:0;font-size:.86rem;line-height:1.72;color:#d9b6bd;text-align:justify;text-justify:inter-word;hyphens:none;-webkit-hyphens:none;word-break:normal;overflow-wrap:break-word}
         #projects .ambulance-details{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:22px 0 16px}
         #projects .ambulance-detail{display:grid;grid-template-columns:36px minmax(0,1fr);gap:11px;align-items:start;padding:15px;border:1px solid rgba(251,113,133,.14);border-radius:16px;background:linear-gradient(145deg,rgba(60,20,36,.55),rgba(28,14,32,.45));transition:transform .28s ease,border-color .28s ease,background .28s ease,box-shadow .28s ease;animation:ambulanceDetailIn .7s both}
         #projects .ambulance-detail:nth-child(2){animation-delay:.08s}#projects .ambulance-detail:nth-child(3){animation-delay:.16s}#projects .ambulance-detail:nth-child(4){animation-delay:.24s}
