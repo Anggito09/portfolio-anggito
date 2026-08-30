@@ -11,6 +11,23 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="hero-enhancements.css" />
   <link rel="stylesheet" href="mobile-enhancements.css?v=20260826-2" />
+  <style id="research-polish">
+    /* ===== Research Heading — pro & animated ===== */
+    #research .section-heading{max-width:920px}
+    #research .section-heading .eyebrow{color:#7dd3fc;letter-spacing:.16em;animation:researchEyebrowIn .7s both, researchEyebrowGlow 3.4s ease-in-out infinite}
+    #research .section-heading h2{position:relative;display:inline-block;background:linear-gradient(100deg,#f7f9fc 6%,#e0f2fe 22%,#7dd3fc 42%,#93c5fd 62%,#c4b5fd 78%,#f7f9fc 92%);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:researchTitleShine 4.2s linear infinite, researchTitleFloat 3.8s ease-in-out infinite, researchTitleIn .85s cubic-bezier(.2,.7,.2,1) both;filter:drop-shadow(0 0 14px rgba(125,211,252,.18))}
+    #research .section-heading h2::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:3px;border-radius:999px;background:linear-gradient(90deg,#38bdf8,#818cf8,#c084fc,transparent);transform:scaleX(0);transform-origin:left;animation:researchTitleLine 2.4s ease-in-out infinite}
+    #research .section-heading .section-copy{max-width:860px;margin:14px 0 0!important;font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:.98rem!important;line-height:1.82!important;letter-spacing:.012em!important;font-weight:500!important;color:#cbd9ec!important;text-align:justify!important;text-justify:inter-word!important;hyphens:none!important;-webkit-hyphens:none!important;word-break:normal!important;overflow-wrap:break-word!important;animation:researchCopyIn .75s .18s both}
+    @keyframes researchEyebrowIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+    @keyframes researchEyebrowGlow{0%,100%{text-shadow:0 0 10px rgba(125,211,252,.15)}50%{text-shadow:0 0 18px rgba(125,211,252,.35)}}
+    @keyframes researchTitleShine{0%{background-position:0% 50%}100%{background-position:300% 50%}}
+    @keyframes researchTitleFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+    @keyframes researchTitleIn{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+    @keyframes researchTitleLine{0%{transform:scaleX(0);opacity:.3}45%{transform:scaleX(1);opacity:1}70%{transform:scaleX(1);opacity:1}100%{transform:scaleX(0);opacity:0}}
+    @keyframes researchCopyIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+    @media(max-width:600px){#research .section-heading h2{font-size:clamp(1.7rem,7vw,2.2rem)}#research .section-heading .section-copy{font-size:.92rem!important;line-height:1.74!important}}
+    @media(prefers-reduced-motion:reduce){#research .section-heading .eyebrow,#research .section-heading h2,#research .section-heading h2::after,#research .section-heading .section-copy{animation:none!important}}
+  </style>
 </head>
 <body>
 <header class="nav">
