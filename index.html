@@ -119,11 +119,15 @@
     #certificates .cert-card h3{font-family:'Inter',system-ui,sans-serif;font-weight:800;letter-spacing:-.015em;color:#f8fafc}
     @keyframes certCardIn{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
     /* ===== Contact — attractive & justified ===== */
-    #contact .contact-card{position:relative;overflow:hidden;isolation:isolate;border-color:rgba(125,211,252,.14)!important;background:linear-gradient(145deg,rgba(17,28,52,.94),rgba(13,22,44,.9))!important;box-shadow:0 14px 36px rgba(2,8,23,.14),inset 0 1px 0 rgba(255,255,255,.03)}
+    #contact .contact-card{position:relative;overflow:hidden;isolation:isolate;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;padding:28px;border-radius:22px;border-color:rgba(125,211,252,.14)!important;background:linear-gradient(145deg,rgba(17,28,52,.94),rgba(13,22,44,.9))!important;box-shadow:0 14px 36px rgba(2,8,23,.14),inset 0 1px 0 rgba(255,255,255,.03)}
+    #contact .contact-card > div:first-child{flex:1 1 520px;min-width:280px}
+    #contact .contact-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:flex-end;flex:0 0 auto;max-width:360px}
+    #contact .contact-actions .btn{flex:0 0 auto;min-width:108px;justify-content:center;white-space:nowrap;transition:transform .22s ease, box-shadow .22s ease}
+    #contact .contact-actions .btn:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(125,211,252,.12)}
     #contact .eyebrow{color:#7dd3fc;animation:contactEyebrowIn .6s both}
     #contact .contact-heading{font-family:'Inter',system-ui,sans-serif;font-weight:700;letter-spacing:-.02em;line-height:1.55;color:#e2eaff;text-align:justify!important;text-justify:inter-word!important;hyphens:none!important;-webkit-hyphens:none!important;word-break:normal!important;overflow-wrap:break-word!important;font-size:clamp(1.15rem,2.2vw,1.42rem)!important;max-width:720px;animation:contactHeadingIn .7s .1s both}
-    #contact .contact-actions .btn{transition:transform .22s ease, box-shadow .22s ease}
-    #contact .contact-actions .btn:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(125,211,252,.12)}
+    @keyframes contactEyebrowIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}@keyframes contactHeadingIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+    @media(max-width:720px){#contact .contact-card{flex-direction:column;align-items:stretch}#contact .contact-actions{justify-content:flex-start;max-width:none}#contact .contact-actions .btn{flex:1 1 calc(50% - 10px);min-width:0}}
     @keyframes contactEyebrowIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}@keyframes contactHeadingIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
     @media(prefers-reduced-motion:reduce){#skills .section-heading h2,#skills .skill-card,#certificates .section-heading h2,#certificates .cert-card,#contact .eyebrow,#contact .contact-heading{animation:none!important;transition:none!important}}
     /* ===== Hero lead — justified & slightly smaller ===== */
