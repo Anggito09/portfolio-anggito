@@ -20,6 +20,16 @@
     link.remove();
   }
 
+  if(!card.querySelector('.beligo-links')){
+    const links=document.createElement('div');
+    links.className='beligo-links';
+    links.innerHTML=`<a class="beligo-link" href="https://anggito09.github.io/beligo/" target="_blank" rel="noreferrer">Live Site ↗</a><a class="beligo-link" href="https://github.com/Anggito09/beligo" target="_blank" rel="noreferrer">GitHub ↗</a>`;
+    const awardEl=card.querySelector('.beligo-award');
+    if(awardEl) awardEl.after(links);
+    else if(description) description.after(links);
+    else card.appendChild(links);
+  }
+
   if(!card.querySelector('.beligo-award')){
     const award=document.createElement('div');
     award.className='beligo-award';
@@ -82,6 +92,10 @@
     #projects .beligo-objective-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}#projects .beligo-objective-grid span{display:grid;grid-template-columns:27px 1fr;gap:9px;align-items:start;padding:10px;border-radius:12px;background:rgba(255,255,255,.025);border:1px solid rgba(148,163,184,.08)}#projects .beligo-objective-grid b{display:grid;place-items:center;width:25px;height:25px;border-radius:8px;background:rgba(52,211,153,.08);color:#6ee7b7;font-size:.58rem}#projects .beligo-objective-grid small{font-size:.67rem;line-height:1.5;color:#91a7b7;text-align:justify;text-justify:inter-word}
     #projects .beligo-enhanced .chips{margin-top:7px}#projects .beligo-enhanced .chips span{transition:transform .22s ease,border-color .22s ease,background .22s ease}#projects .beligo-enhanced .chips span:hover{transform:translateY(-2px);border-color:rgba(52,211,153,.28);background:rgba(16,185,129,.06)}
     #projects .beligo-enhanced .text-link{display:inline-flex;margin-top:14px;color:#6ee7b7;transition:transform .22s ease,color .22s ease}#projects .beligo-enhanced .text-link:hover{transform:translateX(4px);color:#a7f3d0}
+    #projects .beligo-links{display:flex;gap:18px;flex-wrap:wrap;width:fit-content;max-width:100%;margin-top:14px;padding:11px 15px;border:1px solid rgba(52,211,153,.18);border-radius:13px;background:rgba(16,185,129,.05);animation:beligoFadeUp .75s .24s both}
+    #projects .beligo-links .beligo-link{display:inline-flex;align-items:center;gap:4px;color:#6ee7b7;font-weight:800;font-size:.86rem;letter-spacing:.02em;transition:transform .22s ease,color .22s ease}
+    #projects .beligo-links .beligo-link:hover{transform:translateX(4px);color:#a7f3d0}
+    @media(max-width:560px){#projects .beligo-links{width:100%}}
     @keyframes beligoTitleReveal{from{opacity:0;transform:translateY(18px);filter:blur(8px)}to{opacity:1;transform:none;filter:blur(0)}}@keyframes beligoTitleFlow{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}@keyframes beligoFadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}@keyframes beligoBadgeFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}@keyframes beligoAmbientSpin{to{transform:rotate(360deg)}}@keyframes beligoAwardShine{0%,66%,100%{transform:translateX(-130%)}82%{transform:translateX(130%)}}@keyframes beligoIconGlow{0%,100%{box-shadow:0 0 0 rgba(52,211,153,0)}50%{box-shadow:0 0 14px rgba(52,211,153,.28),0 0 0 4px rgba(52,211,153,.06)}}
     @media(max-width:900px){#projects .beligo-enhanced{grid-column:1/-1}#projects .beligo-enhanced h3{font-size:clamp(1.65rem,6.8vw,2.45rem)}#projects .beligo-details,#projects .beligo-objective-grid{grid-template-columns:1fr;gap:9px}#projects .beligo-details{margin-top:20px}#projects .beligo-detail{grid-template-columns:34px 1fr;padding:13px}#projects .beligo-enhanced>p{font-size:.9rem;line-height:1.72;text-align:justify!important;hyphens:auto}#projects .beligo-objectives-head{align-items:flex-start;flex-direction:column;gap:5px}#projects .beligo-objectives-head strong{text-align:left}}
     @media(max-width:560px){#projects .beligo-enhanced{padding:20px!important;border-radius:20px!important}#projects .beligo-enhanced .project-topline{font-size:.61rem;letter-spacing:.08em;padding:6px 9px}#projects .beligo-enhanced h3{font-size:1.72rem;line-height:1.08;margin-top:13px}#projects .beligo-enhanced>p{font-size:.84rem;line-height:1.68}#projects .beligo-award{width:100%;padding:10px 12px}#projects .beligo-award strong{font-size:.72rem}#projects .beligo-detail strong{font-size:.8rem}#projects .beligo-detail small{font-size:.68rem}#projects .beligo-objectives{padding:13px}#projects .beligo-objective-grid small{font-size:.65rem}}
