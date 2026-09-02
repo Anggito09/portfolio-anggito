@@ -15,7 +15,13 @@
   if(title) title.textContent='BabyOps - Infant Cry Intelligence & Health Screening';
   if(description) description.textContent='A mobile application designed to help new parents interpret infant cries using Dunstan Baby Language. The audio pipeline applies MFCC feature extraction and K-Nearest Neighbor classification, while a Forward Chaining expert-system module supports rule-based symptom screening. The product was developed iteratively using the Spiral model and achieved 2nd Place in a Faculty-Level Software Development (PPL) Competition.';
   if(chips) chips.innerHTML=['MFCC','K-Nearest Neighbor','Forward Chaining','Dunstan Baby Language','Spiral Model','Mobile AI'].map(item=>`<span>${item}</span>`).join('');
-  if(link) link.remove();
+  if(link){
+    link.href='https://github.com/Anggito09/BabyOps';
+    link.textContent='GitHub Repository ↗';
+    link.target='_blank';
+    link.rel='noreferrer';
+    link.setAttribute('aria-label','Open the BabyOps GitHub repository');
+  }
 
   if(!card.querySelector('.babyops-award')){
     const award=document.createElement('div');
