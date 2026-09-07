@@ -37,5 +37,6 @@
     .then(()=>load('handsight-enhancements.js?v=20260828-handsight-v5'))
     .then(()=>load('handsight-gallery.js?v=20260828-handsight-v5'))
     .then(()=>load('handsight-demo.js?v=20260828-handsight-v5'))
+    .then(()=>load('project-links.js?v=20260907-links'))
     .catch(console.error);
 })();
