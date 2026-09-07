@@ -15,13 +15,13 @@
   if(title) title.textContent='BabyOps - Infant Cry Intelligence & Health Screening';
   if(description) description.textContent='A mobile application designed to help new parents interpret infant cries using Dunstan Baby Language. The audio pipeline applies MFCC feature extraction and K-Nearest Neighbor classification, while a Forward Chaining expert-system module supports rule-based symptom screening. The product was developed iteratively using the Spiral model and achieved 2nd Place in a Faculty-Level Software Development (PPL) Competition.';
   if(chips) chips.innerHTML=['MFCC','K-Nearest Neighbor','Forward Chaining','Dunstan Baby Language','Spiral Model','Mobile AI'].map(item=>`<span>${item}</span>`).join('');
-  if(link){
-    link.href='https://github.com/Anggito09/BabyOps';
-    link.textContent='GitHub Repository ↗';
-    link.target='_blank';
-    link.rel='noreferrer';
-    link.setAttribute('aria-label','Open the BabyOps GitHub repository');
+  if(!card.querySelector('.babyops-links')){
+    const links=document.createElement('div');
+    links.className='babyops-links';
+    links.innerHTML=`<a class="babyops-link-live" href="https://baby-ops-fyws.vercel.app/" target="_blank" rel="noreferrer">🚀 Live App ↗</a><a class="babyops-link-github" href="https://github.com/Anggito09/BabyOps" target="_blank" rel="noreferrer">GitHub Repository ↗</a>`;
+    if(title) title.after(links);
   }
+  if(link) link.remove();
 
   if(!card.querySelector('.babyops-award')){
     const award=document.createElement('div');
@@ -90,6 +90,11 @@
     #projects .babyops-cry-grid span:hover{transform:translateY(-4px) scale(1.04);border-color:rgba(103,232,249,.32);box-shadow:0 12px 28px rgba(103,232,249,.18),0 10px 24px rgba(2,8,23,.17)}
     #projects .babyops-cry-grid b{font-size:.82rem;color:#8be9f5;letter-spacing:.02em;text-shadow:0 0 12px rgba(103,232,249,.35)}#projects .babyops-cry-grid small{margin-top:4px;font-size:.61rem;color:#8fa2bd;text-align:center}
     #projects .babyops-enhanced .chips{margin-top:6px}#projects .babyops-enhanced .chips span{transition:transform .22s ease,border-color .22s ease,background .22s ease}#projects .babyops-enhanced .chips span:hover{transform:translateY(-2px);border-color:rgba(167,139,250,.28);background:rgba(139,92,246,.06)}
+    #projects .babyops-links{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 2px}
+    #projects .babyops-links a{display:inline-flex;align-items:center;gap:6px;padding:9px 16px;border-radius:999px;font-size:.78rem;font-weight:800;text-decoration:none;transition:transform .22s ease,box-shadow .22s ease,filter .22s ease}
+    #projects .babyops-links a:hover{transform:translateY(-2px);filter:brightness(1.08)}
+    #projects .babyops-link-live{background:linear-gradient(135deg,#22d3ee,#818cf8);color:#06121f;box-shadow:0 10px 26px rgba(34,211,238,.28)}
+    #projects .babyops-link-github{border:1px solid rgba(148,163,184,.3);background:rgba(255,255,255,.04);color:#e2e8f0}
     #projects .babyops-award{position:relative;overflow:hidden}
     #projects .babyops-award::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.14) 50%,transparent 65%);transform:translateX(-130%);animation:babyopsAwardShine 3.8s ease-in-out infinite}
     #projects .babyops-detail-icon{animation:babyopsIconGlow 3s ease-in-out infinite}
