@@ -25,7 +25,7 @@
     if(desc && !card.querySelector('.airnav-badge')){
       const badge=document.createElement('div');
       badge.className='airnav-badge';
-      badge.innerHTML=`<span class="airnav-badge-icon">🛫</span><div><small>ENTERPRISE SYSTEM · LIVE INTERNAL PLATFORM</small><strong>AirNav Indonesia — Tanjungpinang Branch</strong><em>Laravel internal platform: news, e-logbook, video learning, org structure &amp; performance check</em></div><span style="display:flex;gap:8px;margin-left:auto;flex-wrap:wrap"><a class="airnav-badge-link" href="http://airnavassist.my.id/" target="_blank" rel="noreferrer">Live Site ↗</a><a class="airnav-badge-link" href="https://github.com/Anggito09/airnav" target="_blank" rel="noreferrer">GitHub ↗</a></span>`;
+      badge.innerHTML=`<span class="airnav-badge-icon">🛫</span><div><small>ENTERPRISE SYSTEM · LIVE INTERNAL PLATFORM</small><strong>AirNav Indonesia — Tanjungpinang Branch</strong><em>Laravel internal platform: news, e-logbook, video learning, org structure &amp; performance check</em></div><span style="display:flex;gap:8px;margin-left:auto;flex-wrap:wrap"><a class="airnav-badge-link" href="http://airnavassist.my.id/" target="_blank" rel="noreferrer">Live Site ↗</a></span>`;
       desc.after(badge);
     }
 

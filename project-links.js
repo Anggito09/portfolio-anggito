@@ -2,11 +2,8 @@
   // Tombol pill Live + GitHub ala BabyOps untuk semua kartu proyek.
   // BabyOps & Beligo sudah punya tombol sendiri -> di-skip agar tidak dobel.
   const LINKS={
-    'cityconnect':[['🚀 Live Site ↗','https://anggito09.github.io/cityconnect/'],['GitHub ↗','https://github.com/Anggito09/cityconnect']],
-    'airnav':[['🚀 Live Site ↗','http://airnavassist.my.id/'],['GitHub ↗','https://github.com/Anggito09/airnav']],
-    'mutant':[['🚀 Live Site ↗','https://mutant.punkestu.my.id/'],['GitHub ↗','https://github.com/Anggito09/mutant']],
+    'airnav':[['🚀 Live Site ↗','http://airnavassist.my.id/']],
     'handsight':[['GitHub ↗','https://github.com/Anggito09/Handsight']],
-    'ambulance':[['🚀 Live Site ↗','https://acesse.one/PusatPelayananAmbulancePintar']],
     'kamerain':[['🚀 Live Site ↗','https://anggito09.github.io/kamerain/'],['GitHub ↗','https://github.com/Anggito09/kamerain']],
   };
   const ACCENT={

@@ -57,10 +57,6 @@
         </div>
         <div class="ambulance-video-caption"><span>▶ APP PREVIEW — COMING SOON OUR APPLICATION</span><strong>Preview aplikasi Smart Ambulance — thumbnail sesuai YouTube (bukan demo alur)</strong></div>
       </div>
-      <div class="ambulance-actions">
-        <a class="ambulance-action-btn primary" href="https://github.com/mr-lunart/PPAP-CH2-PS284" target="_blank" rel="noreferrer">GitHub Repository ↗</a>
-        <a class="ambulance-action-btn" href="assets/ambulance/ppap-fix.apk" download>Download APK ⬇</a>
-      </div>
       <div class="ambulance-showcase-grid" tabindex="0" aria-label="Scrollable Smart Ambulance screen gallery">
         ${screens.map(s=>`
         <button class="ambulance-shot" type="button" data-full="${s.src}" aria-label="Open ${s.title} preview">
@@ -76,6 +72,14 @@
     if(edge) edge.after(showcase);
     else if(chips) card.insertBefore(showcase,chips);
     else card.appendChild(showcase);
+
+    const subtitle=card.querySelector('.ambulance-project-subtitle');
+    if(subtitle && !card.querySelector('.ambulance-apk-top')){
+      const top=document.createElement('div');
+      top.className='ambulance-actions ambulance-apk-top';
+      top.innerHTML=`<a class="ambulance-action-btn primary" href="assets/ambulance/ppap-fix.apk" download>Download APK ⬇</a>`;
+      subtitle.after(top);
+    }
 
     if(!document.getElementById('ambulance-showcase-style')){
       const style=document.createElement('style');
@@ -93,6 +97,7 @@
         .ambulance-video-frame video{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:contain;background:#0a0610}
         .ambulance-video-caption{display:grid;gap:3px;margin:10px 2px 0}.ambulance-video-caption span{font-size:.55rem;font-weight:900;letter-spacing:.14em;color:#fb7185}.ambulance-video-caption strong{font-size:.8rem;color:#e8c9d0;font-weight:700}
         .ambulance-actions{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:9px;margin:2px 0 18px}
+        .ambulance-apk-top{margin:14px 0 2px}
         .ambulance-action-btn{display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:10px 16px;border:1px solid rgba(251,113,133,.28);border-radius:12px;background:rgba(244,63,94,.08);color:#fda4af;font-size:.78rem;font-weight:800;text-decoration:none;transition:transform .22s ease,border-color .22s ease,background .22s ease,box-shadow .22s ease}
         .ambulance-action-btn:hover{transform:translateY(-2px);border-color:rgba(251,113,133,.45);background:rgba(244,63,94,.16);box-shadow:0 10px 24px rgba(244,63,94,.14)}
         .ambulance-action-btn.primary{border-color:rgba(251,113,133,.4);background:linear-gradient(135deg,rgba(244,63,94,.2),rgba(59,130,246,.14));color:#fff}

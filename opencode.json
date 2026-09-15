@@ -1,0 +1,27 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "orvix": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Orvix",
+      "options": {
+        "baseURL": "https://api.orvix.id/v1",
+        "apiKey": "{env:ORVIX_API_KEY}"
+      },
+      "models": {
+        "orvix/muse-spark-1.2": {
+          "name": "Muse Spark 1.2"
+        },
+        "orvix/glm-5.3-flash": {
+          "name": "GLM 5.3 Flash"
+        },
+        "orvix/deepseek-v4-flash": {
+          "name": "DeepSeek V4 Flash"
+        },
+        "orvix/auto": {
+          "name": "Orvix Auto"
+        }
+      }
+    }
+  }
+}

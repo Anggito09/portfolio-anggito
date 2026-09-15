@@ -24,7 +24,7 @@
     if(desc && !card.querySelector('.mutant-badge')){
       const badge=document.createElement('div');
       badge.className='mutant-badge';
-      badge.innerHTML=`<span class="mutant-badge-icon">🔄</span><div><small>HR INFORMATION SYSTEM · LIVE INTERNAL PLATFORM</small><strong>AirNav Indonesia — Mutation Workflow</strong><em>Streamlined transfer requests, approvals, position mapping &amp; personnel data integration</em></div><a class="mutant-badge-link" href="https://mutant.punkestu.my.id/" target="_blank" rel="noreferrer">Visit ↗</a>`;
+      badge.innerHTML=`<span class="mutant-badge-icon">🔄</span><div><small>HR INFORMATION SYSTEM · INTERNAL PLATFORM</small><strong>AirNav Indonesia — Mutation Workflow</strong><em>Streamlined transfer requests, approvals, position mapping &amp; personnel data integration</em></div>`;
       desc.after(badge);
     }
 

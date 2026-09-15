@@ -24,8 +24,7 @@
       topline:'HR INFORMATION SYSTEM · WORKFLOW AUTOMATION',
       title:'Mutant — Employee Mutation Management System',
       desc:'An employee mutation management system for AirNav Indonesia that streamlines transfer requests and approvals, position mapping, and personnel data integration. Designed to support transparent, traceable, and efficient HR workflows with structured approval flows and centralized employee data.',
-      chips:['HRIS','Mutation Workflow','Approval Flow','Position Mapping','Personnel Data'],
-      link:'https://mutant.punkestu.my.id/'
+      chips:['HRIS','Mutation Workflow','Approval Flow','Position Mapping','Personnel Data']
     },
     {
       key:'Handsight',
