@@ -8,7 +8,6 @@
 
   loadCss('mobile-enhancements.css?v=20260827-1');
   loadCss('motion-enhancements.css?v=20260827-1');
-  loadCss('editorial-theme.css?v=20260916-editorial');
 
   const load=(src)=>new Promise((resolve,reject)=>{
     const s=document.createElement('script');
