@@ -21,7 +21,6 @@
 
         <div class="kamerain-actions">
           <a class="kamerain-btn primary" href="https://anggito09.github.io/kamerain/" target="_blank" rel="noreferrer">Visit Website <b>↗</b></a>
-          <a class="kamerain-btn" href="https://github.com/Anggito09/kamerain" target="_blank" rel="noreferrer">GitHub <b>↗</b></a>
           <a class="kamerain-btn" href="https://www.instagram.com/kamerain09/" target="_blank" rel="noreferrer">Instagram <b>↗</b></a>
         </div>
       </div>

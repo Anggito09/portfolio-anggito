@@ -23,7 +23,7 @@
   if(!card.querySelector('.beligo-links')){
     const links=document.createElement('div');
     links.className='beligo-links';
-    links.innerHTML=`<a class="beligo-link-live" href="https://anggito09.github.io/beligo/" target="_blank" rel="noreferrer">🚀 Live Site ↗</a><a class="beligo-link-github" href="https://github.com/Anggito09/beligo" target="_blank" rel="noreferrer">GitHub ↗</a>`;
+    links.innerHTML=`<a class="beligo-link-live" href="https://anggito09.github.io/beligo/" target="_blank" rel="noreferrer">🚀 Live Site ↗</a>`;
     if(title) title.after(links);
   }
 

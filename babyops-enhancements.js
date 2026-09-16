@@ -18,7 +18,7 @@
   if(!card.querySelector('.babyops-links')){
     const links=document.createElement('div');
     links.className='babyops-links';
-    links.innerHTML=`<a class="babyops-link-live" href="https://baby-ops-fyws.vercel.app/" target="_blank" rel="noreferrer">🚀 Live App ↗</a><a class="babyops-link-github" href="https://github.com/Anggito09/BabyOps" target="_blank" rel="noreferrer">GitHub Repository ↗</a>`;
+    links.innerHTML=`<a class="babyops-link-live" href="https://baby-ops-fyws.vercel.app/" target="_blank" rel="noreferrer">🚀 Live App ↗</a>`;
     if(title) title.after(links);
   }
   if(link) link.remove();

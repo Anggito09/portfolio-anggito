@@ -3,8 +3,7 @@
   // BabyOps & Beligo sudah punya tombol sendiri -> di-skip agar tidak dobel.
   const LINKS={
     'airnav':[['🚀 Live Site ↗','http://airnavassist.my.id/']],
-    'handsight':[['GitHub ↗','https://github.com/Anggito09/Handsight']],
-    'kamerain':[['🚀 Live Site ↗','https://anggito09.github.io/kamerain/'],['GitHub ↗','https://github.com/Anggito09/kamerain']],
+    'kamerain':[['🚀 Live Site ↗','https://anggito09.github.io/kamerain/']],
   };
   const ACCENT={
     'cityconnect':['linear-gradient(135deg,#60a5fa,#67e8f9)','#06121f'],

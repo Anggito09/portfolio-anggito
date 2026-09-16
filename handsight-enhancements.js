@@ -69,7 +69,7 @@
       if(!card.querySelector('.handsight-badge')){
         const badge=document.createElement('div');
         badge.className='handsight-badge';
-        badge.innerHTML=`<span class="handsight-badge-icon">🤟</span><div><small>COMPUTER VISION · ACCESSIBILITY PROTOTYPE</small><strong>Sign → Text → Speech in real time</strong><em>MobileNetV2 · cvzone · OpenCV · gTTS · webcam pipeline</em></div><a class="handsight-badge-link" href="https://github.com/Anggito09/Handsight" target="_blank" rel="noreferrer">GitHub ↗</a>`;
+        badge.innerHTML=`<span class="handsight-badge-icon">🤟</span><div><small>COMPUTER VISION · ACCESSIBILITY PROTOTYPE</small><strong>Sign → Text → Speech in real time</strong><em>MobileNetV2 · cvzone · OpenCV · gTTS · webcam pipeline</em></div>`;
         desc.after(badge);
       }
     }
