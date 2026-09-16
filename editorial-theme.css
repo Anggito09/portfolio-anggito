@@ -1,0 +1,195 @@
+/* Editorial / shadcn-like: paper, charcoal, one teal accent. No glow, no gradient text. */
+:root{
+  --bg:#f6f4ef;
+  --panel:#ffffff;
+  --soft:#f0ece4;
+  --text:#1c1917;
+  --muted:#57534e;
+  --line:#e4e0d8;
+  --accent:#0f766e;
+  --accent2:#0f766e;
+  --max:1180px;
+}
+html{background:var(--bg)}
+body{
+  background:var(--bg)!important;
+  color:var(--text)!important;
+  font-family:Inter,ui-sans-serif,system-ui,sans-serif;
+}
+h1,h2,h3,.brand,.contact-heading{
+  font-family:"Newsreader",Georgia,"Times New Roman",serif;
+  font-weight:600;
+  letter-spacing:-.03em;
+}
+h1 span,h2,h3{
+  background:none!important;
+  -webkit-background-clip:unset!important;
+  background-clip:unset!important;
+  color:var(--text)!important;
+  filter:none!important;
+  animation:none!important;
+  text-shadow:none!important;
+}
+h1{color:var(--text)!important;font-size:clamp(2.4rem,5vw,4.4rem)!important;line-height:1.08!important}
+h1 span{color:var(--accent)!important}
+.lead,.section-copy,p{color:var(--muted)}
+.eyebrow,.timeline-meta,.research-type,.education-year,.cert-card span{
+  color:var(--accent)!important;
+  letter-spacing:.14em!important;
+  animation:none!important;
+  text-shadow:none!important;
+  filter:none!important;
+}
+.nav{
+  background:rgba(246,244,239,.92)!important;
+  border-bottom:1px solid var(--line)!important;
+  box-shadow:none!important;
+  backdrop-filter:blur(12px);
+}
+.nav::before,.nav::after{display:none!important}
+.brand::after{
+  content:"Anggito."!important;
+  background:none!important;
+  -webkit-background-clip:unset!important;
+  background-clip:unset!important;
+  color:var(--text)!important;
+  animation:none!important;
+  font-family:"Newsreader",Georgia,serif!important;
+  font-size:1.2rem!important;
+  letter-spacing:-.04em!important;
+}
+.nav nav a{color:var(--muted)!important}
+.nav nav a:hover,.nav nav a.is-active{color:var(--text)!important}
+.nav nav a::after{background:var(--accent)!important;box-shadow:none!important}
+.nav .btn-small{
+  background:var(--text)!important;
+  color:#fff!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+.btn{
+  background:var(--text)!important;
+  color:#fff!important;
+  box-shadow:none!important;
+  border-radius:8px;
+  font-weight:600;
+}
+.btn:hover{transform:translateY(-1px);box-shadow:none!important;filter:none!important}
+.btn-ghost{
+  background:transparent!important;
+  color:var(--text)!important;
+  border:1px solid var(--line)!important;
+}
+.btn-ghost:hover{background:#fff!important;border-color:#cfc9bd!important}
+
+.hero::before,.hero::after,
+#about::before,#about::after,
+#experience::before,
+#research .section-heading h2::after,
+#achievements .section-heading h2::after,
+#projects .section-heading h2::after{display:none!important}
+.hero,.section,.section-alt{background:transparent!important}
+.section-alt{background:#f0ece4!important}
+
+.professional-card,
+.project-card,
+.research-card,
+.skill-card,
+.cert-card,
+.education-card,
+.contact-card,
+.achievement-grid article,
+#about .split>div:last-child{
+  background:#fff!important;
+  border:1px solid var(--line)!important;
+  box-shadow:0 1px 0 rgba(28,25,23,.04)!important;
+  color:var(--text)!important;
+}
+.professional-card::before,
+.education-card::before,
+.research-card-enhanced::before,
+.achievement-grid article::before{display:none!important}
+.professional-card-head,.focus-item small,.stats span{color:var(--muted)!important}
+.focus-item{
+  background:#faf8f4!important;
+  border:1px solid var(--line)!important;
+}
+.focus-number{
+  background:#fff!important;
+  color:var(--accent)!important;
+  border-color:var(--line)!important;
+}
+.focus-item strong,.professional-card-footer{color:var(--text)!important}
+.chips span{
+  background:#f6f4ef!important;
+  border:1px solid var(--line)!important;
+  color:#44403c!important;
+}
+.text-link{color:var(--accent)!important}
+.timeline-meta{color:var(--muted)!important}
+#experience .timeline::before{background:var(--line)!important;box-shadow:none!important}
+#experience .timeline article{border-color:var(--line)!important}
+#experience .timeline article::before{
+  background:#fff!important;
+  border-color:var(--accent)!important;
+  box-shadow:none!important;
+}
+#experience .timeline article:hover{
+  background:#fff!important;
+  box-shadow:none!important;
+  transform:none!important;
+}
+#experience .timeline h3,#experience .timeline p{color:var(--text)!important}
+#experience .timeline p{color:var(--muted)!important}
+
+#about h2::after,#about .eyebrow::before{background:var(--accent)!important;box-shadow:none!important}
+#about .split>div:last-child p{color:var(--muted)!important}
+
+.project-card.featured,.education-card,.contact-card{
+  background:#fff!important;
+  border-color:var(--line)!important;
+}
+.project-card h3,.research-card h3,.skill-card h3,.cert-card h3,.education-card h3{
+  color:var(--text)!important;
+  background:none!important;
+  -webkit-background-clip:unset!important;
+  filter:none!important;
+}
+.project-card p,.research-card p,.skill-card p,.education-card p,.contact-heading{
+  color:var(--muted)!important;
+  background:none!important;
+  -webkit-background-clip:unset!important;
+  filter:none!important;
+  animation:none!important;
+}
+.education-score strong{color:var(--accent)!important;background:none!important;-webkit-background-clip:unset!important}
+.research-number{color:var(--accent)!important;background:none!important;-webkit-background-clip:unset!important;filter:none!important}
+.research-keywords span,.meta-badge{
+  background:#f6f4ef!important;
+  border-color:var(--line)!important;
+  color:#44403c!important;
+  animation:none!important;
+}
+.research-type{color:var(--accent)!important}
+
+footer{color:var(--muted)!important;border-top:1px solid var(--line);background:transparent}
+
+/* Keep featured project showcases (Airnav/Mutant/etc) dark — those are product skins, not site chrome. */
+.project-card.airnav-card-enhanced,
+.project-card.mutant-card-enhanced,
+.project-card.temancipta-enhanced,
+.project-card.handsight-enhanced,
+.project-card.babyops-enhanced,
+.project-card.cityconnect-enhanced{
+  color:#f7f9fc!important;
+}
+.project-card.airnav-card-enhanced h3,
+.project-card.mutant-card-enhanced h3,
+.project-card.temancipta-enhanced h3,
+.project-card.handsight-enhanced h3{
+  color:inherit;
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
