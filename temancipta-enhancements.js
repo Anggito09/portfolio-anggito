@@ -66,7 +66,7 @@
   const title=card.querySelector('h3');
   const badge=document.createElement('div');
   badge.className='temancipta-badge';
-  badge.innerHTML=`<span class="temancipta-badge-icon">☕</span><div><small>LIVE PRODUCT · UMKM OPERATIONS</small><strong>Order → kitchen → TV call → finance → AI</strong><em>Cashier, queue display, finance &amp; insights in one app</em></div><a class="temancipta-badge-link" href="https://app.temancipta.workers.dev/" target="_blank" rel="noreferrer">Open live demo ↗</a>`;
+  badge.innerHTML=`<span class="temancipta-badge-icon">☕</span><div><small>LIVE PRODUCT · UMKM OPERATIONS</small><strong>Order → kitchen → TV call → finance → AI</strong><em>Cashier, queue display, finance &amp; insights in one app</em></div><a class="temancipta-badge-link" href="https://temancipta.site/" target="_blank" rel="noreferrer">Open live demo ↗</a>`;
   title.after(badge);
 
   const details=document.createElement('div');
@@ -214,6 +214,6 @@
   if(oldLink) oldLink.remove();
   const actions=document.createElement('div');
   actions.className='temancipta-actions';
-  actions.innerHTML=`<a class="primary" href="https://app.temancipta.workers.dev/" target="_blank" rel="noreferrer">Live Demo ↗</a>`;
+  actions.innerHTML=`<a class="primary" href="https://temancipta.site/" target="_blank" rel="noreferrer">Live Demo ↗</a>`;
   gallery.after(actions);
 })();

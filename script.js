@@ -37,7 +37,7 @@
     .then(()=>load('handsight-enhancements.js?v=20260916-hide-github'))
     .then(()=>load('handsight-gallery.js?v=20260916-hide-github'))
     .then(()=>load('handsight-demo.js?v=20260828-handsight-v5'))
-    .then(()=>load('temancipta-enhancements.js?v=20260916-temancipta-slide'))
+    .then(()=>load('temancipta-enhancements.js?v=20261115-temancipta-site'))
     .then(()=>load('project-links.js?v=20260916-hide-github'))
     .catch(console.error);
 })();
