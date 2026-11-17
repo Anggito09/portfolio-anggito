@@ -1,5 +1,6 @@
 (()=>{
   const periods=[
+    ['Aug 2026 — Present','Jakarta Timur, Indonesia'],
     ['Jun 2026 — Present','Jakarta, Indonesia'],
     ['Jun 2025 — Jun 2026','Karawang, Indonesia'],
     ['Feb 2025 — Jun 2025','Surabaya, Indonesia'],
@@ -8,10 +9,12 @@
     ['Aug 2023 — Aug 2024','Jember, Indonesia']
   ];
 
-  document.querySelectorAll('#experience .timeline article .timeline-meta').forEach((meta,index)=>{
-    if(!periods[index]) return;
-    meta.innerHTML=`<span class="timeline-period">${periods[index][0]}</span><span class="timeline-location">${periods[index][1]}</span>`;
-  });
+  [...document.querySelectorAll('#experience .timeline article .timeline-meta')]
+    .filter((meta)=>!meta.querySelector('.timeline-period'))
+    .forEach((meta,index)=>{
+      if(!periods[index]) return;
+      meta.innerHTML=`<span class="timeline-period">${periods[index][0]}</span><span class="timeline-location">${periods[index][1]}</span>`;
+    });
 
   const style=document.createElement('style');
   style.textContent=`

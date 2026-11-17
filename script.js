@@ -17,8 +17,8 @@
     document.head.appendChild(s);
   });
 
-  load('script-core.js?v=20260827-1')
-    .then(()=>load('experience-period-fix.js?v=20260827-2'))
+  load('script-core.js?v=20261117-temancipta')
+    .then(()=>load('experience-period-fix.js?v=20261117-temancipta'))
     .then(()=>load('healthcare-slider.js?v=20260827-2'))
     .then(()=>loadCss('healthcare-section-enhancements.css?v=20260827-2'))
     .then(()=>load('babyops-enhancements.js?v=20260916-hide-github'))
@@ -37,7 +37,7 @@
     .then(()=>load('handsight-enhancements.js?v=20260916-hide-github'))
     .then(()=>load('handsight-gallery.js?v=20260916-hide-github'))
     .then(()=>load('handsight-demo.js?v=20260828-handsight-v5'))
-    .then(()=>load('temancipta-enhancements.js?v=20261115-temancipta-site'))
+    .then(()=>load('temancipta-enhancements.js?v=20261117-site-embed'))
     .then(()=>load('project-links.js?v=20260916-hide-github'))
     .catch(console.error);
 })();

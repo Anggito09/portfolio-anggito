@@ -82,6 +82,12 @@ if(experienceSection){
 
   const experienceContent=[
     {
+      period:'Aug 2026 — Present · Jakarta Timur, Indonesia',
+      title:'Founder & Product Developer — TemanCipta',
+      description:'Founded and built TemanCipta, a cafe operations platform for Indonesian UMKM that unites a three-step cashier with multi-method QRIS payments, kitchen display system (KDS), voice-announced queue TV, table reservations and QR self-ordering, member points, WhatsApp notifications, and daily finance and cash-closing reports in one application. Own the product end to end — from researching how cafe owners actually work and designing the operational flows to building the product and turning service data such as peak hours, slow menus, and staff speed into decisions owners can run on.',
+      chips:['Product Development','POS & Payments','Kitchen Display (KDS)','Queue & Reservation','Operations Analytics','Workers AI','Cloudflare D1']
+    },
+    {
       period:'Jun 2026 — Present · Jakarta, Indonesia',
       title:'Junior Implementor — PT Periksa Solusi Indonesia',
       description:'Deliver end-to-end SIMRS implementation for healthcare organizations, covering requirements analysis, system configuration, functional testing, user training, rollout support, documentation, troubleshooting, and post-implementation coordination. Support SATUSEHAT implementation and interoperability, assist healthcare facilities in preparing system-related requirements for accreditation, and coordinate integrations such as PACS, radiology worklists, BPJS services, and other operational interfaces with hospital users, IT teams, and internal technical teams.',
